@@ -1,10 +1,11 @@
-package base;
+package gui;
 
+import game.MineCell;
 
-import game.MineField;
-import gui.MinesweeperGUI;
+import javax.swing.*;
+import java.awt.*;
 
-public class Main {
+public class MineFieldGUI extends JPanel{
 
     // ===========================================================
     // Constants
@@ -14,11 +15,18 @@ public class Main {
     // Fields
     // ===========================================================
 
-    private static MinesweeperGUI GUI;
+    private JButton[][] mines;
 
     // ===========================================================
     // Constructors
     // ===========================================================
+
+    public MineFieldGUI(){
+        setPreferredSize(new Dimension(MinesweeperGUI.WIDTH, MinesweeperGUI.HEIGHT - MineCell.SIZE));
+        setLayout(new GridLayout(MinesweeperGUI.ROWS, MinesweeperGUI.COLUMNS));
+        mines = new JButton[MinesweeperGUI.ROWS][MinesweeperGUI.COLUMNS];
+        buildButtons();
+    }
 
     // ===========================================================
     // Getter & Setter
@@ -32,18 +40,15 @@ public class Main {
     // Methods
     // ===========================================================
 
-    public static void main(String[] args) {
-        final MineField mineField = new MineField(10, 10);
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                GUI = new MinesweeperGUI(mineField);
-                GUI.showUI();
+    private void buildButtons() {
+        for(int i = 0; i < MinesweeperGUI.ROWS; i++){
+            for(int j = 0; j < MinesweeperGUI.COLUMNS; j++){
+                mines[i][j] = new JButton();
+                mines[i][j].setPreferredSize(new Dimension(MineCell.SIZE, MineCell.SIZE));
+                add(mines[i][j]);
             }
-        });
+        }
     }
-
 
     // ===========================================================
     // Inner and Anonymous Classes

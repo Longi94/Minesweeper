@@ -1,8 +1,9 @@
 package base;
 
 
-import game.MineField;
 import gui.MinesweeperGUI;
+
+import javax.swing.*;
 
 public class Main {
 
@@ -33,12 +34,23 @@ public class Main {
     // ===========================================================
 
     public static void main(String[] args) {
-        final MineField mineField = new MineField(10, 10);
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                GUI = new MinesweeperGUI(mineField);
+                GUI = new MinesweeperGUI();
                 GUI.showUI();
             }
         });

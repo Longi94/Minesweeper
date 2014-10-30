@@ -10,5 +10,6 @@ public enum MineCellContent {
     SIX,
     SEVEN,
     EIGHT,
-    BOMB
+    BOMB,
+    PROTECTED
 }

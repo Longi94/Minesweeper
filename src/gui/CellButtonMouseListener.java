@@ -1,12 +1,11 @@
 package gui;
 
-import game.MineCell;
 import game.MineField;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class MineFieldGUI extends JPanel{
+public class CellButtonMouseListener implements MouseListener {
 
     // ===========================================================
     // Constants
@@ -17,16 +16,17 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     private MineField mineField;
+    private int row;
+    private int column;
 
     // ===========================================================
     // Constructors
     // ===========================================================
 
-    public MineFieldGUI(){
-        setPreferredSize(new Dimension(MinesweeperGUI.WIDTH, MinesweeperGUI.HEIGHT - MineCell.SIZE));
-        setLayout(new GridLayout(MinesweeperGUI.ROWS, MinesweeperGUI.COLUMNS));
-        mineField = new MineField(MinesweeperGUI.ROWS, MinesweeperGUI.COLUMNS);
-        buildButtons();
+    public CellButtonMouseListener(MineField mineField, int row, int column) {
+        this.mineField = mineField;
+        this.row = row;
+        this.column = column;
     }
 
     // ===========================================================
@@ -37,18 +37,49 @@ public class MineFieldGUI extends JPanel{
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
 
+   /* @Override
+    public void actionPerformed(ActionEvent e) {
+        mineField.onCellClick(row, column);
+    }
+*/
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+        switch (e.getButton()){
+            case MouseEvent.BUTTON1:
+                mineField.onCellClick(row, column);
+                break;
+            case MouseEvent.BUTTON3:
+                mineField.toggleFlag(row, column);
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
     // ===========================================================
     // Methods
     // ===========================================================
-
-    private void buildButtons() {
-        for(int i = 0; i < MinesweeperGUI.ROWS; i++){
-            for(int j = 0; j < MinesweeperGUI.COLUMNS; j++){
-                add(mineField.getCells()[i][j].getCellPanel());
-                mineField.getCells()[i][j].getButton().addMouseListener(new CellButtonMouseListener(mineField, i, j));
-            }
-        }
-    }
 
     // ===========================================================
     // Inner and Anonymous Classes

@@ -15,6 +15,8 @@ public class MineField {
     // Fields
     // ===========================================================
 
+    private boolean firstClick = true;
+
     private int rows;
     private int columns;
 
@@ -33,10 +35,6 @@ public class MineField {
                 cells[i][j] = new MineCell();
             }
         }
-
-        randomizeField(NUMBER_OF_BOMBS);
-
-        fillInNumbers();
     }
 
 
@@ -59,7 +57,7 @@ public class MineField {
     public void randomizeField(int numberOfBombs){
         ArrayList<MineCellContent> tempList = new ArrayList<MineCellContent>();
 
-        for (int i = 0; i < rows * columns; i++){
+        for (int i = 0; i < rows * columns - 9; i++){
             if (i < numberOfBombs)
                 tempList.add(MineCellContent.BOMB);
             else
@@ -70,26 +68,47 @@ public class MineField {
 
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
-                cells[i][j].setContent(tempList.get(0));
-                tempList.remove(0);
+                if(!cells[i][j].isProtected()) {
+                    cells[i][j].setContent(tempList.get(0));
+                    tempList.remove(0);
+                }
             }
         }
     }
 
     public void onCellClick(int row, int column){
 
-        switch (cells[row][column].getContent()){
-            case EMPTY:
-                revealEmptyCells(row, column, Direction.NONE);
-                break;
-            case BOMB:
-                revealClickedCell(row, column);
-                cells[row][column].setState(MineCellState.REVEALED);
-                break;
-            default:
-                revealClickedCell(row, column);
-                cells[row][column].setState(MineCellState.REVEALED);
-                break;
+        if (firstClick){
+            firstClick = false;
+
+            for (int i = row - 1; i <= row + 1; i++) {
+                for (int j = column - 1; j <= column + 1; j++) {
+                    if (!(i == -1 || i == rows || j == -1 || j == columns)) {
+                        cells[i][j].setContent(MineCellContent.PROTECTED);
+                    }
+                }
+            }
+
+            randomizeField(NUMBER_OF_BOMBS);
+
+            fillInNumbers();
+
+            revealEmptyCells(row, column);
+        }
+        else {
+            switch (cells[row][column].getContent()) {
+                case EMPTY:
+                    revealEmptyCells(row, column);
+                    break;
+                case BOMB:
+                    revealClickedCell(row, column);
+                    cells[row][column].setState(MineCellState.REVEALED);
+                    break;
+                default:
+                    revealClickedCell(row, column);
+                    cells[row][column].setState(MineCellState.REVEALED);
+                    break;
+            }
         }
     }
 
@@ -99,7 +118,7 @@ public class MineField {
         }
     }
 
-    private void revealEmptyCells(int row, int column, Direction source) {
+    private void revealEmptyCells(int row, int column) {
         if (row == -1 || column == -1 || row == rows || column == columns || !cells[row][column].isEmpty() || cells[row][column].isRevealed())
             return;
 
@@ -108,10 +127,10 @@ public class MineField {
 
         revealSurrounding(row, column);
 
-        revealEmptyCells(row - 1, column, Direction.SOUTH);
-        revealEmptyCells(row, column - 1, Direction.EAST);
-        revealEmptyCells(row + 1, column, Direction.NORTH);
-        revealEmptyCells(row, column + 1, Direction.WEST);
+        revealEmptyCells(row - 1, column);
+        revealEmptyCells(row, column - 1);
+        revealEmptyCells(row + 1, column);
+        revealEmptyCells(row, column + 1);
     }
 
     private void fillInNumbers() {

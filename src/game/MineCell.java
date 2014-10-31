@@ -106,6 +106,22 @@ public class MineCell {
         this.cellPanel = cellPanel;
     }
 
+    public boolean isProtected() {
+        return content == MineCellContent.PROTECTED;
+    }
+
+    public boolean isEmpty(){
+        return content == MineCellContent.EMPTY;
+    }
+
+    public boolean isBomb(){
+        return content == MineCellContent.BOMB;
+    }
+
+    public boolean isRevealed() {
+        return state == MineCellState.REVEALED;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
@@ -159,22 +175,8 @@ public class MineCell {
             case BOMB:
                 cellContentNumber.setText("B");
                 cellContentNumber.setForeground(new Color(0, 0, 0));
-                cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));
-                button.setBackground(new Color(255, 0, 0));
                 break;
         }
-    }
-
-    public boolean isEmpty(){
-        return content == MineCellContent.EMPTY;
-    }
-
-    public boolean isBomb(){
-        return content == MineCellContent.BOMB;
-    }
-
-    public boolean isRevealed() {
-        return state == MineCellState.REVEALED;
     }
 
     public void toggleFlag() {

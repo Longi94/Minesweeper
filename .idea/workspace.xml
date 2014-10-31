@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be78ef32-15dd-4694-9885-aa7ba86cb703" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/CellButtonMouseListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/Main.java" afterPath="$PROJECT_DIR$/src/base/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineCell.java" afterPath="$PROJECT_DIR$/src/game/MineCell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineCellContent.java" afterPath="$PROJECT_DIR$/src/game/MineCellContent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineField.java" afterPath="$PROJECT_DIR$/src/game/MineField.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MineFieldGUI.java" afterPath="$PROJECT_DIR$/src/gui/MineFieldGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" afterPath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Minesweeper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +29,8 @@
       <file leaf-file-name="MineCell.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.34153" vertical-offset="2091" max-vertical-offset="3128">
-              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.083333336" vertical-offset="2499" max-vertical-offset="3128">
+              <caret line="178" column="9" selection-start-line="178" selection-start-column="9" selection-end-line="178" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -45,11 +39,11 @@
       <file leaf-file-name="MineField.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3383">
-              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="880" max-vertical-offset="3706">
+              <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
               <folding>
-                <element signature="e#5613#5614#0" expanded="true" />
-                <element signature="e#5660#5661#0" expanded="true" />
+                <element signature="e#6157#6158#0" expanded="true" />
+                <element signature="e#6204#6205#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,7 +52,7 @@
       <file leaf-file-name="MineFieldGUI.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/MineFieldGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
+            <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="986">
               <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
               <folding />
             </state>
@@ -88,7 +82,7 @@
       <file leaf-file-name="Main.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="521" max-vertical-offset="1105">
+            <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1173">
               <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
               <folding />
             </state>
@@ -114,9 +108,9 @@
         <option value="$PROJECT_DIR$/src/gui/MineFieldGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/CellButtonMouseListener.java" />
         <option value="$PROJECT_DIR$/src/base/Main.java" />
-        <option value="$PROJECT_DIR$/src/game/MineCell.java" />
         <option value="$PROJECT_DIR$/src/game/MineCellContent.java" />
         <option value="$PROJECT_DIR$/src/game/MineField.java" />
+        <option value="$PROJECT_DIR$/src/game/MineCell.java" />
       </list>
     </option>
   </component>
@@ -152,8 +146,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,6 +278,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -309,19 +316,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -427,7 +421,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -446,12 +440,12 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25597268" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -485,6 +479,57 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="3128">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="3434">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MineFieldGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1054">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/CellButtonMouseListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1564">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2006">
+          <caret line="80" column="53" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1173">
+          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2975" max-vertical-offset="3485">
           <caret line="175" column="26" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
           <folding />
@@ -496,8 +541,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2237" max-vertical-offset="3451">
           <caret line="146" column="20" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="20" />
           <folding>
-            <element signature="e#5613#5614#0" expanded="true" />
-            <element signature="e#5660#5661#0" expanded="true" />
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -547,8 +592,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3188" max-vertical-offset="3570">
           <caret line="197" column="30" selection-start-line="197" selection-start-column="30" selection-end-line="197" selection-end-column="30" />
           <folding>
-            <element signature="e#5613#5614#0" expanded="true" />
-            <element signature="e#5660#5661#0" expanded="true" />
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -598,8 +643,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="1717">
           <caret line="84" column="60" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
           <folding>
-            <element signature="e#5613#5614#0" expanded="true" />
-            <element signature="e#5660#5661#0" expanded="true" />
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -649,8 +694,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="255">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding>
-            <element signature="e#5613#5614#0" expanded="true" />
-            <element signature="e#5660#5661#0" expanded="true" />
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -742,7 +787,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2973761" vertical-offset="0" max-vertical-offset="343">
           <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/MineCellContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -754,29 +805,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/MineCellContent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3383">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="880" max-vertical-offset="3706">
+          <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
           <folding>
-            <element signature="e#5613#5614#0" expanded="true" />
-            <element signature="e#5660#5661#0" expanded="true" />
+            <element signature="e#6157#6158#0" expanded="true" />
+            <element signature="e#6204#6205#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.34153" vertical-offset="2091" max-vertical-offset="3128">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.083333336" vertical-offset="2499" max-vertical-offset="3128">
+          <caret line="178" column="9" selection-start-line="178" selection-start-column="9" selection-end-line="178" selection-end-column="9" />
           <folding />
         </state>
       </provider>

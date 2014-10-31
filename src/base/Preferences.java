@@ -2,7 +2,10 @@ package base;
 
 import game.MineField;
 
-public class Preferences {
+import java.io.Serializable;
+
+public class Preferences implements Serializable{
+
     // ===========================================================
     // Constants
     // ===========================================================

@@ -26,11 +26,17 @@ public class MinesweeperGUI extends JFrame{
 
     private JMenuBar menuBar;
     private JMenu menu;
+    private JMenu difficultyMenuItem;
     private JMenuItem newGameMenuItem;
 
     private JPanel mainPanel;
     private JPanel statusBar;
     private MineFieldGUI mineFieldPanel;
+    private JRadioButtonMenuItem easyMenuItem;
+    private JRadioButtonMenuItem mediumMenuItem;
+    private JRadioButtonMenuItem hardMenuItem;
+    private JRadioButtonMenuItem customDifficultyMenuItem;
+    private ButtonGroup difficultyButtonGroup;
 
     // ===========================================================
     // Constructors
@@ -85,8 +91,31 @@ public class MinesweeperGUI extends JFrame{
             }
         });
 
+        easyMenuItem = new JRadioButtonMenuItem("Easy");
+
+        mediumMenuItem = new JRadioButtonMenuItem("Medium");
+
+        hardMenuItem = new JRadioButtonMenuItem("Hard");
+        hardMenuItem.setSelected(true);
+
+        customDifficultyMenuItem = new JRadioButtonMenuItem("Custom");
+
+        difficultyButtonGroup = new ButtonGroup();
+        difficultyButtonGroup.add(easyMenuItem);
+        difficultyButtonGroup.add(mediumMenuItem);
+        difficultyButtonGroup.add(hardMenuItem);
+        difficultyButtonGroup.add(customDifficultyMenuItem);
+
+        difficultyMenuItem = new JMenu("Difficulty");
+        difficultyMenuItem.add(easyMenuItem);
+        difficultyMenuItem.add(mediumMenuItem);
+        difficultyMenuItem.add(hardMenuItem);
+        difficultyMenuItem.addSeparator();
+        difficultyMenuItem.add(customDifficultyMenuItem);
+
         menu = new JMenu("Menu");
         menu.add(newGameMenuItem);
+        menu.add(difficultyMenuItem);
 
         menuBar = new JMenuBar();
         menuBar.add(menu);

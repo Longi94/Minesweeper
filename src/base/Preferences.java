@@ -1,13 +1,8 @@
-package gui;
+package base;
 
-import game.MineCell;
 import game.MineField;
 
-import javax.swing.*;
-import java.awt.*;
-
-public class MineFieldGUI extends JPanel{
-
+public class Preferences {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -16,18 +11,15 @@ public class MineFieldGUI extends JPanel{
     // Fields
     // ===========================================================
 
-    private MineField mineField;
+    private int numberOfRows;
+    private int numberOfColumns;
+    private int numberOfBombs;
+
+    private MineField saveGame;
 
     // ===========================================================
     // Constructors
     // ===========================================================
-
-    public MineFieldGUI(){
-        setPreferredSize(new Dimension(MinesweeperGUI.WIDTH, MinesweeperGUI.HEIGHT - MineCell.SIZE));
-        setLayout(new GridLayout(MinesweeperGUI.ROWS, MinesweeperGUI.COLUMNS));
-        mineField = new MineField(MinesweeperGUI.ROWS, MinesweeperGUI.COLUMNS);
-        buildButtons();
-    }
 
     // ===========================================================
     // Getter & Setter
@@ -40,23 +32,6 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
     // Methods
     // ===========================================================
-
-    private void buildButtons() {
-        for(int i = 0; i < MinesweeperGUI.ROWS; i++){
-            for(int j = 0; j < MinesweeperGUI.COLUMNS; j++){
-                add(mineField.getCells()[i][j].getCellPanel());
-                mineField.getCells()[i][j].getButton().addMouseListener(new CellButtonMouseListener(mineField, i, j));
-            }
-        }
-    }
-
-    public void resetBoard() {
-        mineField.reset();
-        removeAll();
-        buildButtons();
-        revalidate();
-        repaint();
-    }
 
     // ===========================================================
     // Inner and Anonymous Classes

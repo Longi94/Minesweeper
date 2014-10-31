@@ -54,7 +54,7 @@ public class MineField {
     // Methods
     // ===========================================================
 
-    public void randomizeField(int numberOfBombs){
+    private void randomizeField(int numberOfBombs){
         ArrayList<MineCellContent> tempList = new ArrayList<MineCellContent>();
 
         for (int i = 0; i < rows * columns - 9; i++){
@@ -90,7 +90,6 @@ public class MineField {
             }
 
             randomizeField(NUMBER_OF_BOMBS);
-
             fillInNumbers();
 
             revealEmptyCells(row, column);
@@ -131,6 +130,10 @@ public class MineField {
         revealEmptyCells(row, column - 1);
         revealEmptyCells(row + 1, column);
         revealEmptyCells(row, column + 1);
+        revealEmptyCells(row - 1, column - 1);
+        revealEmptyCells(row + 1, column - 1);
+        revealEmptyCells(row + 1, column + 1);
+        revealEmptyCells(row - 1, column + 1);
     }
 
     private void fillInNumbers() {
@@ -191,7 +194,7 @@ public class MineField {
         cells[row][column].toggleFlag();
     }
 
-    public void revealSurrounding(int row, int column){
+    private void revealSurrounding(int row, int column){
         for (int i = row - 1; i <= row + 1; i++) {
             for (int j = column - 1; j <= column + 1; j++) {
                 if (i > -1 && i < rows && j > -1 && j < columns) {
@@ -205,11 +208,18 @@ public class MineField {
         }
     }
 
+    public void reset() {
+        firstClick = true;
+        cells = new MineCell[rows][columns];
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                cells[i][j] = new MineCell();
+            }
+        }
+    }
+
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
 
-    private enum Direction{
-        NORTH, SOUTH, EAST, WEST, NONE
-    }
 }

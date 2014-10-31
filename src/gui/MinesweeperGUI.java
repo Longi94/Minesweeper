@@ -4,7 +4,8 @@ import game.MineCell;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -48,7 +49,7 @@ public class MinesweeperGUI extends JFrame{
 
                 int result = JOptionPane.showConfirmDialog(
                         frame,
-                        "U SUR???!",
+                        "Save game?",
                         "Exit Application",
                         JOptionPane.YES_NO_OPTION);
 
@@ -74,21 +75,28 @@ public class MinesweeperGUI extends JFrame{
     // ===========================================================
 
     private void createUI(){
-        menuBar = new JMenuBar();
-        menu = new JMenu("Menu");
-        newGameMenuItem = new JMenuItem("New Game", KeyEvent.VK_T);
-        mainPanel = new JPanel(new GridBagLayout());
-        statusBar = new JPanel(new GridLayout(1, 2));
-        mineFieldPanel = new MineFieldGUI();
 
-        mainPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-
+        newGameMenuItem = new JMenuItem("New Game");
         newGameMenuItem.getAccessibleContext().setAccessibleDescription("Start a new game");
+        newGameMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mineFieldPanel.resetBoard();
+            }
+        });
 
-        menu.setMnemonic(KeyEvent.VK_A);
+        menu = new JMenu("Menu");
         menu.add(newGameMenuItem);
+
+        menuBar = new JMenuBar();
         menuBar.add(menu);
 
+        mineFieldPanel = new MineFieldGUI();
+
+        statusBar = new JPanel(new GridLayout(1, 2));
+
+        mainPanel = new JPanel(new GridBagLayout());
+        mainPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         mainPanel.add(mineFieldPanel, new GridBagConstraints(0, 0, ROWS, COLUMNS, 1, 1, GridBagConstraints.NORTH,
                 GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
         ));

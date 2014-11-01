@@ -1,5 +1,6 @@
 package gui;
 
+import base.MinesweeperPreferences;
 import game.MineCell;
 
 import javax.swing.*;
@@ -24,26 +25,17 @@ public class MinesweeperGUI extends JFrame{
     // Fields
     // ===========================================================
 
-    private JMenuBar menuBar;
-    private JMenu menu;
-    private JMenu difficultyMenuItem;
-    private JMenuItem newGameMenuItem;
-
-    private JPanel mainPanel;
-    private JPanel statusBar;
     private MineFieldGUI mineFieldPanel;
-    private JRadioButtonMenuItem easyMenuItem;
-    private JRadioButtonMenuItem mediumMenuItem;
-    private JRadioButtonMenuItem hardMenuItem;
-    private JRadioButtonMenuItem customDifficultyMenuItem;
-    private ButtonGroup difficultyButtonGroup;
+    private MinesweeperPreferences prefs;
 
     // ===========================================================
     // Constructors
     // ===========================================================
 
-    public MinesweeperGUI(){
+    public MinesweeperGUI(MinesweeperPreferences prefs){
         super("Minesweeper");
+
+        this.prefs = prefs;
 
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
@@ -57,14 +49,16 @@ public class MinesweeperGUI extends JFrame{
                         frame,
                         "Save game?",
                         "Exit Application",
-                        JOptionPane.YES_NO_OPTION);
+                        JOptionPane.YES_NO_CANCEL_OPTION);
 
-                if (result == JOptionPane.YES_OPTION)
+                if (result != JOptionPane.CANCEL_OPTION)
                     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
             }
         });
 
         createUI();
+        pack();
+        setVisible(true);
 
     }
 
@@ -82,7 +76,7 @@ public class MinesweeperGUI extends JFrame{
 
     private void createUI(){
 
-        newGameMenuItem = new JMenuItem("New Game");
+        JMenuItem newGameMenuItem = new JMenuItem("New Game");
         newGameMenuItem.getAccessibleContext().setAccessibleDescription("Start a new game");
         newGameMenuItem.addActionListener(new ActionListener() {
             @Override
@@ -91,57 +85,80 @@ public class MinesweeperGUI extends JFrame{
             }
         });
 
-        easyMenuItem = new JRadioButtonMenuItem("Easy");
+        JRadioButtonMenuItem easyMenuItem = new JRadioButtonMenuItem("Easy");
 
-        mediumMenuItem = new JRadioButtonMenuItem("Medium");
+        JRadioButtonMenuItem mediumMenuItem = new JRadioButtonMenuItem("Medium");
 
-        hardMenuItem = new JRadioButtonMenuItem("Hard");
+        JRadioButtonMenuItem hardMenuItem = new JRadioButtonMenuItem("Hard");
         hardMenuItem.setSelected(true);
 
-        customDifficultyMenuItem = new JRadioButtonMenuItem("Custom");
+        JRadioButtonMenuItem customDifficultyMenuItem = new JRadioButtonMenuItem("Custom");
 
-        difficultyButtonGroup = new ButtonGroup();
+        ButtonGroup difficultyButtonGroup = new ButtonGroup();
         difficultyButtonGroup.add(easyMenuItem);
         difficultyButtonGroup.add(mediumMenuItem);
         difficultyButtonGroup.add(hardMenuItem);
         difficultyButtonGroup.add(customDifficultyMenuItem);
 
-        difficultyMenuItem = new JMenu("Difficulty");
+        JMenu difficultyMenuItem = new JMenu("Difficulty");
         difficultyMenuItem.add(easyMenuItem);
         difficultyMenuItem.add(mediumMenuItem);
         difficultyMenuItem.add(hardMenuItem);
         difficultyMenuItem.addSeparator();
         difficultyMenuItem.add(customDifficultyMenuItem);
 
-        menu = new JMenu("Menu");
+        JMenuItem settingsMenuItem = new JMenuItem("Preferences");
+        settingsMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MinesweeperPreferencesGUI prefDialog = new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, prefs, 20);
+            }
+        });
+
+        JMenuItem recordsMenuItem = new JMenuItem("Records");
+        recordsMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        JMenuItem exitMenuItem = new JMenuItem("Exit");
+        exitMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        JMenu menu = new JMenu("Menu");
         menu.add(newGameMenuItem);
         menu.add(difficultyMenuItem);
+        menu.add(settingsMenuItem);
+        menu.add(recordsMenuItem);
+        menu.add(exitMenuItem);
 
-        menuBar = new JMenuBar();
+        JMenuBar menuBar = new JMenuBar();
         menuBar.add(menu);
 
         mineFieldPanel = new MineFieldGUI();
 
-        statusBar = new JPanel(new GridLayout(1, 2));
+        JPanel statusBar = new JPanel(new GridLayout(1, 2));
 
-        mainPanel = new JPanel(new GridBagLayout());
+        JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         mainPanel.add(mineFieldPanel, new GridBagConstraints(0, 0, ROWS, COLUMNS, 1, 1, GridBagConstraints.NORTH,
                 GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
         ));
         mainPanel.add(statusBar,
                 new GridBagConstraints(0, ROWS, 1, COLUMNS, 0, 0, GridBagConstraints.SOUTH,
-                GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
-        ));
+                        GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
+                ));
 
         setJMenuBar(menuBar);
         add(mainPanel);
     }
 
-    public void showUI(){
-        pack();
-        setVisible(true);
-    }
 
     // ===========================================================
     // Inner and Anonymous Classes

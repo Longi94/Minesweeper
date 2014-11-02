@@ -86,10 +86,28 @@ public class MinesweeperGUI extends JFrame{
         });
 
         JRadioButtonMenuItem easyMenuItem = new JRadioButtonMenuItem("Easy");
+        easyMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prefs.setDifficulty(9, 9, 10);
+            }
+        });
 
         JRadioButtonMenuItem mediumMenuItem = new JRadioButtonMenuItem("Medium");
+        mediumMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prefs.setDifficulty(16, 16, 40);
+            }
+        });
 
         JRadioButtonMenuItem hardMenuItem = new JRadioButtonMenuItem("Hard");
+        hardMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                prefs.setDifficulty(16, 30, 99);
+            }
+        });
         hardMenuItem.setSelected(true);
 
         JRadioButtonMenuItem customDifficultyMenuItem = new JRadioButtonMenuItem("Custom");

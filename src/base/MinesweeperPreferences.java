@@ -10,6 +10,8 @@ public class MinesweeperPreferences implements Serializable{
     // Constants
     // ===========================================================
 
+    private static final long serialVersionUID = 1L;
+
     // ===========================================================
     // Fields
     // ===========================================================
@@ -102,13 +104,26 @@ public class MinesweeperPreferences implements Serializable{
     public void setShowTimer(boolean showTimer) {
         this.showTimer = showTimer;
     }
-// ===========================================================
+
+    // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
 
     // ===========================================================
     // Methods
     // ===========================================================
+
+    public void savePreferences(String fileName){
+
+    }
+
+    public void loadPreferences(String fileName){
+
+    }
+
+    public void setDifficulty(int rows, int columns, int numberOfBombs){
+
+    }
 
     // ===========================================================
     // Inner and Anonymous Classes

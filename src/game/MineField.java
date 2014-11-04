@@ -9,8 +9,6 @@ public class MineField {
     // Constants
     // ===========================================================
 
-    public static final int NUMBER_OF_BOMBS = 99;
-
     // ===========================================================
     // Fields
     // ===========================================================
@@ -19,6 +17,7 @@ public class MineField {
 
     private int rows;
     private int columns;
+    private int bombs;
 
     private MineCell[][] cells;
 
@@ -26,7 +25,8 @@ public class MineField {
     // Constructors
     // ===========================================================
 
-    public MineField(int rows, int columns){
+    public MineField(int rows, int columns, int bombs){
+        this.bombs = bombs;
         this.rows = rows;
         this.columns = columns;
         cells = new MineCell[rows][columns];
@@ -89,7 +89,7 @@ public class MineField {
                 }
             }
 
-            randomizeField(NUMBER_OF_BOMBS);
+            randomizeField(bombs);
             fillInNumbers();
 
             revealEmptyCells(row, column);

@@ -1,6 +1,7 @@
 package gui;
 
-import game.MineCell;
+import base.Main;
+import base.MinesweeperPreferences;
 import game.MineField;
 
 import javax.swing.*;
@@ -23,9 +24,8 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     public MineFieldGUI(){
-        setPreferredSize(new Dimension(MinesweeperGUI.WIDTH, MinesweeperGUI.HEIGHT - MineCell.SIZE));
-        setLayout(new GridLayout(MinesweeperGUI.ROWS, MinesweeperGUI.COLUMNS));
-        mineField = new MineField(MinesweeperGUI.ROWS, MinesweeperGUI.COLUMNS);
+        setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
+        mineField = new MineField(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns(), getPrefs().getNumberOfBombs());
         buildButtons();
     }
 
@@ -42,8 +42,8 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     private void buildButtons() {
-        for(int i = 0; i < MinesweeperGUI.ROWS; i++){
-            for(int j = 0; j < MinesweeperGUI.COLUMNS; j++){
+        for(int i = 0; i < getPrefs().getNumberOfRows(); i++){
+            for(int j = 0; j < getPrefs().getNumberOfColumns(); j++){
                 add(mineField.getCells()[i][j].getCellPanel());
                 mineField.getCells()[i][j].getButton().addMouseListener(new CellButtonMouseListener(mineField, i, j));
             }
@@ -52,10 +52,13 @@ public class MineFieldGUI extends JPanel{
 
     public void resetBoard() {
         mineField.reset();
-        removeAll();
         buildButtons();
         revalidate();
         repaint();
+    }
+
+    private MinesweeperPreferences getPrefs(){
+        return Main.getPrefs();
     }
 
     // ===========================================================

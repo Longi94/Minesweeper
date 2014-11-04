@@ -1,12 +1,6 @@
 package base;
 
-
-import gui.MinesweeperGUI;
-
-import javax.swing.*;
-
-public class Main {
-
+public class HighScores {
     // ===========================================================
     // Constants
     // ===========================================================
@@ -14,9 +8,6 @@ public class Main {
     // ===========================================================
     // Fields
     // ===========================================================
-
-    private static MinesweeperGUI GUI;
-    private static MinesweeperPreferences prefs;
 
     // ===========================================================
     // Constructors
@@ -26,10 +17,6 @@ public class Main {
     // Getter & Setter
     // ===========================================================
 
-    public static MinesweeperPreferences getPrefs() {
-        return prefs;
-    }
-
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
@@ -37,32 +24,6 @@ public class Main {
     // ===========================================================
     // Methods
     // ===========================================================
-
-    public static void main(String[] args) {
-
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-
-        prefs = new MinesweeperPreferences();
-
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                GUI = new MinesweeperGUI();
-            }
-        });
-    }
-
 
     // ===========================================================
     // Inner and Anonymous Classes

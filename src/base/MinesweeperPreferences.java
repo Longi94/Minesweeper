@@ -39,7 +39,7 @@ public class MinesweeperPreferences implements Serializable{
         useQuestionMark = true;
         showTimer = true;
 
-        playerName = "Longi";
+        playerName = "Player";
 
         saveGame = null;
     }
@@ -121,8 +121,10 @@ public class MinesweeperPreferences implements Serializable{
 
     }
 
-    public void setDifficulty(int rows, int columns, int numberOfBombs){
-
+    public void setDifficulty(int rows, int columns, int bombs){
+        this.numberOfBombs = bombs;
+        numberOfRows = rows;
+        numberOfColumns = columns;
     }
 
     // ===========================================================

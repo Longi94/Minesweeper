@@ -1,7 +1,7 @@
 package gui;
 
+import base.Main;
 import base.MinesweeperPreferences;
-import game.MineCell;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,30 +16,22 @@ public class MinesweeperGUI extends JFrame{
     // Constants
     // ===========================================================
 
-    public static final int ROWS = 16;
-    public static final int COLUMNS = 30;
-    public static final int WIDTH = COLUMNS * MineCell.SIZE;
-    public static final int HEIGHT = (ROWS + 1) * MineCell.SIZE;
-
     // ===========================================================
     // Fields
     // ===========================================================
 
     private MineFieldGUI mineFieldPanel;
-    private MinesweeperPreferences prefs;
+    private JPanel mainPanel;
 
     // ===========================================================
     // Constructors
     // ===========================================================
 
-    public MinesweeperGUI(MinesweeperPreferences prefs){
+    public MinesweeperGUI(){
         super("Minesweeper");
-
-        this.prefs = prefs;
 
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
-        setMinimumSize(new Dimension(WIDTH, HEIGHT));
 
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -56,7 +48,11 @@ public class MinesweeperGUI extends JFrame{
             }
         });
 
+        mainPanel = new JPanel(new GridBagLayout());
+
+        createMenuBar();
         createUI();
+        add(mainPanel);
         pack();
         setVisible(true);
 
@@ -75,13 +71,33 @@ public class MinesweeperGUI extends JFrame{
     // ===========================================================
 
     private void createUI(){
+        mineFieldPanel = new MineFieldGUI();
 
+        JPanel statusBar = new JPanel(new GridLayout(1, 2));
+
+        mainPanel.add(mineFieldPanel, new GridBagConstraints(0, 0, getPrefs().getNumberOfRows(),
+                getPrefs().getNumberOfColumns(), 1, 1, GridBagConstraints.NORTH,
+                GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
+        ));
+        mainPanel.add(statusBar, new GridBagConstraints(0, getPrefs().getNumberOfRows(), 1,
+                getPrefs().getNumberOfColumns(), 0, 0, GridBagConstraints.SOUTH,
+                GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
+        ));
+    }
+
+
+    private void createMenuBar() {
         JMenuItem newGameMenuItem = new JMenuItem("New Game");
         newGameMenuItem.getAccessibleContext().setAccessibleDescription("Start a new game");
         newGameMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mineFieldPanel.resetBoard();
+                mainPanel.removeAll();
+
+                createUI();
+                revalidate();
+                repaint();
+                pack();
             }
         });
 
@@ -89,7 +105,7 @@ public class MinesweeperGUI extends JFrame{
         easyMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                prefs.setDifficulty(9, 9, 10);
+                getPrefs().setDifficulty(9, 9, 10);
             }
         });
 
@@ -97,7 +113,7 @@ public class MinesweeperGUI extends JFrame{
         mediumMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                prefs.setDifficulty(16, 16, 40);
+                getPrefs().setDifficulty(16, 16, 40);
             }
         });
 
@@ -105,7 +121,7 @@ public class MinesweeperGUI extends JFrame{
         hardMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                prefs.setDifficulty(16, 30, 99);
+                getPrefs().setDifficulty(16, 30, 99);
             }
         });
         hardMenuItem.setSelected(true);
@@ -129,7 +145,7 @@ public class MinesweeperGUI extends JFrame{
         settingsMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MinesweeperPreferencesGUI prefDialog = new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, prefs, 20);
+                MinesweeperPreferencesGUI prefDialog = new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, getPrefs(), 20);
             }
         });
 
@@ -159,24 +175,12 @@ public class MinesweeperGUI extends JFrame{
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(menu);
 
-        mineFieldPanel = new MineFieldGUI();
-
-        JPanel statusBar = new JPanel(new GridLayout(1, 2));
-
-        JPanel mainPanel = new JPanel(new GridBagLayout());
-        mainPanel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        mainPanel.add(mineFieldPanel, new GridBagConstraints(0, 0, ROWS, COLUMNS, 1, 1, GridBagConstraints.NORTH,
-                GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
-        ));
-        mainPanel.add(statusBar,
-                new GridBagConstraints(0, ROWS, 1, COLUMNS, 0, 0, GridBagConstraints.SOUTH,
-                        GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
-                ));
-
         setJMenuBar(menuBar);
-        add(mainPanel);
     }
 
+    private MinesweeperPreferences getPrefs(){
+        return Main.getPrefs();
+    }
 
     // ===========================================================
     // Inner and Anonymous Classes

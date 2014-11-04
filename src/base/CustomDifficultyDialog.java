@@ -1,12 +1,13 @@
 package base;
 
-
-import gui.MinesweeperGUI;
-
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Main {
-
+/**
+ * Created by ThanhLong on 2014.11.04..
+ */
+public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
     // Constants
     // ===========================================================
@@ -14,9 +15,6 @@ public class Main {
     // ===========================================================
     // Fields
     // ===========================================================
-
-    private static MinesweeperGUI GUI;
-    private static MinesweeperPreferences prefs;
 
     // ===========================================================
     // Constructors
@@ -26,8 +24,9 @@ public class Main {
     // Getter & Setter
     // ===========================================================
 
-    public static MinesweeperPreferences getPrefs() {
-        return prefs;
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 
     // ===========================================================
@@ -37,32 +36,6 @@ public class Main {
     // ===========================================================
     // Methods
     // ===========================================================
-
-    public static void main(String[] args) {
-
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-
-        prefs = new MinesweeperPreferences();
-
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                GUI = new MinesweeperGUI();
-            }
-        });
-    }
-
 
     // ===========================================================
     // Inner and Anonymous Classes

@@ -21,7 +21,13 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
     // ===========================================================
 
     private JPanel prefsPanel;
+    private JButton okButton;
+    private JButton cancelButton;
+    private JTextField nameField;
+    private JCheckBox questionMark;
+    private JCheckBox timerBox;
 
+    private MinesweeperPreferences prefs;
 
     // ===========================================================
     // Constructors
@@ -30,20 +36,28 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
     public MinesweeperPreferencesGUI(JFrame frame, boolean modal, MinesweeperPreferences prefs, int limit){
         super(frame, modal);
 
+        this.prefs = prefs;
+
         Insets defaultInsets =  new Insets(2, 2, 2, 2);
 
         JLabel nameLabel = new JLabel("Player name:");
-        JTextField nameField = new JTextField(limit);
+        nameField = new JTextField(limit);
         nameField.setDocument(new LimitDocument(limit));
         nameField.setText(prefs.getPlayerName());
 
-        JCheckBox questionMark = new JCheckBox("Use question marks");
+        questionMark = new JCheckBox("Use question marks");
         questionMark.setSelected(prefs.isUseQuestionMark());
         questionMark.setHorizontalTextPosition(SwingConstants.LEFT);
 
-        JCheckBox timerBox = new JCheckBox("Show timer");
+        timerBox = new JCheckBox("Show timer");
         timerBox.setSelected(prefs.isShowTimer());
         timerBox.setHorizontalTextPosition(SwingConstants.LEFT);
+
+        okButton = new JButton("OK");
+        okButton.addActionListener(this);
+
+        cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(this);
 
         prefsPanel = new JPanel(new GridBagLayout());
         prefsPanel.add(nameLabel, new GridBagConstraints(
@@ -57,6 +71,12 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
         ));
         prefsPanel.add(timerBox, new GridBagConstraints(
                 0, 2, 10, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, defaultInsets, 0, 0
+        ));
+        prefsPanel.add(okButton, new GridBagConstraints(
+                0, 3, 5, 1, 1, 1, GridBagConstraints.EAST, GridBagConstraints.NONE, defaultInsets, 0, 0
+        ));
+        prefsPanel.add(cancelButton, new GridBagConstraints(
+                5, 3, 10, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
 
         getContentPane().add(prefsPanel);
@@ -79,12 +99,24 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == okButton){
+            savePreferences();
+            setVisible(false);
+        }
+        else if (e.getSource() == cancelButton){
+            setVisible(false);
+        }
     }
 
     // ===========================================================
     // Methods
     // ===========================================================
+
+    private void savePreferences(){
+        prefs.setPlayerName(nameField.getText());
+        prefs.setShowTimer(timerBox.isSelected());
+        prefs.setUseQuestionMark(questionMark.isSelected());
+    }
 
     // ===========================================================
     // Inner and Anonymous Classes

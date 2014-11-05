@@ -35,6 +35,8 @@ public class MineField {
                 cells[i][j] = new MineCell();
             }
         }
+
+        Player.setIsAlive(true);
     }
 
 
@@ -68,7 +70,7 @@ public class MineField {
 
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
-                if(!cells[i][j].isProtected()) {
+                if(!cells[i][j].isProtected() && !tempList.isEmpty()) {
                     cells[i][j].setContent(tempList.get(0));
                     tempList.remove(0);
                 }
@@ -94,7 +96,7 @@ public class MineField {
 
             revealEmptyCells(row, column);
         }
-        else {
+        else if (Player.isAlive()){
             switch (cells[row][column].getContent()) {
                 case EMPTY:
                     revealEmptyCells(row, column);
@@ -102,11 +104,24 @@ public class MineField {
                 case BOMB:
                     revealClickedCell(row, column);
                     cells[row][column].setState(MineCellState.REVEALED);
+                    killPlayer();
                     break;
                 default:
                     revealClickedCell(row, column);
                     cells[row][column].setState(MineCellState.REVEALED);
                     break;
+            }
+        }
+    }
+
+    private void killPlayer() {
+
+        Player.setIsAlive(false);
+        
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                if (cells[i][j].isBomb())
+                    revealClickedCell(i, j);
             }
         }
     }

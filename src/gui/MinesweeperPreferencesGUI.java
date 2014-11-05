@@ -1,5 +1,6 @@
 package gui;
 
+import base.Main;
 import base.MinesweeperPreferences;
 
 import javax.swing.*;
@@ -27,30 +28,26 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
     private JCheckBox questionMark;
     private JCheckBox timerBox;
 
-    private MinesweeperPreferences prefs;
-
     // ===========================================================
     // Constructors
     // ===========================================================
 
-    public MinesweeperPreferencesGUI(JFrame frame, boolean modal, MinesweeperPreferences prefs, int limit){
-        super(frame, modal);
-
-        this.prefs = prefs;
+    public MinesweeperPreferencesGUI(JFrame owner, boolean modal, int limit){
+        super(owner, modal);
 
         Insets defaultInsets =  new Insets(2, 2, 2, 2);
 
         JLabel nameLabel = new JLabel("Player name:");
         nameField = new JTextField(limit);
         nameField.setDocument(new LimitDocument(limit));
-        nameField.setText(prefs.getPlayerName());
+        nameField.setText(getPrefs().getPlayerName());
 
         questionMark = new JCheckBox("Use question marks");
-        questionMark.setSelected(prefs.isUseQuestionMark());
+        questionMark.setSelected(getPrefs().isUseQuestionMark());
         questionMark.setHorizontalTextPosition(SwingConstants.LEFT);
 
         timerBox = new JCheckBox("Show timer");
-        timerBox.setSelected(prefs.isShowTimer());
+        timerBox.setSelected(getPrefs().isShowTimer());
         timerBox.setHorizontalTextPosition(SwingConstants.LEFT);
 
         okButton = new JButton("OK");
@@ -84,7 +81,7 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
         setResizable(false);
         setTitle("Preferences");
         pack();
-        setLocationRelativeTo(frame);
+        setLocationRelativeTo(owner);
         setVisible(true);
     }
 
@@ -113,9 +110,13 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
     // ===========================================================
 
     private void savePreferences(){
-        prefs.setPlayerName(nameField.getText());
-        prefs.setShowTimer(timerBox.isSelected());
-        prefs.setUseQuestionMark(questionMark.isSelected());
+        getPrefs().setPlayerName(nameField.getText());
+        getPrefs().setShowTimer(timerBox.isSelected());
+        getPrefs().setUseQuestionMark(questionMark.isSelected());
+    }
+
+    private MinesweeperPreferences getPrefs(){
+        return Main.getPrefs();
     }
 
     // ===========================================================

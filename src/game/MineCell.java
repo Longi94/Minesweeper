@@ -180,25 +180,26 @@ public class MineCell {
     }
 
     public void toggleFlag() {
-        switch (state) {
-            case UNMARKED:
-                cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));
-                button.setBackground(new Color(255, 0, 0));
-                state = MineCellState.FLAGGED;
-                break;
-            case FLAGGED:
-                cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 136, 20)));
-                button.setBackground(new Color(255, 136, 20));
-                state = MineCellState.QUESTIONMARK;
-                break;
-            case QUESTIONMARK:
-                cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
-                button.setBackground(new Color(230, 230, 230));
-                state = MineCellState.UNMARKED;
-                break;
-            case REVEALED:
-                break;
-        }
+        if (Player.isAlive())
+            switch (state) {
+                case UNMARKED:
+                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));
+                    button.setBackground(new Color(255, 0, 0));
+                    state = MineCellState.FLAGGED;
+                    break;
+                case FLAGGED:
+                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 136, 20)));
+                    button.setBackground(new Color(255, 136, 20));
+                    state = MineCellState.QUESTIONMARK;
+                    break;
+                case QUESTIONMARK:
+                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
+                    button.setBackground(new Color(230, 230, 230));
+                    state = MineCellState.UNMARKED;
+                    break;
+                case REVEALED:
+                    break;
+            }
     }
 
     // ===========================================================

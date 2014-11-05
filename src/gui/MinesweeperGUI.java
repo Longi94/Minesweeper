@@ -1,5 +1,6 @@
 package gui;
 
+import base.CustomDifficultyDialog;
 import base.Main;
 import base.MinesweeperPreferences;
 
@@ -127,6 +128,12 @@ public class MinesweeperGUI extends JFrame{
         hardMenuItem.setSelected(true);
 
         JRadioButtonMenuItem customDifficultyMenuItem = new JRadioButtonMenuItem("Custom");
+        customDifficultyMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CustomDifficultyDialog diffDialog = new CustomDifficultyDialog(MinesweeperGUI.this, true);
+            }
+        });
 
         ButtonGroup difficultyButtonGroup = new ButtonGroup();
         difficultyButtonGroup.add(easyMenuItem);
@@ -145,7 +152,7 @@ public class MinesweeperGUI extends JFrame{
         settingsMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MinesweeperPreferencesGUI prefDialog = new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, getPrefs(), 20);
+                MinesweeperPreferencesGUI prefDialog = new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, 20);
             }
         });
 

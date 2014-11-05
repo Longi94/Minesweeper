@@ -19,6 +19,7 @@ public class MinesweeperPreferences implements Serializable{
     private int numberOfRows;
     private int numberOfColumns;
     private int numberOfBombs;
+    private int bombsLeft;
 
     boolean useQuestionMark = true;
     boolean showTimer = true;
@@ -35,6 +36,7 @@ public class MinesweeperPreferences implements Serializable{
         numberOfBombs = 99;
         numberOfColumns = 30;
         numberOfRows = 16;
+        bombsLeft = 99;
 
         useQuestionMark = true;
         showTimer = true;
@@ -105,6 +107,14 @@ public class MinesweeperPreferences implements Serializable{
         this.showTimer = showTimer;
     }
 
+    public int getBombsLeft() {
+        return bombsLeft;
+    }
+
+    public void setBombsLeft(int bombsLeft) {
+        this.bombsLeft = bombsLeft;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
@@ -125,6 +135,14 @@ public class MinesweeperPreferences implements Serializable{
         this.numberOfBombs = bombs;
         numberOfRows = rows;
         numberOfColumns = columns;
+    }
+
+    public int incrementBombs(){
+        return ++bombsLeft;
+    }
+
+    public int decrementBombs(){
+        return --bombsLeft;
     }
 
     // ===========================================================

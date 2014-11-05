@@ -37,11 +37,6 @@ public class CellButtonMouseListener implements MouseListener {
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
 
-   /* @Override
-    public void actionPerformed(ActionEvent e) {
-        mineField.onCellClick(row, column);
-    }
-*/
     @Override
     public void mouseClicked(MouseEvent e) {
 

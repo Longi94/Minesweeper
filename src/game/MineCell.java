@@ -122,6 +122,14 @@ public class MineCell {
         return state == MineCellState.REVEALED;
     }
 
+    public boolean isQuestionMarked(){
+        return state == MineCellState.QUESTIONMARK;
+    }
+
+    public boolean isFlagged() {
+        return state == MineCellState.FLAGGED;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
@@ -131,7 +139,8 @@ public class MineCell {
     // ===========================================================
 
     public void reveal(){
-        cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
+        if (Player.isAlive())
+            cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
         cardLayoutManager.next(cellPanel);
     }
 

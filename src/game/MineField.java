@@ -1,5 +1,9 @@
 package game;
 
+import base.Main;
+import base.MinesweeperPreferences;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -21,11 +25,14 @@ public class MineField {
 
     private MineCell[][] cells;
 
+    JLabel bombsLabel;
+    JLabel timeLabel;
+
     // ===========================================================
     // Constructors
     // ===========================================================
 
-    public MineField(int rows, int columns, int bombs){
+    public MineField(int rows, int columns, int bombs, JLabel bombsLabel, JLabel timeLabel){
         this.bombs = bombs;
         this.rows = rows;
         this.columns = columns;
@@ -35,6 +42,9 @@ public class MineField {
                 cells[i][j] = new MineCell();
             }
         }
+
+        this.bombsLabel = bombsLabel;
+        this.timeLabel = timeLabel;
 
         Player.setIsAlive(true);
     }
@@ -117,7 +127,7 @@ public class MineField {
     private void killPlayer() {
 
         Player.setIsAlive(false);
-        
+
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 if (cells[i][j].isBomb())
@@ -207,6 +217,14 @@ public class MineField {
 
     public void toggleFlag(int row, int column) {
         cells[row][column].toggleFlag();
+        if (cells[row][column].isFlagged())
+            bombsLabel.setText("Mines left: " + getPrefs().decrementBombs());
+        else if (cells[row][column].isQuestionMarked())
+            bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
+    }
+
+    private MinesweeperPreferences getPrefs() {
+        return Main.getPrefs();
     }
 
     private void revealSurrounding(int row, int column){

@@ -23,9 +23,10 @@ public class MineFieldGUI extends JPanel{
     // Constructors
     // ===========================================================
 
-    public MineFieldGUI(){
+    public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel) {
         setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
-        mineField = new MineField(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns(), getPrefs().getNumberOfBombs());
+        mineField = new MineField(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns(),
+                getPrefs().getNumberOfBombs(), bombsLabel, timeLabel);
         buildButtons();
     }
 

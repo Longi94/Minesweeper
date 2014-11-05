@@ -3,6 +3,7 @@ package gui;
 import base.CustomDifficultyDialog;
 import base.Main;
 import base.MinesweeperPreferences;
+import game.MineCell;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,6 +24,10 @@ public class MinesweeperGUI extends JFrame{
 
     private MineFieldGUI mineFieldPanel;
     private JPanel mainPanel;
+    private JPanel statusBar;
+
+    private JLabel bombsLabel;
+    private JLabel timeLabel;
 
     // ===========================================================
     // Constructors
@@ -49,8 +54,9 @@ public class MinesweeperGUI extends JFrame{
             }
         });
 
-        mainPanel = new JPanel(new GridBagLayout());
+        mainPanel = new JPanel(new BorderLayout());
 
+        createStatusBar();
         createMenuBar();
         createUI();
         add(mainPanel);
@@ -71,19 +77,25 @@ public class MinesweeperGUI extends JFrame{
     // Methods
     // ===========================================================
 
+    private void createStatusBar(){
+        Font statusFont = new Font("Verdana", Font.BOLD, 12);
+
+        bombsLabel = new JLabel("Mines left: " + getPrefs().getBombsLeft());
+        bombsLabel.setFont(statusFont);
+
+        timeLabel = new JLabel("00:00");
+        timeLabel.setFont(statusFont);
+
+        statusBar = new JPanel(new GridLayout(1, 2));
+        statusBar.setPreferredSize(new Dimension(MineCell.SIZE * getPrefs().getNumberOfColumns(), MineCell.SIZE));
+        statusBar.add(bombsLabel);
+    }
+
     private void createUI(){
-        mineFieldPanel = new MineFieldGUI();
+        mineFieldPanel = new MineFieldGUI(bombsLabel, timeLabel);
 
-        JPanel statusBar = new JPanel(new GridLayout(1, 2));
-
-        mainPanel.add(mineFieldPanel, new GridBagConstraints(0, 0, getPrefs().getNumberOfRows(),
-                getPrefs().getNumberOfColumns(), 1, 1, GridBagConstraints.NORTH,
-                GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
-        ));
-        mainPanel.add(statusBar, new GridBagConstraints(0, getPrefs().getNumberOfRows(), 1,
-                getPrefs().getNumberOfColumns(), 0, 0, GridBagConstraints.SOUTH,
-                GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0
-        ));
+        mainPanel.add(mineFieldPanel, BorderLayout.CENTER);
+        mainPanel.add(statusBar, BorderLayout.PAGE_END);
     }
 
 
@@ -94,7 +106,9 @@ public class MinesweeperGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainPanel.removeAll();
-
+                statusBar.setPreferredSize(new Dimension(MineCell.SIZE * getPrefs().getNumberOfColumns(), MineCell.SIZE));
+                getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
+                bombsLabel.setText("Mines left: " + getPrefs().getBombsLeft());
                 createUI();
                 revalidate();
                 repaint();
@@ -131,7 +145,7 @@ public class MinesweeperGUI extends JFrame{
         customDifficultyMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CustomDifficultyDialog diffDialog = new CustomDifficultyDialog(MinesweeperGUI.this, true);
+                new CustomDifficultyDialog(MinesweeperGUI.this, true);
             }
         });
 
@@ -152,7 +166,7 @@ public class MinesweeperGUI extends JFrame{
         settingsMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MinesweeperPreferencesGUI prefDialog = new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, 20);
+                new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, 20);
             }
         });
 

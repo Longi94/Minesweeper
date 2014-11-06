@@ -239,6 +239,7 @@ public class MineField {
                             break;
                         default:
                             cellPanels[i][j].setContent(MineCellContent.EMPTY);
+                            cells[i][j].setContent(MineCellContent.EMPTY);
                             break;
                     }
             }

@@ -41,7 +41,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try {
+        /*try {
             FileInputStream fis = new FileInputStream("data");
             ObjectInputStream ois = new ObjectInputStream(fis);
             prefs = (MinesweeperPreferences)ois.readObject();
@@ -54,7 +54,7 @@ public class Main {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

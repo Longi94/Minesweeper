@@ -26,8 +26,7 @@ public class MineFieldGUI extends JPanel{
 
     public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel) {
         setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
-        mineField = new MineField(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns(),
-                getPrefs().getNumberOfBombs(), getPrefs().getDifficulty(), bombsLabel, timeLabel);
+        mineField = new MineField(bombsLabel, timeLabel);
         buildButtons();
     }
 
@@ -46,8 +45,8 @@ public class MineFieldGUI extends JPanel{
     private void buildButtons() {
         for(int i = 0; i < getPrefs().getNumberOfRows(); i++){
             for(int j = 0; j < getPrefs().getNumberOfColumns(); j++){
-                add(mineField.getCells()[i][j].getCellPanel());
-                mineField.getCells()[i][j].getButton().addMouseListener(new CellButtonMouseListener(mineField, i, j));
+                add(mineField.getCellPanels()[i][j].getCellPanel());
+                mineField.getCellPanels()[i][j].getButton().addMouseListener(new CellButtonMouseListener(mineField, i, j));
             }
         }
     }

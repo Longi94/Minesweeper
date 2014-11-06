@@ -4,6 +4,7 @@ package base;
 import gui.MinesweeperGUI;
 
 import javax.swing.*;
+import java.io.*;
 
 public class Main {
 
@@ -41,6 +42,21 @@ public class Main {
     public static void main(String[] args) {
 
         try {
+            FileInputStream fis = new FileInputStream("data");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            prefs = (MinesweeperPreferences)ois.readObject();
+
+            ois.close();
+            fis.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -61,8 +77,20 @@ public class Main {
                 GUI = new MinesweeperGUI();
             }
         });
-    }
 
+        try {
+            FileOutputStream fos = new FileOutputStream("data");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(prefs);
+
+            oos.close();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     // ===========================================================
     // Inner and Anonymous Classes

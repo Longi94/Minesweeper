@@ -1,6 +1,8 @@
 package base;
 
-public class HighScore {
+import java.io.Serializable;
+
+public class HighScore implements Serializable{
     // ===========================================================
     // Constants
     // ===========================================================

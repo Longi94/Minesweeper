@@ -2,7 +2,7 @@ package gui;
 
 import base.Main;
 import base.MinesweeperPreferences;
-import game.MineCell;
+import gui.panel.MineCellPanel;
 import gui.dialog.CustomDifficultyDialog;
 import gui.dialog.HighScoresDialog;
 import gui.dialog.MinesweeperPreferencesDialog;
@@ -89,7 +89,7 @@ public class MinesweeperGUI extends JFrame{
         timeLabel.setFont(statusFont);
 
         statusBar = new JPanel(new GridLayout(1, 2));
-        statusBar.setPreferredSize(new Dimension(MineCell.SIZE * getPrefs().getNumberOfColumns(), MineCell.SIZE));
+        statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), MineCellPanel.SIZE));
         statusBar.add(bombsLabel);
         statusBar.add(timeLabel);
     }
@@ -110,7 +110,7 @@ public class MinesweeperGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 mineFieldPanel.cancelTimer();
                 mainPanel.removeAll();
-                statusBar.setPreferredSize(new Dimension(MineCell.SIZE * getPrefs().getNumberOfColumns(), MineCell.SIZE));
+                statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), MineCellPanel.SIZE));
                 getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
                 bombsLabel.setText("Mines left: " + getPrefs().getBombsLeft());
                 createUI();

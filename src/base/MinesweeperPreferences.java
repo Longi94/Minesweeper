@@ -2,7 +2,7 @@ package base;
 
 import game.MineField;
 
-import java.io.Serializable;
+import java.io.*;
 
 public class MinesweeperPreferences implements Serializable{
 
@@ -23,16 +23,17 @@ public class MinesweeperPreferences implements Serializable{
 
     private Difficulty difficulty;
 
-    boolean useQuestionMark = true;
-    boolean showTimer = true;
-
+    private boolean useQuestionMark = true;
+    private boolean showTimer = true;
     private String playerName;
-
-    private MineField saveGame;
 
     private HighScore easyHighScore;
     private HighScore mediumHighScore;
     private HighScore hardHighScore;
+
+    private MineField saveGame;
+    private int saveTime;
+
 
     // ===========================================================
     // Constructors
@@ -159,14 +160,6 @@ public class MinesweeperPreferences implements Serializable{
     // Methods
     // ===========================================================
 
-    public void savePreferences(String fileName){
-
-    }
-
-    public void loadPreferences(String fileName){
-
-    }
-
     public void setDifficulty(int rows, int columns, int bombs){
         numberOfBombs = bombs;
         numberOfRows = rows;
@@ -238,7 +231,7 @@ public class MinesweeperPreferences implements Serializable{
     // Inner and Anonymous Classes
     // ===========================================================
 
-    public enum Difficulty{
+    public enum Difficulty implements Serializable{
         EASY, MEDIUM, HARD, CUSTOM
     }
 }

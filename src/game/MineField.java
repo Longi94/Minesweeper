@@ -2,6 +2,7 @@ package game;
 
 import base.Main;
 import base.MinesweeperPreferences;
+import gui.panel.MineCellPanel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class MineField {
     private int revealed;
     private MinesweeperPreferences.Difficulty currentDifficulty;
 
+    private MineCellPanel[][] cellPanels;
     private MineCell[][] cells;
 
     private JLabel bombsLabel;
@@ -39,16 +41,19 @@ public class MineField {
     // Constructors
     // ===========================================================
 
-    public MineField(int rows, int columns, int bombs, MinesweeperPreferences.Difficulty difficulty, JLabel bombsLabel, JLabel timeLabel) {
-        this.bombs = bombs;
-        this.rows = rows;
-        this.columns = columns;
-        currentDifficulty = difficulty;
+    public MineField(JLabel bombsLabel, JLabel timeLabel) {
+
+        bombs = getPrefs().getNumberOfBombs();
+        rows = getPrefs().getNumberOfRows();
+        columns = getPrefs().getNumberOfColumns();
+        currentDifficulty = getPrefs().getDifficulty();
         revealed = 0;
 
+        cellPanels = new MineCellPanel[rows][columns];
         cells = new MineCell[rows][columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
+                cellPanels[i][j] = new MineCellPanel();
                 cells[i][j] = new MineCell();
             }
         }
@@ -66,6 +71,10 @@ public class MineField {
     // ===========================================================
     // Getter & Setter
     // ===========================================================
+
+    public MineCellPanel[][] getCellPanels() {
+        return cellPanels;
+    }
 
     public MineCell[][] getCells() {
         return cells;
@@ -95,6 +104,7 @@ public class MineField {
             for (int j = 0; j < columns; j++) {
                 if (!cells[i][j].isProtected() && !tempList.isEmpty()) {
                     cells[i][j].setContent(tempList.get(0));
+                    cellPanels[i][j].setContent(tempList.get(0));
                     tempList.remove(0);
                 }
             }
@@ -110,6 +120,7 @@ public class MineField {
                 for (int j = column - 1; j <= column + 1; j++) {
                     if (!(i == -1 || i == rows || j == -1 || j == columns)) {
                         cells[i][j].setContent(MineCellContent.PROTECTED);
+                        cellPanels[i][j].setContent(MineCellContent.PROTECTED);
                     }
                 }
             }
@@ -164,7 +175,7 @@ public class MineField {
 
     private void revealClickedCell(int row, int column) {
         if (!cells[row][column].isRevealed()) {
-            cells[row][column].reveal();
+            cellPanels[row][column].reveal();
             revealed++;
         }
     }
@@ -173,7 +184,7 @@ public class MineField {
         if (row == -1 || column == -1 || row == rows || column == columns || !cells[row][column].isEmpty() || cells[row][column].isRevealed())
             return;
 
-        cells[row][column].reveal();
+        cellPanels[row][column].reveal();
         cells[row][column].setState(MineCellState.REVEALED);
         revealed++;
 
@@ -195,31 +206,39 @@ public class MineField {
                 if (!cells[i][j].isBomb())
                     switch (getNeighborBombs(i, j)) {
                         case 1:
+                            cellPanels[i][j].setContent(MineCellContent.ONE);
                             cells[i][j].setContent(MineCellContent.ONE);
                             break;
                         case 2:
+                            cellPanels[i][j].setContent(MineCellContent.TWO);
                             cells[i][j].setContent(MineCellContent.TWO);
                             break;
                         case 3:
+                            cellPanels[i][j].setContent(MineCellContent.THREE);
                             cells[i][j].setContent(MineCellContent.THREE);
                             break;
                         case 4:
+                            cellPanels[i][j].setContent(MineCellContent.FOUR);
                             cells[i][j].setContent(MineCellContent.FOUR);
                             break;
                         case 5:
+                            cellPanels[i][j].setContent(MineCellContent.FIVE);
                             cells[i][j].setContent(MineCellContent.FIVE);
                             break;
                         case 6:
+                            cellPanels[i][j].setContent(MineCellContent.SIX);
                             cells[i][j].setContent(MineCellContent.SIX);
                             break;
                         case 7:
+                            cellPanels[i][j].setContent(MineCellContent.SEVEN);
                             cells[i][j].setContent(MineCellContent.SEVEN);
                             break;
                         case 8:
+                            cellPanels[i][j].setContent(MineCellContent.EIGHT);
                             cells[i][j].setContent(MineCellContent.EIGHT);
                             break;
                         default:
-                            cells[i][j].setContent(MineCellContent.EMPTY);
+                            cellPanels[i][j].setContent(MineCellContent.EMPTY);
                             break;
                     }
             }
@@ -244,7 +263,7 @@ public class MineField {
     }
 
     public void toggleFlag(int row, int column) {
-        cells[row][column].toggleFlag();
+        cells[row][column].setState(cellPanels[row][column].toggleFlag(cells[row][column].getState()));
         if (cells[row][column].isFlagged())
             bombsLabel.setText("Mines left: " + getPrefs().decrementBombs());
         else if (cells[row][column].isQuestionMarked())
@@ -264,7 +283,7 @@ public class MineField {
                 if (i > -1 && i < rows && j > -1 && j < columns) {
                     if (!cells[i][j].isRevealed() && !cells[i][j].isBomb() && !cells[i][j].isEmpty()) {
 
-                        cells[i][j].reveal();
+                        cellPanels[i][j].reveal();
                         cells[i][j].setState(MineCellState.REVEALED);
                         revealed++;
 

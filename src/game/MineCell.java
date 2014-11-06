@@ -27,19 +27,19 @@ public class MineCell {
     // Constructors
     // ===========================================================
 
-    public MineCell(){
+    public MineCell() {
         this(MineCellContent.EMPTY, MineCellState.UNMARKED);
     }
 
-    public MineCell(MineCellContent content){
+    public MineCell(MineCellContent content) {
         this(content, MineCellState.UNMARKED);
     }
 
-    public MineCell(MineCellState state){
+    public MineCell(MineCellState state) {
         this(MineCellContent.EMPTY, state);
     }
 
-    public MineCell(MineCellContent content, MineCellState state){
+    public MineCell(MineCellContent content, MineCellState state) {
         this.content = content;
         this.state = state;
 
@@ -110,11 +110,11 @@ public class MineCell {
         return content == MineCellContent.PROTECTED;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return content == MineCellContent.EMPTY;
     }
 
-    public boolean isBomb(){
+    public boolean isBomb() {
         return content == MineCellContent.BOMB;
     }
 
@@ -122,7 +122,7 @@ public class MineCell {
         return state == MineCellState.REVEALED;
     }
 
-    public boolean isQuestionMarked(){
+    public boolean isQuestionMarked() {
         return state == MineCellState.QUESTIONMARK;
     }
 
@@ -138,13 +138,14 @@ public class MineCell {
     // Methods
     // ===========================================================
 
-    public void reveal(){
-        if (Player.isAlive())
+    public void reveal() {
+        if (Player.isAlive()) {
             cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
+        }
         cardLayoutManager.next(cellPanel);
     }
 
-    private void setCellContentNumber(MineCellContent content){
+    private void setCellContentNumber(MineCellContent content) {
         switch (content) {
             case EMPTY:
                 cellContentNumber.setText("");

@@ -3,6 +3,7 @@ package gui;
 import base.Main;
 import base.MinesweeperPreferences;
 import game.MineField;
+import gui.listener.CellButtonMouseListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +27,7 @@ public class MineFieldGUI extends JPanel{
     public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel) {
         setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
         mineField = new MineField(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns(),
-                getPrefs().getNumberOfBombs(), bombsLabel, timeLabel);
+                getPrefs().getNumberOfBombs(), getPrefs().getDifficulty(), bombsLabel, timeLabel);
         buildButtons();
     }
 
@@ -51,15 +52,12 @@ public class MineFieldGUI extends JPanel{
         }
     }
 
-    public void resetBoard() {
-        mineField.reset();
-        buildButtons();
-        revalidate();
-        repaint();
-    }
-
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
+    }
+
+    public void cancelTimer() {
+        mineField.cancelTimer();
     }
 
     // ===========================================================

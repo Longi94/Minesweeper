@@ -1,9 +1,11 @@
 package gui;
 
-import base.CustomDifficultyDialog;
 import base.Main;
 import base.MinesweeperPreferences;
 import game.MineCell;
+import gui.dialog.CustomDifficultyDialog;
+import gui.dialog.HighScoresDialog;
+import gui.dialog.MinesweeperPreferencesDialog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -89,6 +91,7 @@ public class MinesweeperGUI extends JFrame{
         statusBar = new JPanel(new GridLayout(1, 2));
         statusBar.setPreferredSize(new Dimension(MineCell.SIZE * getPrefs().getNumberOfColumns(), MineCell.SIZE));
         statusBar.add(bombsLabel);
+        statusBar.add(timeLabel);
     }
 
     private void createUI(){
@@ -105,6 +108,7 @@ public class MinesweeperGUI extends JFrame{
         newGameMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                mineFieldPanel.cancelTimer();
                 mainPanel.removeAll();
                 statusBar.setPreferredSize(new Dimension(MineCell.SIZE * getPrefs().getNumberOfColumns(), MineCell.SIZE));
                 getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
@@ -120,7 +124,7 @@ public class MinesweeperGUI extends JFrame{
         easyMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getPrefs().setDifficulty(9, 9, 10);
+                getPrefs().setDifficulty(MinesweeperPreferences.Difficulty.EASY);
             }
         });
 
@@ -128,7 +132,7 @@ public class MinesweeperGUI extends JFrame{
         mediumMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getPrefs().setDifficulty(16, 16, 40);
+                getPrefs().setDifficulty(MinesweeperPreferences.Difficulty.MEDIUM);
             }
         });
 
@@ -136,7 +140,7 @@ public class MinesweeperGUI extends JFrame{
         hardMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getPrefs().setDifficulty(16, 30, 99);
+                getPrefs().setDifficulty(MinesweeperPreferences.Difficulty.HARD);
             }
         });
         hardMenuItem.setSelected(true);
@@ -166,7 +170,7 @@ public class MinesweeperGUI extends JFrame{
         settingsMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MinesweeperPreferencesGUI(MinesweeperGUI.this, true, 20);
+                new MinesweeperPreferencesDialog(MinesweeperGUI.this, true, 20);
             }
         });
 
@@ -174,7 +178,7 @@ public class MinesweeperGUI extends JFrame{
         recordsMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new HighScoresDialog(MinesweeperGUI.this, true);
             }
         });
 

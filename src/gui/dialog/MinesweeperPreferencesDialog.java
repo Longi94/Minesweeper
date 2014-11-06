@@ -1,4 +1,4 @@
-package gui;
+package gui.dialog;
 
 import base.Main;
 import base.MinesweeperPreferences;
@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MinesweeperPreferencesGUI extends JDialog implements ActionListener{
+public class MinesweeperPreferencesDialog extends JDialog implements ActionListener{
 
     // ===========================================================
     // Constants
@@ -21,7 +21,7 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
     // Fields
     // ===========================================================
 
-    private JPanel prefsPanel;
+    private JPanel mainPanel;
     private JButton okButton;
     private JButton cancelButton;
     private JTextField nameField;
@@ -32,7 +32,7 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
     // Constructors
     // ===========================================================
 
-    public MinesweeperPreferencesGUI(JFrame owner, boolean modal, int limit){
+    public MinesweeperPreferencesDialog(JFrame owner, boolean modal, int limit){
         super(owner, modal);
 
         Insets defaultInsets =  new Insets(2, 2, 2, 2);
@@ -56,27 +56,27 @@ public class MinesweeperPreferencesGUI extends JDialog implements ActionListener
         cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(this);
 
-        prefsPanel = new JPanel(new GridBagLayout());
-        prefsPanel.add(nameLabel, new GridBagConstraints(
+        mainPanel = new JPanel(new GridBagLayout());
+        mainPanel.add(nameLabel, new GridBagConstraints(
                 0, 0, 5, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
-        prefsPanel.add(nameField, new GridBagConstraints(
+        mainPanel.add(nameField, new GridBagConstraints(
                 5, 0, 5, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
-        prefsPanel.add(questionMark, new GridBagConstraints(
+        mainPanel.add(questionMark, new GridBagConstraints(
                 0, 1, 10, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
-        prefsPanel.add(timerBox, new GridBagConstraints(
+        mainPanel.add(timerBox, new GridBagConstraints(
                 0, 2, 10, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
-        prefsPanel.add(okButton, new GridBagConstraints(
+        mainPanel.add(okButton, new GridBagConstraints(
                 0, 3, 5, 1, 1, 1, GridBagConstraints.EAST, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
-        prefsPanel.add(cancelButton, new GridBagConstraints(
+        mainPanel.add(cancelButton, new GridBagConstraints(
                 5, 3, 10, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
 
-        getContentPane().add(prefsPanel);
+        getContentPane().add(mainPanel);
 
         setResizable(false);
         setTitle("Preferences");

@@ -1,5 +1,7 @@
-package base;
+package gui.dialog;
 
+import base.Main;
+import base.MinesweeperPreferences;
 import swing.SpringUtilities;
 
 import javax.swing.*;
@@ -31,7 +33,7 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     public CustomDifficultyDialog(Frame owner, boolean modal) {
         super(owner, modal);
 
-        getContentPane().setLayout(new GridBagLayout());
+        getContentPane().setLayout(new BorderLayout());
 
         JLabel rowLabel = new JLabel("Number of rows:", SwingConstants.TRAILING);
         JLabel columnLabel = new JLabel("Number of columns:", SwingConstants.TRAILING);
@@ -55,12 +57,8 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
         okButton = new JButton("OK");
         okButton.addActionListener(this);
 
-        getContentPane().add(mainPanel, new GridBagConstraints(
-                0, 0, 1, 3, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 5, 5
-        ));
-        getContentPane().add(okButton, new GridBagConstraints(
-                0, 4, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(5, 5, 5, 5), 5, 5
-        ));
+        getContentPane().add(mainPanel, BorderLayout.CENTER);
+        getContentPane().add(okButton, BorderLayout.PAGE_END);
 
         setResizable(false);
         setTitle("Custom Difficulty");

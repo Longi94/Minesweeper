@@ -1,4 +1,4 @@
-package gui;
+package gui.listener;
 
 import game.MineField;
 

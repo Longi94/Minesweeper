@@ -1,9 +1,12 @@
 package base;
 
-public class HighScores {
+public class HighScore {
     // ===========================================================
     // Constants
     // ===========================================================
+
+    private String name;
+    private int seconds;
 
     // ===========================================================
     // Fields
@@ -13,9 +16,30 @@ public class HighScores {
     // Constructors
     // ===========================================================
 
+    public HighScore(String name, int seconds) {
+        this.name = name;
+        this.seconds = seconds;
+    }
+
     // ===========================================================
     // Getter & Setter
     // ===========================================================
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
 
     // ===========================================================
     // Methods for/from SuperClass/Interfaces

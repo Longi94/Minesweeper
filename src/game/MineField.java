@@ -10,6 +10,9 @@ import java.util.Collections;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ *
+ */
 public class MineField {
 
     // ===========================================================
@@ -41,6 +44,11 @@ public class MineField {
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     * @param bombsLabel
+     * @param timeLabel
+     */
     public MineField(JLabel bombsLabel, JLabel timeLabel) {
 
         bombs = getPrefs().getNumberOfBombs();
@@ -49,15 +57,6 @@ public class MineField {
         currentDifficulty = getPrefs().getDifficulty();
         revealed = 0;
 
-        cellPanels = new MineCellPanel[rows][columns];
-        cells = new MineCell[rows][columns];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                cellPanels[i][j] = new MineCellPanel();
-                cells[i][j] = new MineCell();
-            }
-        }
-
         this.bombsLabel = bombsLabel;
         this.timeLabel = timeLabel;
 
@@ -65,6 +64,18 @@ public class MineField {
         time = 0;
 
         Player.setIsAlive(true);
+
+        cellPanels = new MineCellPanel[rows][columns];
+
+        if (getPrefs().getSaveGame() == null) {
+            cells = new MineCell[rows][columns];
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    cellPanels[i][j] = new MineCellPanel();
+                    cells[i][j] = new MineCell();
+                }
+            }
+        }
     }
 
 
@@ -72,10 +83,18 @@ public class MineField {
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     public MineCellPanel[][] getCellPanels() {
         return cellPanels;
     }
 
+    /**
+     *
+     * @return
+     */
     public MineCell[][] getCells() {
         return cells;
     }
@@ -88,6 +107,10 @@ public class MineField {
     // Methods
     // ===========================================================
 
+    /**
+     *
+     * @param numberOfBombs
+     */
     private void randomizeField(int numberOfBombs) {
         ArrayList<MineCellContent> tempList = new ArrayList<MineCellContent>();
 
@@ -111,6 +134,11 @@ public class MineField {
         }
     }
 
+    /**
+     *
+     * @param row
+     * @param column
+     */
     public void onCellClick(int row, int column) {
 
         if (firstClick) {
@@ -152,6 +180,9 @@ public class MineField {
             finishGame();
     }
 
+    /**
+     *
+     */
     private void finishGame() {
         Player.setIsAlive(false);
         timer.cancel();
@@ -159,6 +190,9 @@ public class MineField {
         getPrefs().saveHighScore(time, currentDifficulty);
     }
 
+    /**
+     *
+     */
     private void killPlayer() {
 
         Player.setIsAlive(false);
@@ -171,8 +205,15 @@ public class MineField {
                     revealClickedCell(i, j);
             }
         }
+
+        getPrefs().setSaveGame(null);
     }
 
+    /**
+     *
+     * @param row
+     * @param column
+     */
     private void revealClickedCell(int row, int column) {
         if (!cells[row][column].isRevealed()) {
             cellPanels[row][column].reveal();
@@ -180,6 +221,11 @@ public class MineField {
         }
     }
 
+    /**
+     *
+     * @param row
+     * @param column
+     */
     private void revealEmptyCells(int row, int column) {
         if (row == -1 || column == -1 || row == rows || column == columns || !cells[row][column].isEmpty() || cells[row][column].isRevealed())
             return;
@@ -200,6 +246,9 @@ public class MineField {
         revealEmptyCells(row - 1, column + 1);
     }
 
+    /**
+     *
+     */
     private void fillInNumbers() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -246,6 +295,12 @@ public class MineField {
         }
     }
 
+    /**
+     *
+     * @param row
+     * @param column
+     * @return
+     */
     private int getNeighborBombs(int row, int column) {
 
         int num = 0;
@@ -263,6 +318,11 @@ public class MineField {
         return num;
     }
 
+    /**
+     *
+     * @param row
+     * @param column
+     */
     public void toggleFlag(int row, int column) {
         cells[row][column].setState(cellPanels[row][column].toggleFlag(cells[row][column].getState()));
         if (cells[row][column].isFlagged())
@@ -274,10 +334,19 @@ public class MineField {
             finishGame();
     }
 
+    /**
+     *
+     * @return
+     */
     private MinesweeperPreferences getPrefs() {
         return Main.getPrefs();
     }
 
+    /**
+     *
+     * @param row
+     * @param column
+     */
     private void revealSurrounding(int row, int column) {
         for (int i = row - 1; i <= row + 1; i++) {
             for (int j = column - 1; j <= column + 1; j++) {
@@ -294,6 +363,11 @@ public class MineField {
         }
     }
 
+    /**
+     *
+     * @param seconds
+     * @return
+     */
     private String formatTime(int seconds) {
         int min = seconds / 60;
         int sec = seconds % 60;
@@ -301,6 +375,9 @@ public class MineField {
         return String.format("%02d:%02d", min, sec);
     }
 
+    /**
+     *
+     */
     public void cancelTimer() {
         timer.cancel();
     }
@@ -309,7 +386,14 @@ public class MineField {
     // Inner and Anonymous Classes
     // ===========================================================
 
+    /**
+     *
+     */
     private class GameTimerTask extends TimerTask {
+
+        /**
+         *
+         */
         @Override
         public void run() {
             timeLabel.setText(formatTime(++time));

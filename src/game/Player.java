@@ -1,7 +1,7 @@
 package game;
 
 /**
- * Created by ThanhLong on 2014.11.05..
+ *
  */
 public class Player {
     // ===========================================================
@@ -22,10 +22,18 @@ public class Player {
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     public static boolean isAlive() {
         return isAlive;
     }
 
+    /**
+     *
+     * @param isAlive
+     */
     public static void setIsAlive(boolean isAlive) {
         Player.isAlive = isAlive;
     }

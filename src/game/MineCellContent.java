@@ -1,6 +1,11 @@
 package game;
 
-public enum MineCellContent {
+import java.io.Serializable;
+
+/**
+ *
+ */
+public enum MineCellContent implements Serializable{
     EMPTY,
     ONE,
     TWO,

@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ *
+ */
 public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
     // Constants
@@ -30,6 +33,11 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     * @param owner
+     * @param modal
+     */
     public CustomDifficultyDialog(Frame owner, boolean modal) {
         super(owner, modal);
 
@@ -71,6 +79,10 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == okButton){
@@ -88,6 +100,10 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // Methods
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
     }

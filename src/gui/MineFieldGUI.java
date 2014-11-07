@@ -8,6 +8,9 @@ import gui.listener.CellButtonMouseListener;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ *
+ */
 public class MineFieldGUI extends JPanel{
 
     // ===========================================================
@@ -24,6 +27,11 @@ public class MineFieldGUI extends JPanel{
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     * @param bombsLabel
+     * @param timeLabel
+     */
     public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel) {
         setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
         mineField = new MineField(bombsLabel, timeLabel);
@@ -42,6 +50,9 @@ public class MineFieldGUI extends JPanel{
     // Methods
     // ===========================================================
 
+    /**
+     *
+     */
     private void buildButtons() {
         for(int i = 0; i < getPrefs().getNumberOfRows(); i++){
             for(int j = 0; j < getPrefs().getNumberOfColumns(); j++){
@@ -51,12 +62,26 @@ public class MineFieldGUI extends JPanel{
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
     }
 
+    /**
+     *
+     */
     public void cancelTimer() {
         mineField.cancelTimer();
+    }
+
+    /**
+     *
+     */
+    public void saveGame() {
+        getPrefs().setSaveGame(mineField.getCells());
     }
 
     // ===========================================================

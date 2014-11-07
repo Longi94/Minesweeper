@@ -1,6 +1,11 @@
 package game;
 
-public enum MineCellState {
+import java.io.Serializable;
+
+/**
+ *
+ */
+public enum MineCellState implements Serializable{
     UNMARKED,
     FLAGGED,
     QUESTIONMARK,

@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+/**
+ *
+ */
 public class MinesweeperGUI extends JFrame{
 
     // ===========================================================
@@ -35,6 +38,9 @@ public class MinesweeperGUI extends JFrame{
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     */
     public MinesweeperGUI(){
         super("Minesweeper");
 
@@ -51,8 +57,15 @@ public class MinesweeperGUI extends JFrame{
                         "Exit Application",
                         JOptionPane.YES_NO_CANCEL_OPTION);
 
-                if (result != JOptionPane.CANCEL_OPTION)
+                if (result == JOptionPane.YES_OPTION) {
                     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                    mineFieldPanel.saveGame();
+                    Main.savePreferences();
+                }
+                else if (result == JOptionPane.NO_OPTION) {
+                    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                    Main.savePreferences();
+                }
             }
         });
 
@@ -79,6 +92,9 @@ public class MinesweeperGUI extends JFrame{
     // Methods
     // ===========================================================
 
+    /**
+     *
+     */
     private void createStatusBar(){
         Font statusFont = new Font("Verdana", Font.BOLD, 12);
 
@@ -94,6 +110,9 @@ public class MinesweeperGUI extends JFrame{
         statusBar.add(timeLabel);
     }
 
+    /**
+     *
+     */
     private void createUI(){
         mineFieldPanel = new MineFieldGUI(bombsLabel, timeLabel);
 
@@ -101,7 +120,9 @@ public class MinesweeperGUI extends JFrame{
         mainPanel.add(statusBar, BorderLayout.PAGE_END);
     }
 
-
+    /**
+     *
+     */
     private void createMenuBar() {
         JMenuItem newGameMenuItem = new JMenuItem("New Game");
         newGameMenuItem.getAccessibleContext().setAccessibleDescription("Start a new game");
@@ -127,6 +148,8 @@ public class MinesweeperGUI extends JFrame{
                 getPrefs().setDifficulty(MinesweeperPreferences.Difficulty.EASY);
             }
         });
+        if (getPrefs().getDifficulty() == MinesweeperPreferences.Difficulty.EASY)
+            easyMenuItem.setSelected(true);
 
         JRadioButtonMenuItem mediumMenuItem = new JRadioButtonMenuItem("Medium");
         mediumMenuItem.addActionListener(new ActionListener() {
@@ -135,6 +158,8 @@ public class MinesweeperGUI extends JFrame{
                 getPrefs().setDifficulty(MinesweeperPreferences.Difficulty.MEDIUM);
             }
         });
+        if (getPrefs().getDifficulty() == MinesweeperPreferences.Difficulty.MEDIUM)
+            mediumMenuItem.setSelected(true);
 
         JRadioButtonMenuItem hardMenuItem = new JRadioButtonMenuItem("Hard");
         hardMenuItem.addActionListener(new ActionListener() {
@@ -143,28 +168,31 @@ public class MinesweeperGUI extends JFrame{
                 getPrefs().setDifficulty(MinesweeperPreferences.Difficulty.HARD);
             }
         });
-        hardMenuItem.setSelected(true);
+        if (getPrefs().getDifficulty() == MinesweeperPreferences.Difficulty.HARD)
+            hardMenuItem.setSelected(true);
 
-        JRadioButtonMenuItem customDifficultyMenuItem = new JRadioButtonMenuItem("Custom");
-        customDifficultyMenuItem.addActionListener(new ActionListener() {
+        JRadioButtonMenuItem customMenuItem = new JRadioButtonMenuItem("Custom");
+        customMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new CustomDifficultyDialog(MinesweeperGUI.this, true);
             }
         });
+        if (getPrefs().getDifficulty() == MinesweeperPreferences.Difficulty.CUSTOM)
+            customMenuItem.setSelected(true);
 
         ButtonGroup difficultyButtonGroup = new ButtonGroup();
         difficultyButtonGroup.add(easyMenuItem);
         difficultyButtonGroup.add(mediumMenuItem);
         difficultyButtonGroup.add(hardMenuItem);
-        difficultyButtonGroup.add(customDifficultyMenuItem);
+        difficultyButtonGroup.add(customMenuItem);
 
         JMenu difficultyMenuItem = new JMenu("Difficulty");
         difficultyMenuItem.add(easyMenuItem);
         difficultyMenuItem.add(mediumMenuItem);
         difficultyMenuItem.add(hardMenuItem);
         difficultyMenuItem.addSeparator();
-        difficultyMenuItem.add(customDifficultyMenuItem);
+        difficultyMenuItem.add(customMenuItem);
 
         JMenuItem settingsMenuItem = new JMenuItem("Preferences");
         settingsMenuItem.addActionListener(new ActionListener() {
@@ -203,6 +231,10 @@ public class MinesweeperGUI extends JFrame{
         setJMenuBar(menuBar);
     }
 
+    /**
+     * 
+     * @return
+     */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
     }

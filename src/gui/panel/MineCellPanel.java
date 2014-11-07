@@ -7,6 +7,9 @@ import game.Player;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ *
+ */
 public class MineCellPanel {
 
     // ===========================================================
@@ -29,6 +32,9 @@ public class MineCellPanel {
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     */
     public MineCellPanel() {
         Font contentFont = new Font("Verdana", Font.BOLD, 12);
 
@@ -60,18 +66,34 @@ public class MineCellPanel {
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     public JButton getButton() {
         return button;
     }
 
+    /**
+     *
+     * @param button
+     */
     public void setButton(JButton button) {
         this.button = button;
     }
 
+    /**
+     *
+     * @return
+     */
     public JPanel getCellPanel() {
         return cellPanel;
     }
 
+    /**
+     *
+     * @param cellPanel
+     */
     public void setCellPanel(JPanel cellPanel) {
         this.cellPanel = cellPanel;
     }
@@ -85,6 +107,9 @@ public class MineCellPanel {
     // Methods
     // ===========================================================
 
+    /**
+     *
+     */
     public void reveal() {
         if (Player.isAlive()) {
             cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
@@ -92,6 +117,10 @@ public class MineCellPanel {
         cardLayoutManager.next(cellPanel);
     }
 
+    /**
+     *
+     * @param content
+     */
     public void setContent(MineCellContent content) {
         switch (content) {
             case EMPTY:
@@ -136,6 +165,11 @@ public class MineCellPanel {
         }
     }
 
+    /**
+     *
+     * @param state
+     * @return
+     */
     public MineCellState toggleFlag(MineCellState state) {
         if (Player.isAlive())
             switch (state) {

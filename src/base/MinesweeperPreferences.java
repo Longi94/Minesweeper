@@ -1,9 +1,12 @@
 package base;
 
-import game.MineField;
+import game.MineCell;
 
-import java.io.*;
+import java.io.Serializable;
 
+/**
+ *
+ */
 public class MinesweeperPreferences implements Serializable{
 
     // ===========================================================
@@ -31,7 +34,7 @@ public class MinesweeperPreferences implements Serializable{
     private HighScore mediumHighScore;
     private HighScore hardHighScore;
 
-    private MineField saveGame;
+    private MineCell[][] saveGame;
     private int saveTime;
 
 
@@ -39,6 +42,9 @@ public class MinesweeperPreferences implements Serializable{
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     */
     public MinesweeperPreferences() {
         numberOfBombs = 99;
         numberOfColumns = 30;
@@ -64,90 +70,178 @@ public class MinesweeperPreferences implements Serializable{
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     public int getNumberOfRows() {
         return numberOfRows;
     }
 
+    /**
+     *
+     * @param numberOfRows
+     */
     public void setNumberOfRows(int numberOfRows) {
         this.numberOfRows = numberOfRows;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumberOfColumns() {
         return numberOfColumns;
     }
 
+    /**
+     *
+     * @param numberOfColumns
+     */
     public void setNumberOfColumns(int numberOfColumns) {
         this.numberOfColumns = numberOfColumns;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumberOfBombs() {
         return numberOfBombs;
     }
 
+    /**
+     *
+     * @param numberOfBombs
+     */
     public void setNumberOfBombs(int numberOfBombs) {
         this.numberOfBombs = numberOfBombs;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPlayerName() {
         return playerName;
     }
 
+    /**
+     *
+     * @param playerName
+     */
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 
-    public MineField getSaveGame() {
+    /**
+     *
+     * @return
+     */
+    public MineCell[][] getSaveGame() {
         return saveGame;
     }
 
-    public void setSaveGame(MineField saveGame) {
+    /**
+     *
+     * @param saveGame
+     */
+    public void setSaveGame(MineCell[][] saveGame) {
         this.saveGame = saveGame;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isUseQuestionMark() {
         return useQuestionMark;
     }
 
+    /**
+     *
+     * @param useQuestionMark
+     */
     public void setUseQuestionMark(boolean useQuestionMark) {
         this.useQuestionMark = useQuestionMark;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isShowTimer() {
         return showTimer;
     }
 
+    /**
+     *
+     * @param showTimer
+     */
     public void setShowTimer(boolean showTimer) {
         this.showTimer = showTimer;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getBombsLeft() {
         return bombsLeft;
     }
 
+    /**
+     *
+     * @param bombsLeft
+     */
     public void setBombsLeft(int bombsLeft) {
         this.bombsLeft = bombsLeft;
     }
 
+    /**
+     *
+     * @return
+     */
     public HighScore getEasyHighScore() {
         return easyHighScore;
     }
 
+    /**
+     *
+     * @param easyHighScore
+     */
     public void setEasyHighScore(HighScore easyHighScore) {
         this.easyHighScore = easyHighScore;
     }
 
+    /**
+     *
+     * @return
+     */
     public HighScore getMediumHighScore() {
         return mediumHighScore;
     }
 
+    /**
+     *
+     * @param mediumHighScore
+     */
     public void setMediumHighScore(HighScore mediumHighScore) {
         this.mediumHighScore = mediumHighScore;
     }
 
+    /**
+     *
+     * @return
+     */
     public HighScore getHardHighScore() {
         return hardHighScore;
     }
 
+    /**
+     *
+     * @param hardHighScore
+     */
     public void setHardHighScore(HighScore hardHighScore) {
         this.hardHighScore = hardHighScore;
     }
@@ -160,6 +254,12 @@ public class MinesweeperPreferences implements Serializable{
     // Methods
     // ===========================================================
 
+    /**
+     *
+     * @param rows
+     * @param columns
+     * @param bombs
+     */
     public void setDifficulty(int rows, int columns, int bombs){
         numberOfBombs = bombs;
         numberOfRows = rows;
@@ -167,6 +267,10 @@ public class MinesweeperPreferences implements Serializable{
         difficulty = Difficulty.CUSTOM;
     }
 
+    /**
+     *
+     * @param difficulty
+     */
     public void setDifficulty(Difficulty difficulty){
         this.difficulty = difficulty;
         switch (difficulty) {
@@ -190,14 +294,35 @@ public class MinesweeperPreferences implements Serializable{
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    /**
+     *
+     * @return
+     */
     public int incrementBombs(){
         return ++bombsLeft;
     }
 
+    /**
+     *
+     * @return
+     */
     public int decrementBombs(){
         return --bombsLeft;
     }
 
+    /**
+     *
+     * @param time
+     * @param difficulty
+     */
     public void saveHighScore(int time, Difficulty difficulty) {
         switch (difficulty) {
             case EASY:
@@ -223,14 +348,13 @@ public class MinesweeperPreferences implements Serializable{
         }
     }
 
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
 
+    /**
+     *
+     */
     public enum Difficulty implements Serializable{
         EASY, MEDIUM, HARD, CUSTOM
     }

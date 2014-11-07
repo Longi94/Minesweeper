@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by ThanhLong on 2014.11.06..
+ *
  */
 public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
@@ -29,6 +29,11 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     * @param owner
+     * @param modal
+     */
     public HighScoresDialog(Frame owner, boolean modal) {
         super(owner, modal);
         JLabel easyLabel = new JLabel("Easy:", SwingConstants.TRAILING);
@@ -72,6 +77,10 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == okButton){
@@ -83,6 +92,11 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // Methods
     // ===========================================================
 
+    /**
+     *
+     * @param seconds
+     * @return
+     */
     private String formatTime(int seconds){
         int min = seconds / 60;
         int sec = seconds % 60;
@@ -90,10 +104,19 @@ public class HighScoresDialog extends JDialog implements ActionListener {
         return String.format("%02d:%02d", min, sec);
     }
 
+    /**
+     *
+     * @param highScore
+     * @return
+     */
     private String formatHighScore(HighScore highScore){
         return formatTime(highScore.getSeconds()) + " " + highScore.getName();
     }
 
+    /**
+     *
+     * @return
+     */
     private MinesweeperPreferences getPrefs() {
         return Main.getPrefs();
     }

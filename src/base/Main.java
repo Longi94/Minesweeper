@@ -6,6 +6,9 @@ import gui.MinesweeperGUI;
 import javax.swing.*;
 import java.io.*;
 
+/**
+ *
+ */
 public class Main {
 
     // ===========================================================
@@ -16,7 +19,6 @@ public class Main {
     // Fields
     // ===========================================================
 
-    private static MinesweeperGUI GUI;
     private static MinesweeperPreferences prefs;
 
     // ===========================================================
@@ -27,6 +29,10 @@ public class Main {
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     public static MinesweeperPreferences getPrefs() {
         return prefs;
     }
@@ -39,22 +45,32 @@ public class Main {
     // Methods
     // ===========================================================
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
-        /*try {
-            FileInputStream fis = new FileInputStream("data");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            prefs = (MinesweeperPreferences)ois.readObject();
+        File data = new File("data");
+        if (data.exists() && !data.isDirectory()){
+            try {
+                FileInputStream fis = new FileInputStream(data);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                prefs = (MinesweeperPreferences)ois.readObject();
 
-            ois.close();
-            fis.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
+                ois.close();
+                fis.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            prefs = new MinesweeperPreferences();
+        }
 
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -68,16 +84,21 @@ public class Main {
             e.printStackTrace();
         }
 
-        prefs = new MinesweeperPreferences();
-
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                GUI = new MinesweeperGUI();
+                new MinesweeperGUI();
             }
         });
 
+
+    }
+
+    /**
+     *
+     */
+    public static void savePreferences(){
         try {
             FileOutputStream fos = new FileOutputStream("data");
             ObjectOutputStream oos = new ObjectOutputStream(fos);

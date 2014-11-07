@@ -2,6 +2,9 @@ package base;
 
 import java.io.Serializable;
 
+/**
+ *
+ */
 public class HighScore implements Serializable{
     // ===========================================================
     // Constants
@@ -18,6 +21,11 @@ public class HighScore implements Serializable{
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     * @param name
+     * @param seconds
+     */
     public HighScore(String name, int seconds) {
         this.name = name;
         this.seconds = seconds;
@@ -27,18 +35,34 @@ public class HighScore implements Serializable{
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSeconds() {
         return seconds;
     }
 
+    /**
+     *
+     * @param seconds
+     */
     public void setSeconds(int seconds) {
         this.seconds = seconds;
     }

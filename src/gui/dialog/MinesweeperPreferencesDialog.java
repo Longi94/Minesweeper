@@ -11,6 +11,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ *
+ */
 public class MinesweeperPreferencesDialog extends JDialog implements ActionListener{
 
     // ===========================================================
@@ -32,6 +35,12 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     * @param owner
+     * @param modal
+     * @param limit
+     */
     public MinesweeperPreferencesDialog(JFrame owner, boolean modal, int limit){
         super(owner, modal);
 
@@ -94,6 +103,10 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == okButton){
@@ -109,12 +122,19 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // Methods
     // ===========================================================
 
+    /**
+     *
+     */
     private void savePreferences(){
         getPrefs().setPlayerName(nameField.getText());
         getPrefs().setShowTimer(timerBox.isSelected());
         getPrefs().setUseQuestionMark(questionMark.isSelected());
     }
 
+    /**
+     *
+     * @return
+     */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
     }
@@ -123,13 +143,27 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // Inner and Anonymous Classes
     // ===========================================================
 
+    /**
+     *
+     */
     private class LimitDocument extends PlainDocument {
         private int limit;
 
+        /**
+         *
+         * @param limit
+         */
         private LimitDocument(int limit) {
             this.limit = limit;
         }
 
+        /**
+         *
+         * @param offset
+         * @param str
+         * @param attr
+         * @throws BadLocationException
+         */
         @Override
         public void insertString( int offset, String  str, AttributeSet attr ) throws BadLocationException {
             if (str == null) return;

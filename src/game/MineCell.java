@@ -2,6 +2,9 @@ package game;
 
 import java.io.Serializable;
 
+/**
+ *
+ */
 public class MineCell implements Serializable {
     // ===========================================================
     // Constants
@@ -18,18 +21,34 @@ public class MineCell implements Serializable {
     // Constructors
     // ===========================================================
 
+    /**
+     *
+     */
     public MineCell() {
         this(MineCellContent.EMPTY, MineCellState.UNMARKED);
     }
 
+    /**
+     *
+     * @param content
+     */
     public MineCell(MineCellContent content) {
         this(content, MineCellState.UNMARKED);
     }
 
+    /**
+     *
+     * @param state
+     */
     public MineCell(MineCellState state) {
         this(MineCellContent.EMPTY, state);
     }
 
+    /**
+     *
+     * @param content
+     * @param state
+     */
     public MineCell(MineCellContent content, MineCellState state) {
         this.content = content;
         this.state = state;
@@ -39,43 +58,82 @@ public class MineCell implements Serializable {
     // Getter & Setter
     // ===========================================================
 
+    /**
+     *
+     * @return
+     */
     public MineCellContent getContent() {
         return content;
     }
 
+    /**
+     *
+     * @param content
+     */
     public void setContent(MineCellContent content) {
         this.content = content;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public MineCellState getState() {
         return state;
     }
 
+    /**
+     *
+     * @param state
+     */
     public void setState(MineCellState state) {
         this.state = state;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isProtected() {
         return content == MineCellContent.PROTECTED;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isEmpty() {
         return content == MineCellContent.EMPTY;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isBomb() {
         return content == MineCellContent.BOMB;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isRevealed() {
         return state == MineCellState.REVEALED;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isQuestionMarked() {
         return state == MineCellState.QUESTIONMARK;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isFlagged() {
         return state == MineCellState.FLAGGED;
     }
@@ -88,6 +146,9 @@ public class MineCell implements Serializable {
     // Methods
     // ===========================================================
 
+    /**
+     *
+     */
     public void toggleFlag() {
         if (Player.isAlive())
             switch (state) {

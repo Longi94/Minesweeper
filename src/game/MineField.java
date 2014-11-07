@@ -53,21 +53,18 @@ public class MineField {
     public MineField(JLabel bombsLabel, JLabel timeLabel) {
 
         if (getPrefs().getSavedGame() == null) {
-            bombs = getPrefs().getNumberOfBombs();
             rows = getPrefs().getNumberOfRows();
             columns = getPrefs().getNumberOfColumns();
-            currentDifficulty = getPrefs().getDifficulty();
-            revealed = 0;
         }
         else {
-            bombs = getPrefs().getNumberOfBombs();
             rows = getPrefs().getSavedGame().length;
             columns = getPrefs().getSavedGame()[0].length;
-            currentDifficulty = getPrefs().getDifficulty();
-            revealed = 0;
-
             firstClick = false;
         }
+
+        bombs = getPrefs().getNumberOfBombs();
+        currentDifficulty = getPrefs().getDifficulty();
+        revealed = 0;
 
         this.bombsLabel = bombsLabel;
         this.timeLabel = timeLabel;
@@ -153,7 +150,7 @@ public class MineField {
             for (int j = 0; j < columns; j++) {
                 cellPanels[i][j].setContent(cells[i][j].getContent());
                 if (cells[i][j].isRevealed()) {
-                    cellPanels[i][j].reveal();
+                    cellPanels[i][j].reveal(cells[i][j].getContent());
                     revealed++;
                 }
                 else if (cells[i][j].isFlagged()) {
@@ -218,7 +215,6 @@ public class MineField {
                 for (int j = column - 1; j <= column + 1; j++) {
                     if (!(i == -1 || i == rows || j == -1 || j == columns)) {
                         cells[i][j].setContent(MineCellContent.PROTECTED);
-                        cellPanels[i][j].setContent(MineCellContent.PROTECTED);
                     }
                 }
             }
@@ -288,7 +284,7 @@ public class MineField {
      */
     private void revealClickedCell(int row, int column) {
         if (!cells[row][column].isRevealed()) {
-            cellPanels[row][column].reveal();
+            cellPanels[row][column].reveal(cells[row][column].getContent());
             revealed++;
         }
     }
@@ -302,7 +298,7 @@ public class MineField {
         if (row == -1 || column == -1 || row == rows || column == columns || !cells[row][column].isEmpty() || cells[row][column].isRevealed())
             return;
 
-        cellPanels[row][column].reveal();
+        cellPanels[row][column].reveal(cells[row][column].getContent());
         cells[row][column].setState(MineCellState.REVEALED);
         revealed++;
 
@@ -402,8 +398,10 @@ public class MineField {
         else if (cells[row][column].isQuestionMarked())
             bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
 
-        if (!timerRunning)
+        if (!timerRunning && Player.isAlive()) {
             timer.scheduleAtFixedRate(new GameTimerTask(), 1000, 1000);
+            timerRunning = true;
+        }
 
         if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
             finishGame();
@@ -428,7 +426,7 @@ public class MineField {
                 if (i > -1 && i < rows && j > -1 && j < columns) {
                     if (!cells[i][j].isRevealed() && !cells[i][j].isBomb() && !cells[i][j].isEmpty()) {
 
-                        cellPanels[i][j].reveal();
+                        cellPanels[i][j].reveal(cells[i][j].getContent());
                         cells[i][j].setState(MineCellState.REVEALED);
                         revealed++;
 

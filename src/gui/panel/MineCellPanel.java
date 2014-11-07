@@ -4,8 +4,12 @@ import game.MineCellContent;
 import game.MineCellState;
 import game.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  *
@@ -28,6 +32,9 @@ public class MineCellPanel {
     private JButton button;
     private CardLayout cardLayoutManager;
 
+    private BufferedImage mineIcon;
+    private JLabel mineIconLabel;
+
     // ===========================================================
     // Constructors
     // ===========================================================
@@ -37,6 +44,13 @@ public class MineCellPanel {
      */
     public MineCellPanel() {
         Font contentFont = new Font("Verdana", Font.BOLD, 12);
+
+        try {
+            mineIcon = ImageIO.read(new File("assets/mine_icon_small.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mineIconLabel = new JLabel(new ImageIcon(mineIcon));
 
         button = new JButton();
         button.setPreferredSize(new Dimension(SIZE, SIZE));
@@ -59,7 +73,6 @@ public class MineCellPanel {
         cellPanel.setPreferredSize(new Dimension(SIZE, SIZE));
         cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
         cellPanel.add(button);
-        cellPanel.add(cellContentNumber);
     }
 
     // ===========================================================
@@ -110,10 +123,11 @@ public class MineCellPanel {
     /**
      *
      */
-    public void reveal() {
-        if (Player.isAlive()) {
-            cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
-        }
+    public void reveal(MineCellContent content) {
+        if (content == MineCellContent.BOMB)
+            cellPanel.add(mineIconLabel);
+        else
+            cellPanel.add(cellContent);
         cardLayoutManager.next(cellPanel);
     }
 
@@ -159,8 +173,6 @@ public class MineCellPanel {
                 cellContentNumber.setForeground(new Color(255, 136, 20));
                 break;
             case BOMB:
-                cellContentNumber.setText("B");
-                cellContentNumber.setForeground(new Color(0, 0, 0));
                 break;
         }
     }
@@ -174,16 +186,13 @@ public class MineCellPanel {
         if (Player.isAlive())
             switch (state) {
                 case UNMARKED:
-                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));
-                    button.setBackground(new Color(255, 0, 0));
+                    button.setIcon(new ImageIcon("assets/flag_icon.png"));
                     return MineCellState.FLAGGED;
                 case FLAGGED:
-                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 225, 18)));
-                    button.setBackground(new Color(0, 225, 18));
+                    button.setIcon(new ImageIcon("assets/question_icon.png"));
                     return MineCellState.QUESTIONMARK;
                 case QUESTIONMARK:
-                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
-                    button.setBackground(new Color(230, 230, 230));
+                    button.setIcon(null);
                     return MineCellState.UNMARKED;
                 case REVEALED:
                     return MineCellState.REVEALED;
@@ -191,14 +200,18 @@ public class MineCellPanel {
         return MineCellState.UNMARKED;
     }
 
+    /**
+     *
+     */
     public void flagCell() {
-        cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));
-        button.setBackground(new Color(255, 0, 0));
+        button.setIcon(new ImageIcon("assets/flag_icon.png"));
     }
 
+    /**
+     * 
+     */
     public void questionMark() {
-        cellPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 225, 18)));
-        button.setBackground(new Color(0, 225, 18));
+        button.setIcon(new ImageIcon("assets/question_icon.png"));
     }
 
     // ===========================================================

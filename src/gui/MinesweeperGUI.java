@@ -47,6 +47,7 @@ public class MinesweeperGUI extends JFrame{
 
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
+        setIconImage((new ImageIcon("assets/mine_icon.png")).getImage());
 
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {

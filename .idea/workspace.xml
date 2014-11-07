@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="be78ef32-15dd-4694-9885-aa7ba86cb703" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data" afterPath="$PROJECT_DIR$/data" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" afterPath="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineField.java" afterPath="$PROJECT_DIR$/src/game/MineField.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" afterPath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Minesweeper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,30 +80,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MineCellPanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MineCellPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/panel/MineCellPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7111651" vertical-offset="2988" max-vertical-offset="3553">
-              <caret line="210" column="7" selection-start-line="210" selection-start-column="7" selection-end-line="210" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1764" max-vertical-offset="3570">
+              <caret line="145" column="50" selection-start-line="145" selection-start-column="50" selection-end-line="145" selection-end-column="50" />
               <folding>
-                <element signature="e#5958#5959#0" expanded="true" />
-                <element signature="e#6027#6028#0" expanded="true" />
-                <element signature="e#6085#6086#0" expanded="true" />
-                <element signature="e#6158#6159#0" expanded="true" />
+                <element signature="e#6021#6022#0" expanded="true" />
+                <element signature="e#6090#6091#0" expanded="true" />
+                <element signature="e#6147#6148#0" expanded="true" />
+                <element signature="e#6220#6221#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MinesweeperPreferences.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MinesweeperPreferences.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/base/MinesweeperPreferences.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3130" max-vertical-offset="5491">
+            <state vertical-scroll-proportion="5.6666665" vertical-offset="1377" max-vertical-offset="5457">
               <caret line="249" column="31" selection-start-line="249" selection-start-column="31" selection-end-line="249" selection-end-column="31" />
               <folding>
                 <element signature="e#4813#4814#0" expanded="true" />
-                <element signature="e#4860#4861#0" expanded="true" />
-                <element signature="e#4902#4903#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -125,13 +120,16 @@
       <file leaf-file-name="MinesweeperGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2125">
-              <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3145">
+              <caret line="259" column="28" selection-start-line="259" selection-start-column="28" selection-end-line="259" selection-end-column="28" />
               <folding>
+                <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
+                <element signature="e#1394#2866#0" expanded="true" />
                 <element signature="e#2865#2866#0" expanded="true" />
                 <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
                 <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-                <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
+                <element signature="e#8337#9689#0" expanded="true" />
+                <element signature="e#9688#9689#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,10 +164,10 @@
         <option value="$PROJECT_DIR$/src/base/MinesweeperPreferences.java" />
         <option value="$PROJECT_DIR$/src/gui/MineFieldGUI.java" />
         <option value="$PROJECT_DIR$/src/game/Player.java" />
-        <option value="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" />
         <option value="$PROJECT_DIR$/src/gui/panel/MinePanel.java" />
         <option value="$PROJECT_DIR$/src/game/MineField.java" />
         <option value="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" />
+        <option value="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" />
       </list>
     </option>
   </component>
@@ -622,7 +620,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -635,11 +633,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24914676" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24914676" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32764506" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22919819" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -702,10 +700,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2006">
           <caret line="80" column="53" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="53" />
           <folding>
+            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#1394#2866#0" expanded="true" />
             <element signature="e#2865#2866#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#8337#9689#0" expanded="true" />
+            <element signature="e#9688#9689#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -751,10 +752,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2006">
           <caret line="80" column="53" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="53" />
           <folding>
+            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#1394#2866#0" expanded="true" />
             <element signature="e#2865#2866#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#8337#9689#0" expanded="true" />
+            <element signature="e#9688#9689#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -800,10 +804,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2006">
           <caret line="80" column="53" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="53" />
           <folding>
+            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#1394#2866#0" expanded="true" />
             <element signature="e#2865#2866#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#8337#9689#0" expanded="true" />
+            <element signature="e#9688#9689#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -849,10 +856,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="2465">
           <caret line="133" column="5" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
           <folding>
+            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#1394#2866#0" expanded="true" />
             <element signature="e#2865#2866#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#8337#9689#0" expanded="true" />
+            <element signature="e#9688#9689#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -884,10 +894,13 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="986">
           <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
           <folding>
+            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#1394#2866#0" expanded="true" />
             <element signature="e#2865#2866#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#8337#9689#0" expanded="true" />
+            <element signature="e#9688#9689#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1028,18 +1041,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/MinesweeperPreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3130" max-vertical-offset="5491">
-          <caret line="249" column="31" selection-start-line="249" selection-start-column="31" selection-end-line="249" selection-end-column="31" />
-          <folding>
-            <element signature="e#4813#4814#0" expanded="true" />
-            <element signature="e#4860#4861#0" expanded="true" />
-            <element signature="e#4902#4903#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6286408" vertical-offset="404" max-vertical-offset="918">
@@ -1050,14 +1051,6 @@
             <element signature="docComment;method#isGameStarted#0;class#Player#0" expanded="false" />
             <element signature="docComment;method#setGameStarted#0;class#Player#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="2040">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1074,19 +1067,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1832" max-vertical-offset="2550">
           <caret line="149" column="6" selection-start-line="149" selection-start-column="6" selection-end-line="149" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2125">
-          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
-          <folding>
-            <element signature="e#2865#2866#0" expanded="true" />
-            <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1137,15 +1117,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="2040">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/panel/MineCellPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7111651" vertical-offset="2988" max-vertical-offset="3553">
-          <caret line="210" column="7" selection-start-line="210" selection-start-column="7" selection-end-line="210" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1764" max-vertical-offset="3570">
+          <caret line="145" column="50" selection-start-line="145" selection-start-column="50" selection-end-line="145" selection-end-column="50" />
           <folding>
-            <element signature="e#5958#5959#0" expanded="true" />
-            <element signature="e#6027#6028#0" expanded="true" />
-            <element signature="e#6085#6086#0" expanded="true" />
-            <element signature="e#6158#6159#0" expanded="true" />
+            <element signature="e#6021#6022#0" expanded="true" />
+            <element signature="e#6090#6091#0" expanded="true" />
+            <element signature="e#6147#6148#0" expanded="true" />
+            <element signature="e#6220#6221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3145">
+          <caret line="259" column="28" selection-start-line="259" selection-start-column="28" selection-end-line="259" selection-end-column="28" />
+          <folding>
+            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#1394#2866#0" expanded="true" />
+            <element signature="e#2865#2866#0" expanded="true" />
+            <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
+            <element signature="e#8337#9689#0" expanded="true" />
+            <element signature="e#9688#9689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/MinesweeperPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.6666665" vertical-offset="1377" max-vertical-offset="5457">
+          <caret line="249" column="31" selection-start-line="249" selection-start-column="31" selection-end-line="249" selection-end-column="31" />
+          <folding>
+            <element signature="e#4813#4814#0" expanded="true" />
           </folding>
         </state>
       </provider>

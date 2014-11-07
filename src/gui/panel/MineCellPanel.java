@@ -51,6 +51,7 @@ public class MineCellPanel {
             e.printStackTrace();
         }
         mineIconLabel = new JLabel(new ImageIcon(mineIcon));
+        mineIconLabel.setBackground(new Color(250, 250, 250));
 
         button = new JButton();
         button.setPreferredSize(new Dimension(SIZE, SIZE));
@@ -208,7 +209,7 @@ public class MineCellPanel {
     }
 
     /**
-     * 
+     *
      */
     public void questionMark() {
         button.setIcon(new ImageIcon("assets/question_icon.png"));

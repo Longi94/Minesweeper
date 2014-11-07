@@ -227,7 +227,33 @@ public class MinesweeperGUI extends JFrame{
         exitMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JFrame frame = MinesweeperGUI.this;
+                if (Player.isGameStarted()) {
+                    int result = JOptionPane.showConfirmDialog(
+                            frame,
+                            "Save game?",
+                            "Exit Application",
+                            JOptionPane.YES_NO_CANCEL_OPTION);
 
+                    if (result == JOptionPane.YES_OPTION) {
+                        mineFieldPanel.saveGame();
+                        Main.savePreferences();
+                        System.exit(0);
+                    } else if (result == JOptionPane.NO_OPTION) {
+                        getPrefs().setSavedGame(null);
+                        getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
+                        getPrefs().setSavedTime(0);
+                        Main.savePreferences();
+                        System.exit(0);
+                    }
+                }
+                else {
+                    getPrefs().setSavedGame(null);
+                    getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
+                    getPrefs().setSavedTime(0);
+                    Main.savePreferences();
+                    System.exit(0);
+                }
             }
         });
 

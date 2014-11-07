@@ -2,6 +2,7 @@ package gui;
 
 import base.Main;
 import base.MinesweeperPreferences;
+import game.Player;
 import gui.panel.MineCellPanel;
 import gui.dialog.CustomDifficultyDialog;
 import gui.dialog.HighScoresDialog;
@@ -51,19 +52,30 @@ public class MinesweeperGUI extends JFrame{
             public void windowClosing(WindowEvent e) {
                 JFrame frame = (JFrame) e.getSource();
 
-                int result = JOptionPane.showConfirmDialog(
-                        frame,
-                        "Save game?",
-                        "Exit Application",
-                        JOptionPane.YES_NO_CANCEL_OPTION);
+                if (Player.isGameStarted()) {
+                    int result = JOptionPane.showConfirmDialog(
+                            frame,
+                            "Save game?",
+                            "Exit Application",
+                            JOptionPane.YES_NO_CANCEL_OPTION);
 
-                if (result == JOptionPane.YES_OPTION) {
-                    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-                    mineFieldPanel.saveGame();
-                    Main.savePreferences();
+                    if (result == JOptionPane.YES_OPTION) {
+                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                        mineFieldPanel.saveGame();
+                        Main.savePreferences();
+                    } else if (result == JOptionPane.NO_OPTION) {
+                        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                        getPrefs().setSavedGame(null);
+                        getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
+                        getPrefs().setSavedTime(0);
+                        Main.savePreferences();
+                    }
                 }
-                else if (result == JOptionPane.NO_OPTION) {
+                else {
                     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                    getPrefs().setSavedGame(null);
+                    getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
+                    getPrefs().setSavedTime(0);
                     Main.savePreferences();
                 }
             }
@@ -232,7 +244,7 @@ public class MinesweeperGUI extends JFrame{
     }
 
     /**
-     * 
+     *
      * @return
      */
     private MinesweeperPreferences getPrefs(){

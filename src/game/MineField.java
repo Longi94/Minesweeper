@@ -24,6 +24,7 @@ public class MineField {
     // ===========================================================
 
     private boolean firstClick = true;
+    private boolean timerRunning = false;
 
     private int rows;
     private int columns;
@@ -51,11 +52,22 @@ public class MineField {
      */
     public MineField(JLabel bombsLabel, JLabel timeLabel) {
 
-        bombs = getPrefs().getNumberOfBombs();
-        rows = getPrefs().getNumberOfRows();
-        columns = getPrefs().getNumberOfColumns();
-        currentDifficulty = getPrefs().getDifficulty();
-        revealed = 0;
+        if (getPrefs().getSavedGame() == null) {
+            bombs = getPrefs().getNumberOfBombs();
+            rows = getPrefs().getNumberOfRows();
+            columns = getPrefs().getNumberOfColumns();
+            currentDifficulty = getPrefs().getDifficulty();
+            revealed = 0;
+        }
+        else {
+            bombs = getPrefs().getNumberOfBombs();
+            rows = getPrefs().getSavedGame().length;
+            columns = getPrefs().getSavedGame()[0].length;
+            currentDifficulty = getPrefs().getDifficulty();
+            revealed = 0;
+
+            firstClick = false;
+        }
 
         this.bombsLabel = bombsLabel;
         this.timeLabel = timeLabel;
@@ -66,18 +78,18 @@ public class MineField {
         Player.setIsAlive(true);
 
         cellPanels = new MineCellPanel[rows][columns];
+        cells = new MineCell[rows][columns];
 
-        if (getPrefs().getSaveGame() == null) {
-            cells = new MineCell[rows][columns];
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < columns; j++) {
-                    cellPanels[i][j] = new MineCellPanel();
-                    cells[i][j] = new MineCell();
-                }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                cellPanels[i][j] = new MineCellPanel();
+                cells[i][j] = new MineCell();
             }
         }
-    }
 
+        if(getPrefs().getSavedGame() != null)
+            loadGame();
+    }
 
     // ===========================================================
     // Getter & Setter
@@ -99,6 +111,30 @@ public class MineField {
         return cells;
     }
 
+    /**
+     *
+     * @return
+     */
+    public int getTime() {
+        return time;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getRows() {
+        return rows;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getColumns() {
+        return columns;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
@@ -106,6 +142,34 @@ public class MineField {
     // ===========================================================
     // Methods
     // ===========================================================
+
+    /**
+     *
+     */
+    private void loadGame() {
+        cells = getPrefs().getSavedGame();
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                cellPanels[i][j].setContent(cells[i][j].getContent());
+                if (cells[i][j].isRevealed()) {
+                    cellPanels[i][j].reveal();
+                    revealed++;
+                }
+                else if (cells[i][j].isFlagged()) {
+                    cellPanels[i][j].flagCell();
+                }
+                else if (cells[i][j].isQuestionMarked()) {
+                    cellPanels[i][j].questionMark();
+                }
+            }
+        }
+
+        bombsLabel.setText("Mines left: " + getPrefs().getBombsLeft());
+        timeLabel.setText(formatTime(getPrefs().getSavedTime()));
+        time = getPrefs().getSavedTime();
+        Player.setGameStarted(true);
+    }
 
     /**
      *
@@ -141,8 +205,14 @@ public class MineField {
      */
     public void onCellClick(int row, int column) {
 
+        if (!timerRunning && Player.isAlive()) {
+            timer.scheduleAtFixedRate(new GameTimerTask(), 1000, 1000);
+            timerRunning = true;
+        }
+
         if (firstClick) {
             firstClick = false;
+            Player.setGameStarted(true);
 
             for (int i = row - 1; i <= row + 1; i++) {
                 for (int j = column - 1; j <= column + 1; j++) {
@@ -158,7 +228,6 @@ public class MineField {
 
             revealEmptyCells(row, column);
 
-            timer.scheduleAtFixedRate(new GameTimerTask(), 1000, 1000);
         } else if (Player.isAlive()) {
             switch (cells[row][column].getContent()) {
                 case EMPTY:
@@ -176,6 +245,7 @@ public class MineField {
             }
         }
 
+
         if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
             finishGame();
     }
@@ -185,7 +255,8 @@ public class MineField {
      */
     private void finishGame() {
         Player.setIsAlive(false);
-        timer.cancel();
+        Player.setGameStarted(false);
+        cancelTimer();
 
         getPrefs().saveHighScore(time, currentDifficulty);
     }
@@ -196,8 +267,9 @@ public class MineField {
     private void killPlayer() {
 
         Player.setIsAlive(false);
+        Player.setGameStarted(false);
 
-        timer.cancel();
+        cancelTimer();
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -206,7 +278,7 @@ public class MineField {
             }
         }
 
-        getPrefs().setSaveGame(null);
+        getPrefs().setSavedGame(null);
     }
 
     /**
@@ -330,6 +402,9 @@ public class MineField {
         else if (cells[row][column].isQuestionMarked())
             bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
 
+        if (!timerRunning)
+            timer.scheduleAtFixedRate(new GameTimerTask(), 1000, 1000);
+
         if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
             finishGame();
     }
@@ -379,7 +454,10 @@ public class MineField {
      *
      */
     public void cancelTimer() {
-        timer.cancel();
+        if (timerRunning) {
+            timer.cancel();
+            timerRunning = false;
+        }
     }
 
     // ===========================================================
@@ -396,8 +474,9 @@ public class MineField {
          */
         @Override
         public void run() {
+            timerRunning = true;
             timeLabel.setText(formatTime(++time));
-            if (time == 99 * 60 + 59) {
+            if (time == 99 * 60 + 59 && timerRunning) {
                 timer.cancel();
             }
         }

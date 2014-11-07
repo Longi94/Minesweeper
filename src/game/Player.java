@@ -13,6 +13,7 @@ public class Player {
     // ===========================================================
 
     private static boolean isAlive = true;
+    private static boolean gameStarted = false;
 
     // ===========================================================
     // Constructors
@@ -38,6 +39,21 @@ public class Player {
         Player.isAlive = isAlive;
     }
 
+    /**
+     *
+     * @return
+     */
+    public static boolean isGameStarted() {
+        return gameStarted;
+    }
+
+    /**
+     *
+     * @param gameStarted
+     */
+    public static void setGameStarted(boolean gameStarted) {
+        Player.gameStarted = gameStarted;
+    }
 
     // ===========================================================
     // Methods for/from SuperClass/Interfaces

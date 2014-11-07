@@ -34,8 +34,8 @@ public class MinesweeperPreferences implements Serializable{
     private HighScore mediumHighScore;
     private HighScore hardHighScore;
 
-    private MineCell[][] saveGame;
-    private int saveTime;
+    private MineCell[][] savedGame;
+    private int savedTime;
 
 
     // ===========================================================
@@ -62,7 +62,8 @@ public class MinesweeperPreferences implements Serializable{
         mediumHighScore = new HighScore(playerName, 60*99 + 59);
         hardHighScore = new HighScore(playerName, 60*99 + 59);
 
-        saveGame = null;
+        savedGame = null;
+        savedTime = 0;
     }
 
 
@@ -138,16 +139,16 @@ public class MinesweeperPreferences implements Serializable{
      *
      * @return
      */
-    public MineCell[][] getSaveGame() {
-        return saveGame;
+    public MineCell[][] getSavedGame() {
+        return savedGame;
     }
 
     /**
      *
-     * @param saveGame
+     * @param savedGame
      */
-    public void setSaveGame(MineCell[][] saveGame) {
-        this.saveGame = saveGame;
+    public void setSavedGame(MineCell[][] savedGame) {
+        this.savedGame = savedGame;
     }
 
     /**
@@ -244,6 +245,14 @@ public class MinesweeperPreferences implements Serializable{
      */
     public void setHardHighScore(HighScore hardHighScore) {
         this.hardHighScore = hardHighScore;
+    }
+
+    public int getSavedTime() {
+        return savedTime;
+    }
+
+    public void setSavedTime(int savedTime) {
+        this.savedTime = savedTime;
     }
 
     // ===========================================================

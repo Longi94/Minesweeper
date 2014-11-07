@@ -178,8 +178,8 @@ public class MineCellPanel {
                     button.setBackground(new Color(255, 0, 0));
                     return MineCellState.FLAGGED;
                 case FLAGGED:
-                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 136, 20)));
-                    button.setBackground(new Color(255, 136, 20));
+                    cellPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 225, 18)));
+                    button.setBackground(new Color(0, 225, 18));
                     return MineCellState.QUESTIONMARK;
                 case QUESTIONMARK:
                     cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
@@ -189,6 +189,16 @@ public class MineCellPanel {
                     return MineCellState.REVEALED;
             }
         return MineCellState.UNMARKED;
+    }
+
+    public void flagCell() {
+        cellPanel.setBorder(BorderFactory.createLineBorder(new Color(255, 0, 0)));
+        button.setBackground(new Color(255, 0, 0));
+    }
+
+    public void questionMark() {
+        cellPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 225, 18)));
+        button.setBackground(new Color(0, 225, 18));
     }
 
     // ===========================================================

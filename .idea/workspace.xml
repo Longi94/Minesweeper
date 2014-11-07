@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be78ef32-15dd-4694-9885-aa7ba86cb703" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data" afterPath="$PROJECT_DIR$/data" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/listener/CellButtonMouseListener.java" afterPath="$PROJECT_DIR$/src/gui/listener/CellButtonMouseListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/dialog/CustomDifficultyDialog.java" afterPath="$PROJECT_DIR$/src/gui/dialog/CustomDifficultyDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/HighScore.java" afterPath="$PROJECT_DIR$/src/base/HighScore.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/dialog/HighScoresDialog.java" afterPath="$PROJECT_DIR$/src/gui/dialog/HighScoresDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/Main.java" afterPath="$PROJECT_DIR$/src/base/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineCell.java" afterPath="$PROJECT_DIR$/src/game/MineCell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineCellContent.java" afterPath="$PROJECT_DIR$/src/game/MineCellContent.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/findbugs-idea.xml" />
+      <change type="DELETED" beforePath="C:\Users\ThanhLong\Dropbox\BME\3. szemeszter\Szoftlab3\NHF\Minesweeper\data" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" afterPath="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineCellState.java" afterPath="$PROJECT_DIR$/src/game/MineCellState.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineField.java" afterPath="$PROJECT_DIR$/src/game/MineField.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MineFieldGUI.java" afterPath="$PROJECT_DIR$/src/gui/MineFieldGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Minesweeper.iml" afterPath="$PROJECT_DIR$/Minesweeper.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" afterPath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/MinesweeperPreferences.java" afterPath="$PROJECT_DIR$/src/base/MinesweeperPreferences.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/dialog/MinesweeperPreferencesDialog.java" afterPath="$PROJECT_DIR$/src/gui/dialog/MinesweeperPreferencesDialog.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/Player.java" afterPath="$PROJECT_DIR$/src/game/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -43,131 +36,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MineField.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MineField.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3443" max-vertical-offset="4097">
-              <caret line="398" column="50" selection-start-line="398" selection-start-column="50" selection-end-line="398" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.55582523" vertical-offset="1998" max-vertical-offset="3638">
+              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2278#2279#0" expanded="true" />
-                <element signature="e#2311#2312#0" expanded="true" />
-                <element signature="e#2387#2388#0" expanded="true" />
-                <element signature="e#2415#2416#0" expanded="true" />
-                <element signature="e#2912#2929#0" expanded="true" />
-                <element signature="method#onCellClick#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#MineField#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#getCellPanels#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#getCells#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#getTime#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#getRows#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#getColumns#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#loadGame#0;class#MineField#0" expanded="false" />
+                <element signature="method#loadGame#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#randomizeField#0;class#MineField#0" expanded="false" />
+                <element signature="method#randomizeField#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#onCellClick#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#finishGame#0;class#MineField#0" expanded="false" />
                 <element signature="method#finishGame#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#killPlayer#0;class#MineField#0" expanded="false" />
                 <element signature="method#killPlayer#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#revealClickedCell#0;class#MineField#0" expanded="false" />
                 <element signature="method#revealClickedCell#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#revealEmptyCells#0;class#MineField#0" expanded="false" />
                 <element signature="method#revealEmptyCells#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#fillInNumbers#0;class#MineField#0" expanded="false" />
                 <element signature="method#fillInNumbers#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#getNeighborBombs#0;class#MineField#0" expanded="false" />
                 <element signature="method#getNeighborBombs#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#toggleFlag#0;class#MineField#0" expanded="false" />
                 <element signature="method#toggleFlag#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#getPrefs#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#revealSurrounding#0;class#MineField#0" expanded="false" />
                 <element signature="method#revealSurrounding#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;method#formatTime#0;class#MineField#0" expanded="false" />
                 <element signature="method#formatTime#0;class#MineField#0" expanded="false" />
-                <element signature="e#11130#11131#0" expanded="true" />
-                <element signature="e#11160#11161#0" expanded="true" />
+                <element signature="docComment;method#cancelTimer#0;class#MineField#0" expanded="false" />
+                <element signature="method#cancelTimer#0;class#MineField#0" expanded="false" />
+                <element signature="docComment;class#GameTimerTask#0;class#MineField#0" expanded="false" />
+                <element signature="class#GameTimerTask#0;class#MineField#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomDifficultyDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/dialog/CustomDifficultyDialog.java">
+      <file leaf-file-name="MineCell.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1458" max-vertical-offset="1870">
-              <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1832" max-vertical-offset="2550">
+              <caret line="149" column="6" selection-start-line="149" selection-start-column="6" selection-end-line="149" selection-end-column="6" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HighScoresDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/dialog/HighScoresDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1832" max-vertical-offset="2244">
-              <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3419#3420#0" expanded="true" />
-                <element signature="e#3457#3458#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MineCellPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/panel/MineCellPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2223" max-vertical-offset="2941">
-              <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
-              <folding>
-                <element signature="method#MineCellPanel#0;class#MineCellPanel#0" expanded="false" />
-                <element signature="e#2147#2148#0" expanded="true" />
-                <element signature="e#2176#2177#0" expanded="true" />
-                <element signature="e#2265#2266#0" expanded="true" />
-                <element signature="e#2301#2302#0" expanded="true" />
-                <element signature="e#2375#2376#0" expanded="true" />
-                <element signature="e#2407#2408#0" expanded="true" />
-                <element signature="e#2504#2505#0" expanded="true" />
-                <element signature="e#2546#2547#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MinesweeperPreferencesDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/dialog/MinesweeperPreferencesDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1645" max-vertical-offset="2057">
-              <caret line="160" column="10" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
-              <folding>
-                <element signature="method#MinesweeperPreferencesDialog#0;class#MinesweeperPreferencesDialog#0" expanded="false" />
-                <element signature="e#4491#4492#0" expanded="true" />
-                <element signature="e#4529#4530#0" expanded="true" />
-                <element signature="e#4909#4910#0" expanded="true" />
-                <element signature="e#4951#4952#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CellButtonMouseListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/listener/CellButtonMouseListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1509" max-vertical-offset="1921">
-              <caret line="95" column="6" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="2040">
-              <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-              <folding>
-                <element signature="e#2620#2730#0" expanded="true" />
-                <element signature="e#2729#2730#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MinesweeperGUI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38106796" vertical-offset="880" max-vertical-offset="1292">
-              <caret line="234" column="7" selection-start-line="234" selection-start-column="7" selection-end-line="234" selection-end-column="7" />
-              <folding>
-                <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-                <element signature="e#1300#2142#0" expanded="true" />
-                <element signature="e#2141#2142#0" expanded="true" />
-                <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
-                <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-                <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -175,13 +96,60 @@
       <file leaf-file-name="MineFieldGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/MineFieldGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="1496">
-              <caret line="80" column="6" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1581">
+              <caret line="63" column="31" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MineCellPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/panel/MineCellPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2229" max-vertical-offset="2975">
+              <caret line="195" column="41" selection-start-line="195" selection-start-column="41" selection-end-line="195" selection-end-column="41" />
               <folding>
-                <element signature="e#2125#2126#0" expanded="true" />
-                <element signature="e#2164#2165#0" expanded="true" />
-                <element signature="e#2217#2218#0" expanded="true" />
-                <element signature="e#2277#2278#0" expanded="true" />
+                <element signature="method#MineCellPanel#0;class#MineCellPanel#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MinesweeperPreferences.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/base/MinesweeperPreferences.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3130" max-vertical-offset="5491">
+              <caret line="249" column="31" selection-start-line="249" selection-start-column="31" selection-end-line="249" selection-end-column="31" />
+              <folding>
+                <element signature="e#4813#4814#0" expanded="true" />
+                <element signature="e#4860#4861#0" expanded="true" />
+                <element signature="e#4902#4903#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/base/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1972">
+              <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MinesweeperGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="2108">
+              <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+              <folding>
+                <element signature="e#1320#2792#0" expanded="true" />
+                <element signature="e#2791#2792#0" expanded="true" />
+                <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
+                <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
+                <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -206,19 +174,19 @@
         <option value="$PROJECT_DIR$/src/gui/HighScoresGUI.java" />
         <option value="$PROJECT_DIR$/src/base/HighScore.java" />
         <option value="$PROJECT_DIR$/src/base/Main.java" />
-        <option value="$PROJECT_DIR$/src/base/MinesweeperPreferences.java" />
         <option value="$PROJECT_DIR$/src/game/MineCell.java" />
         <option value="$PROJECT_DIR$/src/game/MineCellContent.java" />
         <option value="$PROJECT_DIR$/src/game/MineCellState.java" />
-        <option value="$PROJECT_DIR$/src/game/MineField.java" />
-        <option value="$PROJECT_DIR$/src/game/Player.java" />
         <option value="$PROJECT_DIR$/src/gui/dialog/CustomDifficultyDialog.java" />
         <option value="$PROJECT_DIR$/src/gui/dialog/HighScoresDialog.java" />
         <option value="$PROJECT_DIR$/src/gui/dialog/MinesweeperPreferencesDialog.java" />
         <option value="$PROJECT_DIR$/src/gui/listener/CellButtonMouseListener.java" />
         <option value="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" />
+        <option value="$PROJECT_DIR$/src/base/MinesweeperPreferences.java" />
         <option value="$PROJECT_DIR$/src/gui/MineFieldGUI.java" />
+        <option value="$PROJECT_DIR$/src/game/Player.java" />
         <option value="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" />
+        <option value="$PROJECT_DIR$/src/game/MineField.java" />
       </list>
     </option>
   </component>
@@ -254,6 +222,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -409,7 +378,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,7 +387,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.lastSelected" value="editor.preferences.tabs" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -631,6 +599,18 @@
       <AnalysisUIOptions />
     </option>
   </component>
+  <component name="StatisticProjectComponent">
+    <option name="excludeCompilerOutput" value="true" />
+    <option name="excludeIdea9ArtifactDirectory" value="true" />
+    <option name="excludeTargetDirectories" value="true" />
+    <option name="activateWhenOpenProject" value="true" />
+    <option name="excludedDirectories">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="fileTypes" value="class;svn-base;svn-work;Extra;gif;png;jpg;jpeg;bmp;tga;tiff;ear;war;zip;jar;iml;iws;ipr;bz2;gz;" />
+  </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\ThanhLong\AppData\Roaming\Subversion</configuration>
   </component>
@@ -650,6 +630,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -661,16 +642,18 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22919819" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3890785" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SonarQube" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32879046" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37542662" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -696,17 +679,15 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="19" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/base/Main.java</url>
-          <line>102</line>
-          <properties />
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="42" />
+        </breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="41" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -719,20 +700,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="3434">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/MineFieldGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="1054">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/listener/CellButtonMouseListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="1564">
@@ -745,9 +712,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2006">
           <caret line="80" column="53" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="53" />
           <folding>
-            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="e#1300#2142#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#1320#2792#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
@@ -759,10 +725,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="595" max-vertical-offset="1173">
           <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-          <folding>
-            <element signature="e#2620#2730#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -799,9 +762,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1360" max-vertical-offset="2006">
           <caret line="80" column="53" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="53" />
           <folding>
-            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="e#1300#2142#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#1320#2792#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
@@ -813,10 +775,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1207">
           <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="e#2620#2730#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -853,9 +812,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2006">
           <caret line="80" column="53" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="53" />
           <folding>
-            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="e#1300#2142#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#1320#2792#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
@@ -867,10 +825,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1207">
           <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="e#2620#2730#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -907,9 +862,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2100" max-vertical-offset="2465">
           <caret line="133" column="5" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
           <folding>
-            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="e#1300#2142#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#1320#2792#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
@@ -921,10 +875,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="1207">
           <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-          <folding>
-            <element signature="e#2620#2730#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -947,9 +898,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="986">
           <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
           <folding>
-            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="e#1300#2142#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#1320#2792#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
@@ -961,10 +911,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#2620#2730#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -979,20 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10500" max-vertical-offset="14705">
           <caret line="651" column="8" selection-start-line="651" selection-start-column="8" selection-end-line="651" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6190" max-vertical-offset="35989">
-          <caret line="435" column="0" selection-start-line="435" selection-start-column="0" selection-end-line="435" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/net/URLClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33222592" vertical-offset="5374" max-vertical-offset="12546">
-          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1021,7 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="10338" max-vertical-offset="23715">
           <caret line="652" column="0" selection-start-line="652" selection-start-column="0" selection-end-line="652" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1032,100 +964,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="2040">
-          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
-          <folding>
-            <element signature="e#2620#2730#0" expanded="true" />
-            <element signature="e#2729#2730#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/HighScore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53640777" vertical-offset="0" max-vertical-offset="1462">
           <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/MinesweeperPreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0" vertical-offset="4376" max-vertical-offset="5916">
-          <caret line="298" column="14" selection-start-line="298" selection-start-column="14" selection-end-line="298" selection-end-column="14" />
-          <folding>
-            <element signature="e#2920#2921#0" expanded="true" />
-            <element signature="e#2951#2952#0" expanded="true" />
-            <element signature="e#3051#3052#0" expanded="true" />
-            <element signature="e#3091#3092#0" expanded="true" />
-            <element signature="e#3171#3172#0" expanded="true" />
-            <element signature="e#3209#3210#0" expanded="true" />
-            <element signature="e#3325#3326#0" expanded="true" />
-            <element signature="e#3379#3380#0" expanded="true" />
-            <element signature="e#3453#3454#0" expanded="true" />
-            <element signature="e#3485#3486#0" expanded="true" />
-            <element signature="e#3583#3584#0" expanded="true" />
-            <element signature="e#3625#3626#0" expanded="true" />
-            <element signature="e#3696#3697#0" expanded="true" />
-            <element signature="e#3728#3729#0" expanded="true" />
-            <element signature="e#3822#3823#0" expanded="true" />
-            <element signature="e#3864#3865#0" expanded="true" />
-            <element signature="e#3945#3946#0" expanded="true" />
-            <element signature="e#3981#3982#0" expanded="true" />
-            <element signature="e#4093#4094#0" expanded="true" />
-            <element signature="e#4143#4144#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4264#4265#0" expanded="true" />
-            <element signature="e#4382#4383#0" expanded="true" />
-            <element signature="e#4436#4437#0" expanded="true" />
-            <element signature="e#4517#4518#0" expanded="true" />
-            <element signature="e#4553#4554#0" expanded="true" />
-            <element signature="e#4665#4666#0" expanded="true" />
-            <element signature="e#4715#4716#0" expanded="true" />
-            <element signature="e#6112#6113#0" expanded="true" />
-            <element signature="e#6145#6146#0" expanded="true" />
-            <element signature="e#6217#6218#0" expanded="true" />
-            <element signature="e#6251#6252#0" expanded="true" />
-            <element signature="e#6323#6324#0" expanded="true" />
-            <element signature="e#6357#6358#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09223301" vertical-offset="2580" max-vertical-offset="2992">
-          <caret line="154" column="13" selection-start-line="154" selection-start-column="13" selection-end-line="154" selection-end-column="13" />
-          <folding>
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#976#977#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1465#1466#0" expanded="true" />
-            <element signature="e#1495#1496#0" expanded="true" />
-            <element signature="e#1595#1596#0" expanded="true" />
-            <element signature="e#1633#1634#0" expanded="true" />
-            <element signature="e#1710#1711#0" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-            <element signature="e#1830#1831#0" expanded="true" />
-            <element signature="e#1864#1865#0" expanded="true" />
-            <element signature="e#1938#1939#0" expanded="true" />
-            <element signature="e#1997#1998#0" expanded="true" />
-            <element signature="e#2067#2068#0" expanded="true" />
-            <element signature="e#2122#2123#0" expanded="true" />
-            <element signature="e#2191#2192#0" expanded="true" />
-            <element signature="e#2245#2246#0" expanded="true" />
-            <element signature="e#2318#2319#0" expanded="true" />
-            <element signature="e#2372#2373#0" expanded="true" />
-            <element signature="e#2451#2452#0" expanded="true" />
-            <element signature="e#2509#2510#0" expanded="true" />
-            <element signature="e#2581#2582#0" expanded="true" />
-            <element signature="e#2634#2635#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1133,7 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16504854" vertical-offset="17" max-vertical-offset="442">
           <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1141,75 +982,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20631067" vertical-offset="0" max-vertical-offset="412">
           <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/dialog/HighScoresDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8252427" vertical-offset="187" max-vertical-offset="918">
-          <caret line="33" column="7" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3443" max-vertical-offset="4097">
-          <caret line="398" column="50" selection-start-line="398" selection-start-column="50" selection-end-line="398" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.57423973" vertical-offset="1651" max-vertical-offset="2210">
+          <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2278#2279#0" expanded="true" />
-            <element signature="e#2311#2312#0" expanded="true" />
-            <element signature="e#2387#2388#0" expanded="true" />
-            <element signature="e#2415#2416#0" expanded="true" />
-            <element signature="e#2912#2929#0" expanded="true" />
-            <element signature="method#onCellClick#0;class#MineField#0" expanded="false" />
-            <element signature="method#finishGame#0;class#MineField#0" expanded="false" />
-            <element signature="method#killPlayer#0;class#MineField#0" expanded="false" />
-            <element signature="method#revealClickedCell#0;class#MineField#0" expanded="false" />
-            <element signature="method#revealEmptyCells#0;class#MineField#0" expanded="false" />
-            <element signature="method#fillInNumbers#0;class#MineField#0" expanded="false" />
-            <element signature="method#getNeighborBombs#0;class#MineField#0" expanded="false" />
-            <element signature="method#toggleFlag#0;class#MineField#0" expanded="false" />
-            <element signature="method#revealSurrounding#0;class#MineField#0" expanded="false" />
-            <element signature="method#formatTime#0;class#MineField#0" expanded="false" />
-            <element signature="e#11130#11131#0" expanded="true" />
-            <element signature="e#11160#11161#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/dialog/CustomDifficultyDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1458" max-vertical-offset="1870">
+        <state vertical-scroll-proportion="0.57423973" vertical-offset="1311" max-vertical-offset="1870">
           <caret line="103" column="6" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/dialog/HighScoresDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1832" max-vertical-offset="2244">
-          <caret line="116" column="6" selection-start-line="116" selection-start-column="6" selection-end-line="116" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3419#3420#0" expanded="true" />
-            <element signature="e#3457#3458#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/dialog/MinesweeperPreferencesDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1645" max-vertical-offset="2057">
+        <state vertical-scroll-proportion="2.550984" vertical-offset="206" max-vertical-offset="1989">
           <caret line="160" column="10" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
           <folding>
             <element signature="method#MinesweeperPreferencesDialog#0;class#MinesweeperPreferencesDialog#0" expanded="false" />
-            <element signature="e#4491#4492#0" expanded="true" />
-            <element signature="e#4529#4530#0" expanded="true" />
-            <element signature="e#4909#4910#0" expanded="true" />
-            <element signature="e#4951#4952#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1218,52 +1017,154 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1509" max-vertical-offset="1921">
           <caret line="95" column="6" selection-start-line="95" selection-start-column="6" selection-end-line="95" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/panel/MineCellPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2223" max-vertical-offset="2941">
-          <caret line="168" column="6" selection-start-line="168" selection-start-column="6" selection-end-line="168" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2229" max-vertical-offset="2975">
+          <caret line="195" column="41" selection-start-line="195" selection-start-column="41" selection-end-line="195" selection-end-column="41" />
           <folding>
             <element signature="method#MineCellPanel#0;class#MineCellPanel#0" expanded="false" />
-            <element signature="e#2147#2148#0" expanded="true" />
-            <element signature="e#2176#2177#0" expanded="true" />
-            <element signature="e#2265#2266#0" expanded="true" />
-            <element signature="e#2301#2302#0" expanded="true" />
-            <element signature="e#2375#2376#0" expanded="true" />
-            <element signature="e#2407#2408#0" expanded="true" />
-            <element signature="e#2504#2505#0" expanded="true" />
-            <element signature="e#2546#2547#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6112" max-vertical-offset="36159">
+          <caret line="435" column="0" selection-start-line="435" selection-start-column="0" selection-end-line="435" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="33516" max-vertical-offset="60095">
+          <caret line="2061" column="0" selection-start-line="2061" selection-start-column="0" selection-end-line="2061" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/net/URLClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="5364" max-vertical-offset="12580">
+          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1832" max-vertical-offset="2550">
+          <caret line="149" column="6" selection-start-line="149" selection-start-column="6" selection-end-line="149" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/MinesweeperPreferences.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3130" max-vertical-offset="5491">
+          <caret line="249" column="31" selection-start-line="249" selection-start-column="31" selection-end-line="249" selection-end-column="31" />
+          <folding>
+            <element signature="e#4813#4814#0" expanded="true" />
+            <element signature="e#4860#4861#0" expanded="true" />
+            <element signature="e#4902#4903#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MineFieldGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1084" max-vertical-offset="1496">
-          <caret line="80" column="6" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="832" max-vertical-offset="1581">
+          <caret line="63" column="31" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6286408" vertical-offset="404" max-vertical-offset="918">
+          <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
           <folding>
-            <element signature="e#2125#2126#0" expanded="true" />
-            <element signature="e#2164#2165#0" expanded="true" />
-            <element signature="e#2217#2218#0" expanded="true" />
-            <element signature="e#2277#2278#0" expanded="true" />
+            <element signature="docComment;method#isAlive#0;class#Player#0" expanded="false" />
+            <element signature="docComment;method#setIsAlive#0;class#Player#0" expanded="false" />
+            <element signature="docComment;method#isGameStarted#0;class#Player#0" expanded="false" />
+            <element signature="docComment;method#setGameStarted#0;class#Player#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="2040">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38106796" vertical-offset="880" max-vertical-offset="1292">
-          <caret line="234" column="7" selection-start-line="234" selection-start-column="7" selection-end-line="234" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="795" max-vertical-offset="2108">
+          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
           <folding>
-            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="e#1300#2142#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#1320#2792#0" expanded="true" />
+            <element signature="e#2791#2792#0" expanded="true" />
             <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
             <element signature="method#createMenuBar#0;class#MinesweeperGUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_25/src.zip!/java/util/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="6316" max-vertical-offset="11628">
+          <caret line="410" column="0" selection-start-line="410" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55582523" vertical-offset="1998" max-vertical-offset="3638">
+          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#MineField#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#getCellPanels#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#getCells#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#getTime#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#getRows#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#getColumns#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#loadGame#0;class#MineField#0" expanded="false" />
+            <element signature="method#loadGame#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#randomizeField#0;class#MineField#0" expanded="false" />
+            <element signature="method#randomizeField#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#onCellClick#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#finishGame#0;class#MineField#0" expanded="false" />
+            <element signature="method#finishGame#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#killPlayer#0;class#MineField#0" expanded="false" />
+            <element signature="method#killPlayer#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#revealClickedCell#0;class#MineField#0" expanded="false" />
+            <element signature="method#revealClickedCell#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#revealEmptyCells#0;class#MineField#0" expanded="false" />
+            <element signature="method#revealEmptyCells#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#fillInNumbers#0;class#MineField#0" expanded="false" />
+            <element signature="method#fillInNumbers#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#getNeighborBombs#0;class#MineField#0" expanded="false" />
+            <element signature="method#getNeighborBombs#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#toggleFlag#0;class#MineField#0" expanded="false" />
+            <element signature="method#toggleFlag#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#getPrefs#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#revealSurrounding#0;class#MineField#0" expanded="false" />
+            <element signature="method#revealSurrounding#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#formatTime#0;class#MineField#0" expanded="false" />
+            <element signature="method#formatTime#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;method#cancelTimer#0;class#MineField#0" expanded="false" />
+            <element signature="method#cancelTimer#0;class#MineField#0" expanded="false" />
+            <element signature="docComment;class#GameTimerTask#0;class#MineField#0" expanded="false" />
+            <element signature="class#GameTimerTask#0;class#MineField#0" expanded="false" />
           </folding>
         </state>
       </provider>

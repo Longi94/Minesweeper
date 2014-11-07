@@ -33,8 +33,14 @@ public class MineFieldGUI extends JPanel{
      * @param timeLabel
      */
     public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel) {
-        setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
         mineField = new MineField(bombsLabel, timeLabel);
+        if (getPrefs().getSavedGame() == null) {
+            setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
+        }
+        else {
+            setLayout(new GridLayout(getPrefs().getSavedGame().length, getPrefs().getSavedGame()[0].length));
+        }
+
         buildButtons();
     }
 
@@ -54,8 +60,8 @@ public class MineFieldGUI extends JPanel{
      *
      */
     private void buildButtons() {
-        for(int i = 0; i < getPrefs().getNumberOfRows(); i++){
-            for(int j = 0; j < getPrefs().getNumberOfColumns(); j++){
+        for(int i = 0; i < mineField.getRows(); i++){
+            for(int j = 0; j < mineField.getColumns(); j++){
                 add(mineField.getCellPanels()[i][j].getCellPanel());
                 mineField.getCellPanels()[i][j].getButton().addMouseListener(new CellButtonMouseListener(mineField, i, j));
             }
@@ -81,7 +87,8 @@ public class MineFieldGUI extends JPanel{
      *
      */
     public void saveGame() {
-        getPrefs().setSaveGame(mineField.getCells());
+        getPrefs().setSavedGame(mineField.getCells());
+        getPrefs().setSavedTime(mineField.getTime());
     }
 
     // ===========================================================

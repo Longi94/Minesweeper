@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * TODO: comment
  */
 public class MinesweeperPreferencesDialog extends JDialog implements ActionListener{
 
@@ -38,7 +38,8 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     *  @param owner
+     * TODO: comment
+     * @param owner
      * @param modal
      * @param limit
      * @param mineField
@@ -107,7 +108,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
@@ -127,7 +128,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     private void savePreferences(){
         getPrefs().setPlayerName(nameField.getText());
@@ -136,7 +137,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     private MinesweeperPreferences getPrefs(){
@@ -148,13 +149,13 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     private class LimitDocument extends PlainDocument {
         private int limit;
 
         /**
-         *
+         * TODO: comment
          * @param limit
          */
         private LimitDocument(int limit) {
@@ -162,7 +163,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
         }
 
         /**
-         *
+         * TODO: comment
          * @param offset
          * @param str
          * @param attr

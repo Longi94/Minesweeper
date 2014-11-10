@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * TODO: comment
  */
 public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
@@ -37,7 +37,7 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param owner
      * @param modal
      */
@@ -86,7 +86,7 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
@@ -107,13 +107,17 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
     }
 
+    /**
+     * TODO: comment
+     * @return
+     */
     private int getMaxNumberOfBombs(){
         return ((Integer)rowSpinner.getValue() - 1) * ((Integer)columnSpinner.getValue() - 1);
     }
@@ -122,7 +126,15 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // Inner and Anonymous Classes
     // ===========================================================
 
+    /**
+     * TODO: comment
+     */
     private class BombLimitListener implements ChangeListener {
+
+        /**
+         * TODO: comment
+         * @param e
+         */
         @Override
         public void stateChanged(ChangeEvent e) {
             spm.setMaximum(getMaxNumberOfBombs());

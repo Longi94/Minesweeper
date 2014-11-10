@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- *
+ * TODO: comment
  */
 public class MineCellPanel {
 
@@ -42,7 +42,7 @@ public class MineCellPanel {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     public MineCellPanel() {
         Font contentFont = new Font("Verdana", Font.BOLD, 12);
@@ -83,7 +83,7 @@ public class MineCellPanel {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public JButton getButton() {
@@ -91,7 +91,7 @@ public class MineCellPanel {
     }
 
     /**
-     *
+     * TODO: comment
      * @param button
      */
     public void setButton(JButton button) {
@@ -99,7 +99,7 @@ public class MineCellPanel {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public JPanel getCellPanel() {
@@ -107,7 +107,7 @@ public class MineCellPanel {
     }
 
     /**
-     *
+     * TODO: comment
      * @param cellPanel
      */
     public void setCellPanel(JPanel cellPanel) {
@@ -124,7 +124,7 @@ public class MineCellPanel {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     public void reveal(MineCellContent content) {
         if (content == MineCellContent.BOMB)
@@ -135,7 +135,7 @@ public class MineCellPanel {
     }
 
     /**
-     *
+     * TODO: comment
      * @param content
      */
     public void setContent(MineCellContent content) {
@@ -181,7 +181,7 @@ public class MineCellPanel {
     }
 
     /**
-     *
+     * TODO: comment
      * @param state
      * @param usingQuestionMarks
      * @return
@@ -211,21 +211,21 @@ public class MineCellPanel {
     }
 
     /**
-     *
+     * TODO: comment
      */
     public void flagCell() {
         button.setIcon(new ImageIcon("assets/flag_icon.png"));
     }
 
     /**
-     *
+     * TODO: comment
      */
     public void questionMark() {
         button.setIcon(new ImageIcon("assets/question_icon.png"));
     }
 
     /**
-     *
+     * TODO: comment
      * @param cbml
      * @param cpml
      */

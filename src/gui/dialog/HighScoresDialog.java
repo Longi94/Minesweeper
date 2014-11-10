@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
+ * TODO: comment
  */
 public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
@@ -30,7 +30,7 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param owner
      * @param modal
      */
@@ -78,7 +78,7 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
@@ -93,7 +93,7 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param seconds
      * @return
      */
@@ -105,7 +105,7 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     }
 
     /**
-     *
+     * TODO: comment
      * @param highScore
      * @return
      */
@@ -114,7 +114,7 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     private MinesweeperPreferences getPrefs() {

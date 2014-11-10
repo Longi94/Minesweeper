@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *
+ * TODO: comment
  */
 public class MineFieldGUI extends JPanel{
 
@@ -29,7 +29,7 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param bombsLabel
      * @param timeLabel
      */
@@ -49,7 +49,10 @@ public class MineFieldGUI extends JPanel{
     // Getter & Setter
     // ===========================================================
 
-
+    /**
+     * TODO: comment
+     * @return
+     */
     public MineField getMineField() {
         return mineField;
     }
@@ -63,7 +66,7 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     private void buildButtons() {
         for(int i = 0; i < mineField.getRows(); i++){
@@ -76,7 +79,7 @@ public class MineFieldGUI extends JPanel{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     private MinesweeperPreferences getPrefs(){
@@ -84,14 +87,14 @@ public class MineFieldGUI extends JPanel{
     }
 
     /**
-     *
+     * TODO: comment
      */
     public void cancelTimer() {
         mineField.cancelTimer();
     }
 
     /**
-     *
+     * TODO: comment
      */
     public void saveGame() {
         getPrefs().setSavedGame(mineField.getCells());

@@ -16,7 +16,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- *
+ * TODO: comment
  */
 public class MinesweeperGUI extends JFrame{
 
@@ -40,7 +40,7 @@ public class MinesweeperGUI extends JFrame{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     public MinesweeperGUI(){
         super("Minesweeper");
@@ -106,7 +106,7 @@ public class MinesweeperGUI extends JFrame{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     private void createStatusBar(){
         Font statusFont = new Font("Verdana", Font.BOLD, 12);
@@ -129,7 +129,7 @@ public class MinesweeperGUI extends JFrame{
     }
 
     /**
-     *
+     * TODO: comment
      */
     private void createUI(){
         mineFieldPanel = new MineFieldGUI(bombsLabel, timeLabel);
@@ -139,7 +139,7 @@ public class MinesweeperGUI extends JFrame{
     }
 
     /**
-     *
+     * TODO: comment
      */
     private void createMenuBar() {
         JMenuItem newGameMenuItem = new JMenuItem("New Game");
@@ -276,7 +276,7 @@ public class MinesweeperGUI extends JFrame{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     private MinesweeperPreferences getPrefs(){

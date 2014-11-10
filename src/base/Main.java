@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.io.*;
 
 /**
- *
+ * TODO: comment
  */
 public class Main {
 
@@ -30,7 +30,7 @@ public class Main {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public static MinesweeperPreferences getPrefs() {
@@ -46,7 +46,7 @@ public class Main {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param args
      */
     public static void main(String[] args) {
@@ -96,7 +96,7 @@ public class Main {
     }
 
     /**
-     *
+     * TODO: comment
      */
     public static void savePreferences(){
         try {

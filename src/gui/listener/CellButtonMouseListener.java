@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- *
+ * TODO: comment
  */
 public class CellButtonMouseListener implements MouseListener {
 
@@ -33,7 +33,7 @@ public class CellButtonMouseListener implements MouseListener {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param mineField
      * @param row
      * @param column
@@ -53,26 +53,16 @@ public class CellButtonMouseListener implements MouseListener {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        /*switch (e.getButton()){
-            case MouseEvent.BUTTON1:
-                mineField.onCellClick(row, column);
-                break;
-            case MouseEvent.BUTTON3:
-                mineField.toggleFlag(row, column);
-                break;
-            default:
-                break;
-        }*/
     }
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
@@ -96,7 +86,7 @@ public class CellButtonMouseListener implements MouseListener {
     }
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
@@ -128,7 +118,7 @@ public class CellButtonMouseListener implements MouseListener {
     }
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
@@ -136,7 +126,7 @@ public class CellButtonMouseListener implements MouseListener {
     }
 
     /**
-     *
+     * TODO: comment
      * @param e
      */
     @Override
@@ -149,7 +139,7 @@ public class CellButtonMouseListener implements MouseListener {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param e
      * @return
      */

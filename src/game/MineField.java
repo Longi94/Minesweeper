@@ -12,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- *
+ * TODO: comment
  */
 public class MineField {
 
@@ -49,7 +49,7 @@ public class MineField {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param bombsLabel
      * @param timeLabel
      */
@@ -96,7 +96,7 @@ public class MineField {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public MineCellPanel[][] getCellPanels() {
@@ -104,7 +104,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public MineCell[][] getCells() {
@@ -112,7 +112,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getTime() {
@@ -120,7 +120,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getRows() {
@@ -128,7 +128,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getColumns() {
@@ -144,7 +144,7 @@ public class MineField {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     private void loadGame() {
         cells = getPrefs().getSavedGame();
@@ -172,7 +172,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param numberOfBombs
      */
     private void randomizeField(int numberOfBombs) {
@@ -199,7 +199,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      */
@@ -250,7 +250,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      */
     private void finishGame() {
         Player.setIsAlive(false);
@@ -261,7 +261,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      */
     private void killPlayer() {
 
@@ -281,7 +281,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      */
@@ -295,7 +295,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      */
@@ -322,7 +322,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      */
     private void fillInNumbers() {
         for (int i = 0; i < rows; i++) {
@@ -371,7 +371,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      * @return
@@ -394,7 +394,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      */
@@ -415,7 +415,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     private MinesweeperPreferences getPrefs() {
@@ -423,7 +423,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      */
@@ -446,7 +446,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param seconds
      * @return
      */
@@ -458,7 +458,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      */
     public void cancelTimer() {
         if (timerRunning) {
@@ -468,7 +468,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      */
@@ -493,7 +493,7 @@ public class MineField {
     }
 
     /**
-     *
+     * TODO: comment
      * @param row
      * @param column
      * @return
@@ -514,6 +514,9 @@ public class MineField {
         return num;
     }
 
+    /**
+     *  TODO: comment
+     */
     public void onPreferenceChanged(){
         if (getPrefs().isShowTimer() && !timerAdded){
             timerAdded = true;
@@ -547,7 +550,7 @@ public class MineField {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     private class GameTimerTask extends TimerTask {
 

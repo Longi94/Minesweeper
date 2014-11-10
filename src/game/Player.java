@@ -1,7 +1,7 @@
 package game;
 
 /**
- *
+ * TODO: comment
  */
 public class Player {
     // ===========================================================
@@ -24,7 +24,7 @@ public class Player {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public static boolean isAlive() {
@@ -32,7 +32,7 @@ public class Player {
     }
 
     /**
-     *
+     * TODO: comment
      * @param isAlive
      */
     public static void setIsAlive(boolean isAlive) {
@@ -40,7 +40,7 @@ public class Player {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public static boolean isGameStarted() {
@@ -48,7 +48,7 @@ public class Player {
     }
 
     /**
-     *
+     * TODO: comment
      * @param gameStarted
      */
     public static void setGameStarted(boolean gameStarted) {

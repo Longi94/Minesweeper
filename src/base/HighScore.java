@@ -3,7 +3,7 @@ package base;
 import java.io.Serializable;
 
 /**
- *
+ * TODO: comment
  */
 public class HighScore implements Serializable{
 	// ===========================================================
@@ -24,7 +24,7 @@ public class HighScore implements Serializable{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param name
      * @param seconds
      */
@@ -38,7 +38,7 @@ public class HighScore implements Serializable{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public String getName() {
@@ -46,7 +46,7 @@ public class HighScore implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param name
      */
     public void setName(String name) {
@@ -54,7 +54,7 @@ public class HighScore implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getSeconds() {
@@ -62,7 +62,7 @@ public class HighScore implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param seconds
      */
     public void setSeconds(int seconds) {

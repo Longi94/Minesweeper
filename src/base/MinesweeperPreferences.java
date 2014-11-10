@@ -5,7 +5,7 @@ import game.MineCell;
 import java.io.Serializable;
 
 /**
- *
+ * TODO: comment
  */
 public class MinesweeperPreferences implements Serializable{
 
@@ -43,7 +43,7 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     public MinesweeperPreferences() {
         numberOfBombs = 99;
@@ -72,7 +72,7 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getNumberOfRows() {
@@ -80,7 +80,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param numberOfRows
      */
     public void setNumberOfRows(int numberOfRows) {
@@ -88,7 +88,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getNumberOfColumns() {
@@ -96,7 +96,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param numberOfColumns
      */
     public void setNumberOfColumns(int numberOfColumns) {
@@ -104,7 +104,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getNumberOfBombs() {
@@ -112,7 +112,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param numberOfBombs
      */
     public void setNumberOfBombs(int numberOfBombs) {
@@ -120,7 +120,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public String getPlayerName() {
@@ -128,7 +128,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param playerName
      */
     public void setPlayerName(String playerName) {
@@ -136,7 +136,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public MineCell[][] getSavedGame() {
@@ -144,7 +144,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param savedGame
      */
     public void setSavedGame(MineCell[][] savedGame) {
@@ -152,7 +152,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isUseQuestionMark() {
@@ -160,7 +160,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param useQuestionMark
      */
     public void setUseQuestionMark(boolean useQuestionMark) {
@@ -168,7 +168,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isShowTimer() {
@@ -176,7 +176,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param showTimer
      */
     public void setShowTimer(boolean showTimer) {
@@ -184,7 +184,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int getBombsLeft() {
@@ -192,7 +192,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param bombsLeft
      */
     public void setBombsLeft(int bombsLeft) {
@@ -200,7 +200,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public HighScore getEasyHighScore() {
@@ -208,7 +208,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param easyHighScore
      */
     public void setEasyHighScore(HighScore easyHighScore) {
@@ -216,7 +216,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public HighScore getMediumHighScore() {
@@ -224,7 +224,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param mediumHighScore
      */
     public void setMediumHighScore(HighScore mediumHighScore) {
@@ -232,7 +232,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public HighScore getHardHighScore() {
@@ -240,17 +240,25 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param hardHighScore
      */
     public void setHardHighScore(HighScore hardHighScore) {
         this.hardHighScore = hardHighScore;
     }
 
+    /**
+     * TODO: comment
+     * @return
+     */
     public int getSavedTime() {
         return savedTime;
     }
 
+    /**
+     * TODO: comment
+     * @param savedTime
+     */
     public void setSavedTime(int savedTime) {
         this.savedTime = savedTime;
     }
@@ -264,7 +272,7 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @param rows
      * @param columns
      * @param bombs
@@ -277,7 +285,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param difficulty
      */
     public void setDifficulty(Difficulty difficulty){
@@ -304,7 +312,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public Difficulty getDifficulty() {
@@ -312,7 +320,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int incrementBombs(){
@@ -320,7 +328,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public int decrementBombs(){
@@ -328,7 +336,7 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     *
+     * TODO: comment
      * @param time
      * @param difficulty
      */
@@ -362,7 +370,7 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     public enum Difficulty implements Serializable{
         EASY, MEDIUM, HARD, CUSTOM

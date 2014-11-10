@@ -3,7 +3,7 @@ package game;
 import java.io.Serializable;
 
 /**
- *
+ * TODO: comment
  */
 public class MineCell implements Serializable {
     // ===========================================================
@@ -24,14 +24,14 @@ public class MineCell implements Serializable {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      */
     public MineCell() {
         this(MineCellContent.EMPTY, MineCellState.UNMARKED);
     }
 
     /**
-     *
+     * TODO: comment
      * @param content
      */
     public MineCell(MineCellContent content) {
@@ -39,7 +39,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @param state
      */
     public MineCell(MineCellState state) {
@@ -47,7 +47,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @param content
      * @param state
      */
@@ -61,7 +61,7 @@ public class MineCell implements Serializable {
     // ===========================================================
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public MineCellContent getContent() {
@@ -69,7 +69,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @param content
      */
     public void setContent(MineCellContent content) {
@@ -77,7 +77,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public MineCellState getState() {
@@ -85,7 +85,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @param state
      */
     public void setState(MineCellState state) {
@@ -93,7 +93,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isProtected() {
@@ -101,7 +101,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isEmpty() {
@@ -109,7 +109,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isBomb() {
@@ -117,7 +117,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isRevealed() {
@@ -125,7 +125,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isQuestionMarked() {
@@ -133,7 +133,7 @@ public class MineCell implements Serializable {
     }
 
     /**
-     *
+     * TODO: comment
      * @return
      */
     public boolean isFlagged() {
@@ -149,25 +149,9 @@ public class MineCell implements Serializable {
     // ===========================================================
 
     /**
-     *
+     *  TODO: comment
+     * @return
      */
-    public void toggleFlag() {
-        if (Player.isAlive())
-            switch (state) {
-                case UNMARKED:
-                    state = MineCellState.FLAGGED;
-                    break;
-                case FLAGGED:
-                    state = MineCellState.QUESTIONMARK;
-                    break;
-                case QUESTIONMARK:
-                    state = MineCellState.UNMARKED;
-                    break;
-                case REVEALED:
-                    break;
-            }
-    }
-
     public int getContentValue() {
         switch (content) {
             case EMPTY:

@@ -45,6 +45,8 @@ public class MinesweeperGUI extends JFrame{
     public MinesweeperGUI(){
         super("Minesweeper");
 
+        mainPanel = new JPanel(new BorderLayout());
+
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         setResizable(false);
         setIconImage((new ImageIcon("assets/mine_icon.png")).getImage());
@@ -82,8 +84,6 @@ public class MinesweeperGUI extends JFrame{
             }
         });
 
-        mainPanel = new JPanel(new BorderLayout());
-
         createStatusBar();
         createMenuBar();
         createUI();
@@ -119,6 +119,7 @@ public class MinesweeperGUI extends JFrame{
 
         statusBar = new JPanel(new GridLayout(1, 2));
         statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), MineCellPanel.SIZE));
+        statusBar.setBackground(new Color(230, 230, 230));
         statusBar.add(bombsLabel);
         statusBar.add(timeLabel);
     }
@@ -211,7 +212,7 @@ public class MinesweeperGUI extends JFrame{
         settingsMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MinesweeperPreferencesDialog(MinesweeperGUI.this, true, 20);
+                new MinesweeperPreferencesDialog(MinesweeperGUI.this, true, 20, mineFieldPanel.getMineField());
             }
         });
 

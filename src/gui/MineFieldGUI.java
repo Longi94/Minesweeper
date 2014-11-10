@@ -49,6 +49,11 @@ public class MineFieldGUI extends JPanel{
     // Getter & Setter
     // ===========================================================
 
+
+    public MineField getMineField() {
+        return mineField;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
@@ -92,6 +97,7 @@ public class MineFieldGUI extends JPanel{
         getPrefs().setSavedGame(mineField.getCells());
         getPrefs().setSavedTime(mineField.getTime());
     }
+
 
     // ===========================================================
     // Inner and Anonymous Classes

@@ -2,6 +2,7 @@ package gui.dialog;
 
 import base.Main;
 import base.MinesweeperPreferences;
+import game.MineField;
 
 import javax.swing.*;
 import javax.swing.text.AttributeSet;
@@ -30,19 +31,21 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     private JTextField nameField;
     private JCheckBox questionMark;
     private JCheckBox timerBox;
+    private MineField mineField;
 
     // ===========================================================
     // Constructors
     // ===========================================================
 
     /**
-     *
-     * @param owner
+     *  @param owner
      * @param modal
      * @param limit
+     * @param mineField
      */
-    public MinesweeperPreferencesDialog(JFrame owner, boolean modal, int limit){
+    public MinesweeperPreferencesDialog(JFrame owner, boolean modal, int limit, MineField mineField){
         super(owner, modal);
+        this.mineField = mineField;
 
         Insets defaultInsets =  new Insets(2, 2, 2, 2);
 
@@ -112,6 +115,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
         if (e.getSource() == okButton){
             savePreferences();
             setVisible(false);
+            mineField.onPreferenceChanged();
         }
         else if (e.getSource() == cancelButton){
             setVisible(false);

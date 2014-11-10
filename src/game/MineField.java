@@ -5,6 +5,7 @@ import base.MinesweeperPreferences;
 import gui.panel.MineCellPanel;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Timer;
@@ -514,7 +515,14 @@ public class MineField {
 
     public void onPreferenceChanged(){
         if (getPrefs().isShowTimer() && !timerAdded){
-
+            timerAdded = true;
+            timeLabel.setForeground(new Color(0, 0, 0));
+            timeLabel.repaint();
+        }
+        else if (!getPrefs().isShowTimer() && timerAdded) {
+            timerAdded = false;
+            timeLabel.setForeground(new Color(230, 230, 230));
+            timeLabel.repaint();
         }
     }
 

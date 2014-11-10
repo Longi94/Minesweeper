@@ -183,17 +183,24 @@ public class MineCellPanel {
     /**
      *
      * @param state
+     * @param usingQuestionMarks
      * @return
      */
-    public MineCellState toggleFlag(MineCellState state) {
+    public MineCellState toggleFlag(MineCellState state, boolean usingQuestionMarks) {
         if (Player.isAlive())
             switch (state) {
                 case UNMARKED:
                     button.setIcon(new ImageIcon("assets/flag_icon.png"));
                     return MineCellState.FLAGGED;
                 case FLAGGED:
-                    button.setIcon(new ImageIcon("assets/question_icon.png"));
-                    return MineCellState.QUESTIONMARK;
+                    if (usingQuestionMarks) {
+                        button.setIcon(new ImageIcon("assets/question_icon.png"));
+                        return MineCellState.QUESTIONMARK;
+                    }
+                    else {
+                        button.setIcon(null);
+                        return MineCellState.UNMARKED;
+                    }
                 case QUESTIONMARK:
                     button.setIcon(null);
                     return MineCellState.UNMARKED;

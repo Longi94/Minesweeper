@@ -27,6 +27,7 @@ public class MineField {
     private boolean firstClick = true;
     private boolean timerRunning = false;
     private boolean timerAdded = getPrefs().isShowTimer();
+    private boolean usingQuestionMarks = getPrefs().isUseQuestionMark();
 
     private int rows;
     private int columns;
@@ -398,7 +399,7 @@ public class MineField {
      * @param column
      */
     public void toggleFlag(int row, int column) {
-        cells[row][column].setState(cellPanels[row][column].toggleFlag(cells[row][column].getState()));
+        cells[row][column].setState(cellPanels[row][column].toggleFlag(cells[row][column].getState(), usingQuestionMarks));
         if (cells[row][column].isFlagged())
             bombsLabel.setText("Mines left: " + getPrefs().decrementBombs());
         else if (cells[row][column].isQuestionMarked())
@@ -523,6 +524,21 @@ public class MineField {
             timerAdded = false;
             timeLabel.setForeground(new Color(230, 230, 230));
             timeLabel.repaint();
+        }
+
+        if (!getPrefs().isUseQuestionMark() && usingQuestionMarks){
+            usingQuestionMarks = false;
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    if (cells[i][j].isQuestionMarked())
+                        cells[i][j].setState(cellPanels[i][j].toggleFlag(cells[i][j].getState(), usingQuestionMarks));
+                }
+            }
+
+        }
+        else if (getPrefs().isUseQuestionMark() && !usingQuestionMarks){
+            usingQuestionMarks = true;
         }
     }
 

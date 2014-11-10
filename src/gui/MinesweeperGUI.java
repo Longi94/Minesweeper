@@ -116,6 +116,10 @@ public class MinesweeperGUI extends JFrame{
 
         timeLabel = new JLabel("00:00");
         timeLabel.setFont(statusFont);
+        if (getPrefs().isShowTimer())
+            timeLabel.setForeground(new Color(0, 0, 0));
+        else
+            timeLabel.setForeground(new Color(230, 230, 230));
 
         statusBar = new JPanel(new GridLayout(1, 2));
         statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), MineCellPanel.SIZE));

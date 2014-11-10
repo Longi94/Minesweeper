@@ -5,6 +5,8 @@ import base.MinesweeperPreferences;
 import swing.SpringUtilities;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +28,7 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     private JSpinner rowSpinner;
     private JSpinner columnSpinner;
     private JSpinner bombSpinner;
+    private SpinnerNumberModel spm;
 
     private JButton okButton;
 
@@ -48,8 +51,11 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
         JLabel bombLabel = new JLabel("Number of mines:", SwingConstants.TRAILING);
 
         rowSpinner = new JSpinner(new SpinnerNumberModel(getPrefs().getNumberOfRows(), 9, 24, 1));
+        rowSpinner.addChangeListener(new BombLimitListener());
         columnSpinner = new JSpinner(new SpinnerNumberModel(getPrefs().getNumberOfColumns(), 9, 30, 1));
-        bombSpinner = new JSpinner(new SpinnerNumberModel(getPrefs().getNumberOfBombs(), 10, 668, 1));
+        columnSpinner.addChangeListener(new BombLimitListener());
+        spm = new SpinnerNumberModel(getPrefs().getNumberOfBombs(), 10, getMaxNumberOfBombs(), 1);
+        bombSpinner = new JSpinner(spm);
 
         mainPanel = new JPanel(new SpringLayout());
 
@@ -108,7 +114,19 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
         return Main.getPrefs();
     }
 
+    private int getMaxNumberOfBombs(){
+        return ((Integer)rowSpinner.getValue() - 1) * ((Integer)columnSpinner.getValue() - 1);
+    }
+
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================
+
+    private class BombLimitListener implements ChangeListener {
+        @Override
+        public void stateChanged(ChangeEvent e) {
+            spm.setMaximum(getMaxNumberOfBombs());
+            bombSpinner.setValue(Math.min(getMaxNumberOfBombs(), (Integer)bombSpinner.getValue()));
+        }
+    }
 }

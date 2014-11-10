@@ -10,11 +10,13 @@ public class MineCell implements Serializable {
     // Constants
     // ===========================================================
 
+	private static final long serialVersionUID = 7664814366212183792L;
+	
     // ===========================================================
     // Fields
     // ===========================================================
 
-    private MineCellContent content;
+	private MineCellContent content;
     private MineCellState state;
 
     // ===========================================================

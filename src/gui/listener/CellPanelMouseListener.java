@@ -8,9 +8,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- *
+ * Created by ThanhLong on 2014.11.10..
  */
-public class CellButtonMouseListener implements MouseListener {
+public class CellPanelMouseListener implements MouseListener {
 
     // ===========================================================
     // Constants
@@ -38,7 +38,7 @@ public class CellButtonMouseListener implements MouseListener {
      * @param row
      * @param column
      */
-    public CellButtonMouseListener(MineField mineField, int row, int column) {
+    public CellPanelMouseListener(MineField mineField, int row, int column) {
         this.mineField = mineField;
         this.row = row;
         this.column = column;
@@ -58,17 +58,6 @@ public class CellButtonMouseListener implements MouseListener {
      */
     @Override
     public void mouseClicked(MouseEvent e) {
-
-        /*switch (e.getButton()){
-            case MouseEvent.BUTTON1:
-                mineField.onCellClick(row, column);
-                break;
-            case MouseEvent.BUTTON3:
-                mineField.toggleFlag(row, column);
-                break;
-            default:
-                break;
-        }*/
     }
 
     /**
@@ -105,20 +94,18 @@ public class CellButtonMouseListener implements MouseListener {
             case MouseEvent.BUTTON1:
                 mouse1Down = false;
                 if (!mouse3Down) {
-                    if (isMouseOverButton(e) && !twoButtonPushed) {
-                        mineField.onCellClick(row, column);
-                    } else {
+                    if (isMouseOverButton(e) && twoButtonPushed) {
                         twoButtonPushed = false;
+                        mineField.onTwoButtonCellClick(row, column);
                     }
                 }
                 break;
             case MouseEvent.BUTTON3:
                 mouse3Down = false;
                 if (!mouse1Down) {
-                    if (isMouseOverButton(e) && !twoButtonPushed) {
-                        mineField.toggleFlag(row, column);
-                    } else {
+                    if (isMouseOverButton(e) && twoButtonPushed) {
                         twoButtonPushed = false;
+                        mineField.onTwoButtonCellClick(row, column);
                     }
                 }
                 break;
@@ -133,6 +120,7 @@ public class CellButtonMouseListener implements MouseListener {
      */
     @Override
     public void mouseEntered(MouseEvent e) {
+
     }
 
     /**

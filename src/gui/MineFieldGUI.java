@@ -4,6 +4,7 @@ import base.Main;
 import base.MinesweeperPreferences;
 import game.MineField;
 import gui.listener.CellButtonMouseListener;
+import gui.listener.CellPanelMouseListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,7 +64,8 @@ public class MineFieldGUI extends JPanel{
         for(int i = 0; i < mineField.getRows(); i++){
             for(int j = 0; j < mineField.getColumns(); j++){
                 add(mineField.getCellPanels()[i][j].getCellPanel());
-                mineField.getCellPanels()[i][j].getButton().addMouseListener(new CellButtonMouseListener(mineField, i, j));
+                mineField.getCellPanels()[i][j].addListeners(new CellButtonMouseListener(mineField, i, j),
+                        new CellPanelMouseListener(mineField, i, j));
             }
         }
     }

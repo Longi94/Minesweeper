@@ -3,6 +3,8 @@ package gui.panel;
 import game.MineCellContent;
 import game.MineCellState;
 import game.Player;
+import gui.listener.CellButtonMouseListener;
+import gui.listener.CellPanelMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -213,6 +215,17 @@ public class MineCellPanel {
      */
     public void questionMark() {
         button.setIcon(new ImageIcon("assets/question_icon.png"));
+    }
+
+    /**
+     *
+     * @param cbml
+     * @param cpml
+     */
+    public void addListeners(CellButtonMouseListener cbml, CellPanelMouseListener cpml){
+        button.addMouseListener(cbml);
+        cellContent.addMouseListener(cpml);
+        cellContentNumber.addMouseListener(cpml);
     }
 
     // ===========================================================

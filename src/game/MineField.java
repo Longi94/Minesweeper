@@ -25,6 +25,7 @@ public class MineField {
 
     private boolean firstClick = true;
     private boolean timerRunning = false;
+    private boolean timerAdded = getPrefs().isShowTimer();
 
     private int rows;
     private int columns;
@@ -285,6 +286,8 @@ public class MineField {
     private void revealClickedCell(int row, int column) {
         if (!cells[row][column].isRevealed()) {
             cellPanels[row][column].reveal(cells[row][column].getContent());
+            if (cells[row][column].isFlagged())
+                bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
             revealed++;
         }
     }
@@ -299,6 +302,8 @@ public class MineField {
             return;
 
         cellPanels[row][column].reveal(cells[row][column].getContent());
+        if (cells[row][column].isFlagged())
+            bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
         cells[row][column].setState(MineCellState.REVEALED);
         revealed++;
 
@@ -427,6 +432,8 @@ public class MineField {
                     if (!cells[i][j].isRevealed() && !cells[i][j].isBomb() && !cells[i][j].isEmpty()) {
 
                         cellPanels[i][j].reveal(cells[i][j].getContent());
+                        if (cells[row][column].isFlagged())
+                            bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
                         cells[i][j].setState(MineCellState.REVEALED);
                         revealed++;
 
@@ -455,6 +462,59 @@ public class MineField {
         if (timerRunning) {
             timer.cancel();
             timerRunning = false;
+        }
+    }
+
+    /**
+     *
+     * @param row
+     * @param column
+     */
+    public void onTwoButtonCellClick(int row, int column) {
+        if (Player.isAlive() && cells[row][column].isRevealed() && !cells[row][column].isEmpty() &&
+                cells[row][column].getContentValue() == getNeighborFlags(row, column)) {
+            for (int i = row - 1; i <= row + 1; i++) {
+                for (int j = column - 1; j <= column + 1; j++) {
+                    if (i > -1 && i < rows && j > -1 && j < columns && !cells[i][j].isRevealed() && !cells[i][j].isFlagged()) {
+                        if (cells[i][j].isBomb())
+                            Player.setIsAlive(false);
+                        cellPanels[i][j].reveal(cells[i][j].getContent());
+                        cells[i][j].setState(MineCellState.REVEALED);
+                        revealed++;
+                    }
+                }
+            }
+
+            if (!Player.isAlive())
+                killPlayer();
+        }
+    }
+
+    /**
+     *
+     * @param row
+     * @param column
+     * @return
+     */
+    private int getNeighborFlags(int row, int column) {
+        int num = 0;
+
+        for (int i = row - 1; i <= row + 1; i++) {
+            for (int j = column - 1; j <= column + 1; j++) {
+                if (!(i == -1 || i == rows || j == -1 || j == columns || (i == row && j == column))) {
+                    if (cells[i][j].isFlagged()) {
+                        num++;
+                    }
+                }
+            }
+        }
+
+        return num;
+    }
+
+    public void onPreferenceChanged(){
+        if (getPrefs().isShowTimer() && !timerAdded){
+
         }
     }
 

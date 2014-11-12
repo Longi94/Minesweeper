@@ -530,6 +530,9 @@ public class MineField {
 
             if (!Player.isAlive())
                 killPlayer();
+
+            if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
+                finishGame();
         }
     }
 
@@ -539,13 +542,12 @@ public class MineField {
      * @param column the column the cell is in
      */
     public void toggleFlag(int row, int column) {
-        cells[row][column].setState(cellPanels[row][column].toggleFlag(cells[row][column].getState(), usingQuestionMarks));
-
-        //TODO: fix bombs left number when question mark s turned of
-        if (cells[row][column].isFlagged())
+        if (cells[row][column].isUnmarked())
             bombsLabel.setText("Mines left: " + getPrefs().decrementBombs());
-        else if (cells[row][column].isQuestionMarked())
+        else if (cells[row][column].isFlagged())
             bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
+
+        cells[row][column].setState(cellPanels[row][column].toggleFlag(cells[row][column].getState(), usingQuestionMarks));
 
         if (!timerRunning && Player.isAlive()) {
             timer.scheduleAtFixedRate(new GameTimerTask(), 1000, 1000);

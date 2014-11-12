@@ -140,6 +140,10 @@ public class MineCell implements Serializable {
         return state == MineCellState.FLAGGED;
     }
 
+    public boolean isUnmarked() {
+        return state == MineCellState.UNMARKED;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================

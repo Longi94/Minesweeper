@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.io.*;
 
 /**
- * TODO: comment
+ * The main class containing the main method.
  */
 public class Main {
 
@@ -30,8 +30,8 @@ public class Main {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
+     * @return the preferences used by the program.
+     * @see base.MinesweeperPreferences
      */
     public static MinesweeperPreferences getPrefs() {
         return prefs;
@@ -46,8 +46,8 @@ public class Main {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param args
+     * The entry point of the program.
+     * @param args command line arguments, unused
      */
     public static void main(String[] args) {
 
@@ -96,7 +96,7 @@ public class Main {
     }
 
     /**
-     * TODO: comment
+     * Writes the preferences into a file.
      */
     public static void savePreferences(){
         try {

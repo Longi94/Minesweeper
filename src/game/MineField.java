@@ -355,7 +355,7 @@ public class MineField {
     private void revealClickedCell(int row, int column) {
         if (!cells[row][column].isRevealed()) {
             cellPanels[row][column].reveal(cells[row][column].getContent());
-            if (cells[row][column].isFlagged())
+            if (cells[row][column].isFlagged() && Player.isAlive())
                 bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
             revealed++;
         }
@@ -542,9 +542,9 @@ public class MineField {
      * @param column the column the cell is in
      */
     public void toggleFlag(int row, int column) {
-        if (cells[row][column].isUnmarked())
+        if (cells[row][column].isUnmarked() && Player.isAlive())
             bombsLabel.setText("Mines left: " + getPrefs().decrementBombs());
-        else if (cells[row][column].isFlagged())
+        else if (cells[row][column].isFlagged() && Player.isAlive())
             bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
 
         cells[row][column].setState(cellPanels[row][column].toggleFlag(cells[row][column].getState(), usingQuestionMarks));

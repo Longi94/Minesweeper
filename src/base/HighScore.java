@@ -3,7 +3,7 @@ package base;
 import java.io.Serializable;
 
 /**
- * TODO: comment
+ * Structure for storing high scores.
  */
 public class HighScore implements Serializable{
 	// ===========================================================
@@ -24,9 +24,9 @@ public class HighScore implements Serializable{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param name
-     * @param seconds
+     * Main constructor-
+     * @param name the name of the player
+     * @param seconds the score of the player
      */
     public HighScore(String name, int seconds) {
         this.name = name;
@@ -38,32 +38,28 @@ public class HighScore implements Serializable{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
+     * @return the name fo the player
      */
     public String getName() {
         return name;
     }
 
     /**
-     * TODO: comment
-     * @param name
+     * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the score of the player
      */
     public int getSeconds() {
         return seconds;
     }
 
     /**
-     * TODO: comment
-     * @param seconds
+     * @param seconds the score to set
      */
     public void setSeconds(int seconds) {
         this.seconds = seconds;

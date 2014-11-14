@@ -5,7 +5,7 @@ import game.MineCell;
 import java.io.Serializable;
 
 /**
- * TODO: comment
+ * Stores the preferences, high scores and the saved game.
  */
 public class MinesweeperPreferences implements Serializable{
 
@@ -43,7 +43,7 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Main constructor.
      */
     public MinesweeperPreferences() {
         numberOfBombs = 99;
@@ -72,128 +72,93 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
+     * @return the number of rows
      */
     public int getNumberOfRows() {
         return numberOfRows;
     }
 
     /**
-     * TODO: comment
-     * @param numberOfRows
-     */
-    public void setNumberOfRows(int numberOfRows) {
-        this.numberOfRows = numberOfRows;
-    }
-
-    /**
-     * TODO: comment
-     * @return
+     * @return the number of columns
      */
     public int getNumberOfColumns() {
         return numberOfColumns;
     }
 
     /**
-     * TODO: comment
-     * @param numberOfColumns
-     */
-    public void setNumberOfColumns(int numberOfColumns) {
-        this.numberOfColumns = numberOfColumns;
-    }
-
-    /**
-     * TODO: comment
-     * @return
+     * @return the number of mines to find
      */
     public int getNumberOfBombs() {
         return numberOfBombs;
     }
 
     /**
-     * TODO: comment
-     * @param numberOfBombs
-     */
-    public void setNumberOfBombs(int numberOfBombs) {
-        this.numberOfBombs = numberOfBombs;
-    }
-
-    /**
-     * TODO: comment
-     * @return
+     * @return the name of the player
      */
     public String getPlayerName() {
         return playerName;
     }
 
     /**
-     * TODO: comment
-     * @param playerName
+     * @param playerName the name to set the player's name
      */
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the saved game
+     * @see game.MineCell
      */
     public MineCell[][] getSavedGame() {
         return savedGame;
     }
 
     /**
-     * TODO: comment
-     * @param savedGame
+     * @param savedGame the game to save
+     * @see game.MineCell
      */
     public void setSavedGame(MineCell[][] savedGame) {
         this.savedGame = savedGame;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the player wants to use question marks
      */
     public boolean isUseQuestionMark() {
         return useQuestionMark;
     }
 
     /**
-     * TODO: comment
-     * @param useQuestionMark
+     * @param useQuestionMark boolean to set the 'use question mark' option
      */
     public void setUseQuestionMark(boolean useQuestionMark) {
         this.useQuestionMark = useQuestionMark;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the player wants to see the timer
      */
     public boolean isShowTimer() {
         return showTimer;
     }
 
     /**
-     * TODO: comment
-     * @param showTimer
+     * @param showTimer boolean to set the 'show timer' option
      */
     public void setShowTimer(boolean showTimer) {
         this.showTimer = showTimer;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the number of mines to be uncovered
      */
     public int getBombsLeft() {
         return bombsLeft;
     }
 
     /**
-     * TODO: comment
-     * @param bombsLeft
+     * @param bombsLeft number to set the remaining mines
      */
     public void setBombsLeft(int bombsLeft) {
         this.bombsLeft = bombsLeft;

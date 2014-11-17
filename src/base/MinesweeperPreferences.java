@@ -165,67 +165,73 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the high score in easy difficulty
+     * @see base.HighScore
      */
     public HighScore getEasyHighScore() {
         return easyHighScore;
     }
 
     /**
-     * TODO: comment
-     * @param easyHighScore
+     * @param easyHighScore high score in easy difficulty to set
+     * @see base.HighScore
      */
     public void setEasyHighScore(HighScore easyHighScore) {
         this.easyHighScore = easyHighScore;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the high score in medium difficulty
+     * @see base.HighScore
      */
     public HighScore getMediumHighScore() {
         return mediumHighScore;
     }
 
     /**
-     * TODO: comment
-     * @param mediumHighScore
+     * @param mediumHighScore high score in medium difficulty to set
+     * @see base.HighScore
      */
     public void setMediumHighScore(HighScore mediumHighScore) {
         this.mediumHighScore = mediumHighScore;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the high score in hard difficulty
+     * @see base.HighScore
      */
     public HighScore getHardHighScore() {
         return hardHighScore;
     }
 
     /**
-     * TODO: comment
-     * @param hardHighScore
+     * @param hardHighScore high score in hard difficulty to set
+     * @see base.HighScore
      */
     public void setHardHighScore(HighScore hardHighScore) {
         this.hardHighScore = hardHighScore;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the play tim of the saved game
      */
     public int getSavedTime() {
         return savedTime;
     }
 
     /**
-     * TODO: comment
-     * @param savedTime
+     * @param savedTime play time to save
      */
     public void setSavedTime(int savedTime) {
         this.savedTime = savedTime;
+    }
+
+
+    /**
+     * @return the difficulty
+     */
+    public Difficulty getDifficulty() {
+        return difficulty;
     }
 
     // ===========================================================
@@ -237,10 +243,11 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param rows
-     * @param columns
-     * @param bombs
+     * Sets the difficulty of the game.
+     * @param rows the number of rows
+     * @param columns the number of columns
+     * @param bombs the number of mines
+     * @see base.MinesweeperPreferences.Difficulty
      */
     public void setDifficulty(int rows, int columns, int bombs){
         numberOfBombs = bombs;
@@ -250,8 +257,8 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     * TODO: comment
-     * @param difficulty
+     * @param difficulty the difficulty to set
+     * @see base.MinesweeperPreferences.Difficulty
      */
     public void setDifficulty(Difficulty difficulty){
         this.difficulty = difficulty;
@@ -277,33 +284,26 @@ public class MinesweeperPreferences implements Serializable{
     }
 
     /**
-     * TODO: comment
-     * @return
-     */
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    /**
-     * TODO: comment
-     * @return
+     * Increase the number of mines to be uncovered by one.
+     * @return the number of mines to be uncovered after incrementing
      */
     public int incrementBombs(){
         return ++bombsLeft;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * Decrease the number of mines to be uncovered by one.
+     * @return the number of mines to be uncovered after decrementing
      */
     public int decrementBombs(){
         return --bombsLeft;
     }
 
     /**
-     * TODO: comment
-     * @param time
-     * @param difficulty
+     * Saved the current score as the high score if better.
+     * @param time the time of the current score
+     * @param difficulty the difficulty of the game
+     * @see base.MinesweeperPreferences.Difficulty
      */
     public void saveHighScore(int time, Difficulty difficulty) {
         switch (difficulty) {
@@ -335,7 +335,7 @@ public class MinesweeperPreferences implements Serializable{
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Difficulty enumeration.
      */
     public enum Difficulty implements Serializable{
         EASY, MEDIUM, HARD, CUSTOM

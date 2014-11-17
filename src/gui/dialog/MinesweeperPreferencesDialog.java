@@ -13,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * TODO: comment
+ * Dialog for game preferences.
  */
 public class MinesweeperPreferencesDialog extends JDialog implements ActionListener{
 
@@ -25,7 +25,6 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // Fields
     // ===========================================================
 
-    private JPanel mainPanel;
     private JButton okButton;
     private JButton cancelButton;
     private JTextField nameField;
@@ -38,15 +37,17 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param owner
-     * @param modal
-     * @param limit
-     * @param mineField
+     * Main constructor. It creates and opens the dialog.
+     * @param owner the frame from which the dialog is displayed
+     * @param modal specifies whether dialog blocks user input to other top-level windows when shown
+     * @param mineField MineField object of the current game
+     * @see game.MineField
      */
-    public MinesweeperPreferencesDialog(JFrame owner, boolean modal, int limit, MineField mineField){
+    public MinesweeperPreferencesDialog(JFrame owner, boolean modal, MineField mineField){
         super(owner, modal);
         this.mineField = mineField;
+
+        int limit = 20;
 
         Insets defaultInsets =  new Insets(2, 2, 2, 2);
 
@@ -69,7 +70,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
         cancelButton = new JButton("Cancel");
         cancelButton.addActionListener(this);
 
-        mainPanel = new JPanel(new GridBagLayout());
+        JPanel mainPanel = new JPanel(new GridBagLayout());
         mainPanel.add(nameLabel, new GridBagConstraints(
                 0, 0, 5, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.NONE, defaultInsets, 0, 0
         ));
@@ -108,8 +109,8 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param e
+     * This method is called when an action is performed on it's parent component.
+     * @param e the event
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -128,7 +129,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Saves the preferences.
      */
     private void savePreferences(){
         getPrefs().setPlayerName(nameField.getText());
@@ -137,8 +138,9 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     }
 
     /**
-     * TODO: comment
-     * @return
+     * Returns the preferences used by the game.
+     * @return the preferences
+     * @see base.MinesweeperPreferences
      */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
@@ -149,24 +151,24 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Document class for limiting the length of the player name.
      */
     private class LimitDocument extends PlainDocument {
         private int limit;
 
         /**
-         * TODO: comment
-         * @param limit
+         * Main constructor.
+         * @param limit maximum number of characters
          */
         private LimitDocument(int limit) {
             this.limit = limit;
         }
 
         /**
-         * TODO: comment
-         * @param offset
-         * @param str
-         * @param attr
+         * Inserts some content into the document.
+         * @param offset the starting offset
+         * @param str the string to insert
+         * @param attr the attributes for the inserted content (unused)
          * @throws BadLocationException
          */
         @Override

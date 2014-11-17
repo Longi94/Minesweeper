@@ -1,7 +1,7 @@
 package game;
 
 /**
- * TODO: comment
+ * The class used to represent the player and its properties.
  */
 public class Player {
     // ===========================================================
@@ -24,32 +24,28 @@ public class Player {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the player is alive
      */
     public static boolean isAlive() {
         return isAlive;
     }
 
     /**
-     * TODO: comment
-     * @param isAlive
+     * @param isAlive boolean to set whether the player is alive
      */
     public static void setIsAlive(boolean isAlive) {
         Player.isAlive = isAlive;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the player has started the game
      */
     public static boolean isGameStarted() {
         return gameStarted;
     }
 
     /**
-     * TODO: comment
-     * @param gameStarted
+     * @param gameStarted boolean to set whether the player has started to game
      */
     public static void setGameStarted(boolean gameStarted) {
         Player.gameStarted = gameStarted;

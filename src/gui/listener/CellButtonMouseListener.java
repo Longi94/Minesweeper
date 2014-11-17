@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- * TODO: comment
+ * Listener class used with the buttons in the cells.
  */
 public class CellButtonMouseListener implements MouseListener {
 
@@ -33,10 +33,11 @@ public class CellButtonMouseListener implements MouseListener {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param mineField
-     * @param row
-     * @param column
+     * Main constructor.
+     * @param mineField MineField object of the current game
+     * @param row the row the cell is in
+     * @param column the column the cell is in
+     * @see game.MineField
      */
     public CellButtonMouseListener(MineField mineField, int row, int column) {
         this.mineField = mineField;
@@ -53,8 +54,8 @@ public class CellButtonMouseListener implements MouseListener {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param e
+     * Handles mouse button clicks.
+     * @param e the mouse event
      */
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -62,8 +63,8 @@ public class CellButtonMouseListener implements MouseListener {
     }
 
     /**
-     * TODO: comment
-     * @param e
+     * Handles mouse button presses.
+     * @param e the mouse event
      */
     @Override
     public void mousePressed(MouseEvent e) {
@@ -86,8 +87,8 @@ public class CellButtonMouseListener implements MouseListener {
     }
 
     /**
-     * TODO: comment
-     * @param e
+     * Handles mouse button releases.
+     * @param e the mouse event
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -118,16 +119,16 @@ public class CellButtonMouseListener implements MouseListener {
     }
 
     /**
-     * TODO: comment
-     * @param e
+     * Handles the 'mouse entering the window' event.
+     * @param e the mouse event
      */
     @Override
     public void mouseEntered(MouseEvent e) {
     }
 
     /**
-     * TODO: comment
-     * @param e
+     * Handles the 'mouse exiting the window' event.
+     * @param e the mouse event
      */
     @Override
     public void mouseExited(MouseEvent e) {
@@ -139,9 +140,9 @@ public class CellButtonMouseListener implements MouseListener {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param e
-     * @return
+     * Determines whether the mouse is currently over the given cell.
+     * @param e the mouse event
+     * @return whether the mouse is currently over the given cell
      */
     private boolean isMouseOverButton(MouseEvent e){
         return ((JComponent)e.getSource()).getX() <= e.getX() &&
@@ -149,6 +150,7 @@ public class CellButtonMouseListener implements MouseListener {
                 ((JComponent)e.getSource()).getX() + MineCellPanel.SIZE >= e.getX() &&
                 ((JComponent)e.getSource()).getY() + MineCellPanel.SIZE >= e.getY();
     }
+
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================

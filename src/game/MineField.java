@@ -207,7 +207,7 @@ public class MineField {
     }
 
     /**
-     * Fromats the given time in seconds to a friendly MM:SS format.
+     * Formats the given time in seconds to a friendly MM:SS format.
      * @param seconds the number of seconds
      * @return the formatted String
      */

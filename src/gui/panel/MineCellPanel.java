@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * TODO: comment
+ * Class used for displaying mine cells.
  */
 public class MineCellPanel {
 
@@ -42,7 +42,7 @@ public class MineCellPanel {
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Main constructor. Creates the necessary resources.
      */
     public MineCellPanel() {
         Font contentFont = new Font("Verdana", Font.BOLD, 12);
@@ -83,37 +83,11 @@ public class MineCellPanel {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
-     */
-    public JButton getButton() {
-        return button;
-    }
-
-    /**
-     * TODO: comment
-     * @param button
-     */
-    public void setButton(JButton button) {
-        this.button = button;
-    }
-
-    /**
-     * TODO: comment
-     * @return
+     * @return the panel of the mine cell
      */
     public JPanel getCellPanel() {
         return cellPanel;
     }
-
-    /**
-     * TODO: comment
-     * @param cellPanel
-     */
-    public void setCellPanel(JPanel cellPanel) {
-        this.cellPanel = cellPanel;
-    }
-
 
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
@@ -124,7 +98,7 @@ public class MineCellPanel {
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Reveals the mine cell.
      */
     public void reveal(MineCellContent content) {
         if (content == MineCellContent.BOMB)
@@ -135,8 +109,9 @@ public class MineCellPanel {
     }
 
     /**
-     * TODO: comment
-     * @param content
+     * Sets the content of the panel.
+     * @param content the content to be set
+     * @see game.MineCellContent
      */
     public void setContent(MineCellContent content) {
         switch (content) {
@@ -181,10 +156,11 @@ public class MineCellPanel {
     }
 
     /**
-     * TODO: comment
-     * @param state
-     * @param usingQuestionMarks
-     * @return
+     * Toggles between the states of the covered mine cell.
+     * @param state the previous state
+     * @param usingQuestionMarks specifies whether the question mark option is set
+     * @return the next state
+     * @see game.MineCellState
      */
     public MineCellState toggleFlag(MineCellState state, boolean usingQuestionMarks) {
         if (Player.isAlive())
@@ -211,23 +187,23 @@ public class MineCellPanel {
     }
 
     /**
-     * TODO: comment
+     * Flags the cell.
      */
     public void flagCell() {
         button.setIcon(new ImageIcon("assets/flag_icon.png"));
     }
 
     /**
-     * TODO: comment
+     * Marks the cell with a question mark.
      */
     public void questionMark() {
         button.setIcon(new ImageIcon("assets/question_icon.png"));
     }
 
     /**
-     * TODO: comment
-     * @param cbml
-     * @param cpml
+     * Adds listeners to the appropriate components.
+     * @param cbml listener for the button
+     * @param cpml listener for the panel
      */
     public void addListeners(CellButtonMouseListener cbml, CellPanelMouseListener cpml){
         button.addMouseListener(cbml);

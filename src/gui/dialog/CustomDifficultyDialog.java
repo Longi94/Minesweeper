@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * TODO: comment
+ * A dialog for setting a custom difficulty.
  */
 public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
@@ -22,8 +22,6 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
     // Fields
     // ===========================================================
-
-    private JPanel mainPanel;
 
     private JSpinner rowSpinner;
     private JSpinner columnSpinner;
@@ -37,9 +35,9 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param owner
-     * @param modal
+     * Main constructor. It creates and opens the dialog.
+     * @param owner the frame from which the dialog is displayed
+     * @param modal specifies whether dialog blocks user input to other top-level windows when shown
      */
     public CustomDifficultyDialog(Frame owner, boolean modal) {
         super(owner, modal);
@@ -57,7 +55,7 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
         spm = new SpinnerNumberModel(getPrefs().getNumberOfBombs(), 10, getMaxNumberOfBombs(), 1);
         bombSpinner = new JSpinner(spm);
 
-        mainPanel = new JPanel(new SpringLayout());
+        JPanel mainPanel = new JPanel(new SpringLayout());
 
         mainPanel.add(rowLabel);
         mainPanel.add(rowSpinner);
@@ -86,8 +84,8 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param e
+     * This method is called when an action is performed on it's parent component.
+     * @param e the event
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -107,16 +105,17 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
+     * Returns the preferences used by the game.
+     * @return the preferences
+     * @see base.MinesweeperPreferences
      */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
     }
 
     /**
-     * TODO: comment
-     * @return
+     * Calculates to maximum number of mines that can be placed on a board of the given size
+     * @return the maximum number mines
      */
     private int getMaxNumberOfBombs(){
         return ((Integer)rowSpinner.getValue() - 1) * ((Integer)columnSpinner.getValue() - 1);
@@ -127,13 +126,13 @@ public class CustomDifficultyDialog extends JDialog implements ActionListener{
     // ===========================================================
 
     /**
-     * TODO: comment
+     * A change listener class.
      */
     private class BombLimitListener implements ChangeListener {
 
         /**
-         * TODO: comment
-         * @param e
+         * This method is called when the parent component is changed. Sets the maximum number of mines.
+         * @param e the event
          */
         @Override
         public void stateChanged(ChangeEvent e) {

@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * TODO: comment
+ * Class used for drawing the whole board.
  */
 public class MineFieldGUI extends JPanel{
 
@@ -29,9 +29,9 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param bombsLabel
-     * @param timeLabel
+     * Main constructor.
+     * @param bombsLabel reference to a JLabel for showing the number of mines left
+     * @param timeLabel reference to a JLabel for showing current play time
      */
     public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel) {
         mineField = new MineField(bombsLabel, timeLabel);
@@ -50,8 +50,8 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
+     * @return MineField object of the current game
+     * @see game.MineField
      */
     public MineField getMineField() {
         return mineField;
@@ -66,7 +66,7 @@ public class MineFieldGUI extends JPanel{
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Builds and draws the buttons on the board.
      */
     private void buildButtons() {
         for(int i = 0; i < mineField.getRows(); i++){
@@ -79,22 +79,23 @@ public class MineFieldGUI extends JPanel{
     }
 
     /**
-     * TODO: comment
-     * @return
+     * Returns the preferences used by the game.
+     * @return the preferences
+     * @see base.MinesweeperPreferences
      */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
     }
 
     /**
-     * TODO: comment
+     * Stops the timer.
      */
     public void cancelTimer() {
         mineField.cancelTimer();
     }
 
     /**
-     * TODO: comment
+     * Saves the game.
      */
     public void saveGame() {
         getPrefs().setSavedGame(mineField.getCells());

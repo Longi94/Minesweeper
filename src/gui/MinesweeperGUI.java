@@ -16,7 +16,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * TODO: comment
+ * The main frame of the game.
  */
 public class MinesweeperGUI extends JFrame{
 
@@ -40,7 +40,7 @@ public class MinesweeperGUI extends JFrame{
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Main constructor. Creates every component of the game.
      */
     public MinesweeperGUI(){
         super("Minesweeper");
@@ -106,7 +106,7 @@ public class MinesweeperGUI extends JFrame{
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Creates the bottom status bar.
      */
     private void createStatusBar(){
         Font statusFont = new Font("Verdana", Font.BOLD, 12);
@@ -129,7 +129,7 @@ public class MinesweeperGUI extends JFrame{
     }
 
     /**
-     * TODO: comment
+     * Creates the remaining UI elements.
      */
     private void createUI(){
         mineFieldPanel = new MineFieldGUI(bombsLabel, timeLabel);
@@ -139,7 +139,7 @@ public class MinesweeperGUI extends JFrame{
     }
 
     /**
-     * TODO: comment
+     * Creates the menu bar.
      */
     private void createMenuBar() {
         JMenuItem newGameMenuItem = new JMenuItem("New Game");
@@ -216,7 +216,7 @@ public class MinesweeperGUI extends JFrame{
         settingsMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new MinesweeperPreferencesDialog(MinesweeperGUI.this, true, 20, mineFieldPanel.getMineField());
+                new MinesweeperPreferencesDialog(MinesweeperGUI.this, true, mineFieldPanel.getMineField());
             }
         });
 
@@ -276,8 +276,9 @@ public class MinesweeperGUI extends JFrame{
     }
 
     /**
-     * TODO: comment
-     * @return
+     * Returns the preferences used by the game.
+     * @return the preferences
+     * @see base.MinesweeperPreferences
      */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();

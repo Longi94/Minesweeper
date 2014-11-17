@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * TODO: comment
+ * Dialog for showing the high scores
  */
 public class HighScoresDialog extends JDialog implements ActionListener {
 
@@ -33,9 +33,9 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param owner
-     * @param modal
+     * Main constructor. It creates and opens the dialog.
+     * @param owner the frame from which the dialog is displayed
+     * @param modal specifies whether dialog blocks user input to other top-level windows when shown
      */
     public HighScoresDialog(Frame owner, boolean modal) {
         super(owner, modal);
@@ -81,8 +81,8 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param e
+     * This method is called when an action is performed on it's parent component.
+     * @param e the event
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -96,9 +96,9 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @param seconds
-     * @return
+     * Formats the given time in seconds to a friendly MM:SS format.
+     * @param seconds the number of seconds
+     * @return the formatted String
      */
     private String formatTime(int seconds){
         int min = seconds / 60;
@@ -108,24 +108,26 @@ public class HighScoresDialog extends JDialog implements ActionListener {
     }
 
     /**
-     * TODO: comment
-     * @param highScore
-     * @return
+     * Formats a Highscore object to a friendly 'Time Name' format.
+     * @param highScore the high score
+     * @return the formatted high score
+     * @see base.HighScore
      */
     private String formatHighScore(HighScore highScore){
         return formatTime(highScore.getSeconds()) + " " + highScore.getName();
     }
 
     /**
-     * TODO: comment
-     * @return
+     * Returns the preferences used by the game.
+     * @return the preferences
+     * @see base.MinesweeperPreferences
      */
     private MinesweeperPreferences getPrefs() {
         return Main.getPrefs();
     }
 
     /**
-     *
+     * Deletes every high scores.
      */
     private void reset(){
         getPrefs().setEasyHighScore(new HighScore("Player", 99 * 60 + 59));

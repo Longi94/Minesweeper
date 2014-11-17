@@ -3,7 +3,7 @@ package game;
 import java.io.Serializable;
 
 /**
- * TODO: comment
+ * The class containing the properties of a mine cell.
  */
 public class MineCell implements Serializable {
     // ===========================================================
@@ -24,32 +24,36 @@ public class MineCell implements Serializable {
     // ===========================================================
 
     /**
-     * TODO: comment
+     * Default constructor.
      */
     public MineCell() {
         this(MineCellContent.EMPTY, MineCellState.UNMARKED);
     }
 
     /**
-     * TODO: comment
-     * @param content
+     * Constructor.
+     * @param content the content to be set
+     * @see game.MineCellContent
      */
     public MineCell(MineCellContent content) {
         this(content, MineCellState.UNMARKED);
     }
 
     /**
-     * TODO: comment
-     * @param state
+     * Constructor.
+     * @param state the state to be set
+     * @see game.MineCellState
      */
     public MineCell(MineCellState state) {
         this(MineCellContent.EMPTY, state);
     }
 
     /**
-     * TODO: comment
-     * @param content
-     * @param state
+     * Constructor
+     * @param content the content to be set
+     * @param state the state to be set
+     * @see game.MineCellContent
+     * @see game.MineCellState
      */
     public MineCell(MineCellContent content, MineCellState state) {
         this.content = content;
@@ -61,85 +65,82 @@ public class MineCell implements Serializable {
     // ===========================================================
 
     /**
-     * TODO: comment
-     * @return
+     * @return the content of the mine cell
+     * @see game.MineCellContent
      */
     public MineCellContent getContent() {
         return content;
     }
 
     /**
-     * TODO: comment
-     * @param content
+     * @param content the content to be set
+     * @see game.MineCellContent
      */
     public void setContent(MineCellContent content) {
         this.content = content;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return the state of the mine cell
+     * @see game.MineCellState
      */
     public MineCellState getState() {
         return state;
     }
 
     /**
-     * TODO: comment
-     * @param state
+     * @param state the state to be set
+     * @see game.MineCellState
      */
     public void setState(MineCellState state) {
         this.state = state;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the cell is protected
      */
     public boolean isProtected() {
         return content == MineCellContent.PROTECTED;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the cell is empty
      */
     public boolean isEmpty() {
         return content == MineCellContent.EMPTY;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the cell contains a mine
      */
     public boolean isBomb() {
         return content == MineCellContent.BOMB;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the cell has been uncovered
      */
     public boolean isRevealed() {
         return state == MineCellState.REVEALED;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the cell is marked with a question mark
      */
     public boolean isQuestionMarked() {
         return state == MineCellState.QUESTIONMARK;
     }
 
     /**
-     * TODO: comment
-     * @return
+     * @return whether the cell is flagged
      */
     public boolean isFlagged() {
         return state == MineCellState.FLAGGED;
     }
 
+    /**
+     * @return whether the cell is unmarked
+     */
     public boolean isUnmarked() {
         return state == MineCellState.UNMARKED;
     }
@@ -153,8 +154,8 @@ public class MineCell implements Serializable {
     // ===========================================================
 
     /**
-     *  TODO: comment
-     * @return
+     * Decodes to content of the mine cell to an integer.
+     * @return the decoded integer
      */
     public int getContentValue() {
         switch (content) {

@@ -3,7 +3,7 @@ package game;
 import java.io.Serializable;
 
 /**
- * TODO: comment
+ * Enumeration used to represent the content of a mine cell
  */
 public enum MineCellContent implements Serializable{
     EMPTY,

@@ -101,7 +101,7 @@ public class MineField {
      * @see gui.panel.MineCellPanel
      */
     public MineCellPanel[][] getCellPanels() {
-        return cellPanels;
+        return cellPanels.clone();
     }
 
     /**
@@ -110,7 +110,7 @@ public class MineField {
      * @see game.MineCell
      */
     public MineCell[][] getCells() {
-        return cells;
+        return cells.clone();
     }
 
     /**

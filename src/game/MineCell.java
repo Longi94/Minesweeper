@@ -185,6 +185,7 @@ public class MineCell implements Serializable {
                 return 0;
         }
     }
+
     // ===========================================================
     // Inner and Anonymous Classes
     // ===========================================================

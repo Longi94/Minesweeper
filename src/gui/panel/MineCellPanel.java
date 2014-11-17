@@ -89,6 +89,27 @@ public class MineCellPanel {
         return cellPanel;
     }
 
+    /**
+     * @return the panel representing the content of the cell
+     */
+    public JPanel getCellContent() {
+        return cellContent;
+    }
+
+    /**
+     * @return the label containing the mine icon
+     */
+    public JLabel getMineIconLabel() {
+        return mineIconLabel;
+    }
+
+    /**
+     * @return the button which uncovers the cell when pressed
+     */
+    public JButton getButton() {
+        return button;
+    }
+
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
@@ -150,7 +171,7 @@ public class MineCellPanel {
                 cellContentNumber.setText("8");
                 cellContentNumber.setForeground(new Color(255, 136, 20));
                 break;
-            case BOMB:
+            default:
                 break;
         }
     }

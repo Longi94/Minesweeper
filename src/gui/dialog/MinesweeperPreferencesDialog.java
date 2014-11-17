@@ -153,7 +153,7 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
     /**
      * Document class for limiting the length of the player name.
      */
-    private class LimitDocument extends PlainDocument {
+    private static class LimitDocument extends PlainDocument {
         private int limit;
 
         /**

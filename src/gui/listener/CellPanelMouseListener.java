@@ -1,7 +1,6 @@
 package gui.listener;
 
 import game.MineField;
-import gui.panel.MineCellPanel;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -143,10 +142,10 @@ public class CellPanelMouseListener implements MouseListener {
      * @return whether the mouse is currently over the given cell
      */
     private boolean isMouseOverButton(MouseEvent e){
-        return ((JComponent)e.getSource()).getX() <= e.getX() &&
-                ((JComponent)e.getSource()).getY() <= e.getY() &&
-                ((JComponent)e.getSource()).getX() + MineCellPanel.SIZE >= e.getX() &&
-                ((JComponent)e.getSource()).getY() + MineCellPanel.SIZE >= e.getY();
+        return -((JComponent)e.getSource()).getX() < e.getX() &&
+                -((JComponent)e.getSource()).getY() < e.getY() &&
+                ((JComponent)e.getSource()).getX() + ((JComponent)e.getSource()).getWidth()>= e.getX() &&
+                ((JComponent)e.getSource()).getY() + ((JComponent)e.getSource()).getHeight()>= e.getY();
     }
 
     // ===========================================================

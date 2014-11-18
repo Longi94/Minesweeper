@@ -66,9 +66,10 @@ public class MineCellPanel {
         cellContentNumber.setEditable(false);
         cellContentNumber.setBackground(new Color(250, 250, 250));
 
-        cellContent = new JPanel(new BorderLayout());
+        cellContent = new JPanel(new GridBagLayout());
         cellContent.setPreferredSize(new Dimension(SIZE, SIZE));
-        cellContent.add(cellContentNumber, BorderLayout.CENTER);
+        cellContent.add(cellContentNumber);
+        cellContent.setBackground(new Color(250, 250, 250));
 
         cardLayoutManager = new CardLayout();
 

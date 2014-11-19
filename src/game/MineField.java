@@ -40,6 +40,7 @@ public class MineField {
 
     private JLabel bombsLabel;
     private JLabel timeLabel;
+    private JButton faceButton;
 
     private Timer timer;
     private int time;
@@ -52,8 +53,13 @@ public class MineField {
      * Class constructor. Prepares the board, loads the saved game if present.
      * @param bombsLabel reference to a JLabel where the remaining number of mines is displayed
      * @param timeLabel reference to a JLabel where the current elapsed time is displayed
+     * @param faceButton
      */
-    public MineField(JLabel bombsLabel, JLabel timeLabel) {
+    public MineField(JLabel bombsLabel, JLabel timeLabel, JButton faceButton) {
+
+        this.bombsLabel = bombsLabel;
+        this.timeLabel = timeLabel;
+        this.faceButton = faceButton;
 
         if (getPrefs().getSavedGame() == null) {
             rows = getPrefs().getNumberOfRows();
@@ -68,21 +74,16 @@ public class MineField {
         bombs = getPrefs().getNumberOfBombs();
         currentDifficulty = getPrefs().getDifficulty();
         revealed = 0;
-
-        this.bombsLabel = bombsLabel;
-        this.timeLabel = timeLabel;
-
         timer = new Timer();
         time = 0;
-
-        Player.setIsAlive(true);
-
         cellPanels = new MineCellPanel[rows][columns];
         cells = new MineCell[rows][columns];
 
+        Player.setIsAlive(true);
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                cellPanels[i][j] = new MineCellPanel();
+                cellPanels[i][j] = new MineCellPanel(this, i, j, faceButton);
                 cells[i][j] = new MineCell();
             }
         }
@@ -196,14 +197,29 @@ public class MineField {
     }
 
     /**
-     * Stops the game. Should be called when the player wins the game.
+     * Stops the game.
+     * @param win specifies whether the player won or lost
      */
-    private void finishGame() {
+    private void finishGame(boolean win) {
         Player.setIsAlive(false);
         Player.setGameStarted(false);
         cancelTimer();
+        if (win) {
+            getPrefs().saveHighScore(time, currentDifficulty);
+            faceButton.setIcon(new ImageIcon("assets/win.png"));
+        }
+        else {
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++)
+                    if (cells[i][j].isBomb())
+                        revealClickedCell(i, j);
 
-        getPrefs().saveHighScore(time, currentDifficulty);
+            getPrefs().setSavedGame(null);
+            if (getPrefs().getBombsLeft() == 1)
+                faceButton.setIcon(new ImageIcon("assets/areyouf_ckingkiddingme.png"));
+            else
+                faceButton.setIcon(new ImageIcon("assets/dead.png"));
+        }
     }
 
     /**
@@ -212,30 +228,7 @@ public class MineField {
      * @return the formatted String
      */
     private String formatTime(int seconds) {
-        int min = seconds / 60;
-        int sec = seconds % 60;
-
-        return String.format("%02d:%02d", min, sec);
-    }
-
-    /**
-     * Stops the game. Should be called when the player uncovers a mine.
-     */
-    private void killPlayer() {
-
-        Player.setIsAlive(false);
-        Player.setGameStarted(false);
-
-        cancelTimer();
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (cells[i][j].isBomb())
-                    revealClickedCell(i, j);
-            }
-        }
-
-        getPrefs().setSavedGame(null);
+        return String.format("%02d:%02d", seconds / 60, seconds % 60);
     }
 
     /**
@@ -256,15 +249,10 @@ public class MineField {
     private int getNeighborFlags(int row, int column) {
         int num = 0;
 
-        for (int i = row - 1; i <= row + 1; i++) {
-            for (int j = column - 1; j <= column + 1; j++) {
-                if (!(i == -1 || i == rows || j == -1 || j == columns || (i == row && j == column))) {
-                    if (cells[i][j].isFlagged()) {
-                        num++;
-                    }
-                }
-            }
-        }
+        for (int i = row - 1; i <= row + 1; i++)
+            for (int j = column - 1; j <= column + 1; j++)
+                if (!(i == -1 || i == rows || j == -1 || j == columns || (i == row && j == column)) && cells[i][j].isFlagged())
+                    num++;
 
         return num;
     }
@@ -276,18 +264,12 @@ public class MineField {
      * @return the number of neighboring mines
      */
     private int getNeighborBombs(int row, int column) {
-
         int num = 0;
 
-        for (int i = row - 1; i <= row + 1; i++) {
-            for (int j = column - 1; j <= column + 1; j++) {
-                if (!(i == -1 || i == rows || j == -1 || j == columns || (i == row && j == column))) {
-                    if (cells[i][j].isBomb()) {
-                        num++;
-                    }
-                }
-            }
-        }
+        for (int i = row - 1; i <= row + 1; i++)
+            for (int j = column - 1; j <= column + 1; j++)
+                if (!(i == -1 || i == rows || j == -1 || j == columns || (i == row && j == column)) && cells[i][j].isBomb())
+                    num++;
 
         return num;
     }
@@ -298,21 +280,18 @@ public class MineField {
     private void loadGame() {
         cells = getPrefs().getSavedGame();
 
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++) {
                 cellPanels[i][j].setContent(cells[i][j].getContent());
                 if (cells[i][j].isRevealed()) {
                     cellPanels[i][j].reveal(cells[i][j].getContent());
                     revealed++;
                 }
-                else if (cells[i][j].isFlagged()) {
+                else if (cells[i][j].isFlagged())
                     cellPanels[i][j].flagCell();
-                }
-                else if (cells[i][j].isQuestionMarked()) {
+                else if (cells[i][j].isQuestionMarked())
                     cellPanels[i][j].questionMark();
-                }
             }
-        }
 
         bombsLabel.setText("Mines left: " + getPrefs().getBombsLeft());
         timeLabel.setText(formatTime(getPrefs().getSavedTime()));
@@ -327,24 +306,21 @@ public class MineField {
     private void randomizeField(int numberOfBombs) {
         ArrayList<MineCellContent> tempList = new ArrayList<MineCellContent>();
 
-        for (int i = 0; i < rows * columns - 9; i++) {
+        for (int i = 0; i < rows * columns - 9; i++)
             if (i < numberOfBombs)
                 tempList.add(MineCellContent.BOMB);
             else
                 tempList.add(MineCellContent.EMPTY);
-        }
 
         Collections.shuffle(tempList);
 
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++)
                 if (!cells[i][j].isProtected() && !tempList.isEmpty()) {
                     cells[i][j].setContent(tempList.get(0));
                     cellPanels[i][j].setContent(tempList.get(0));
                     tempList.remove(0);
                 }
-            }
-        }
     }
 
     /**
@@ -367,26 +343,28 @@ public class MineField {
      * @param row the row the starting cell is in
      * @param column the column the starting cell is in
      */
-    private void revealEmptyCells(int row, int column) {
-        if (row == -1 || column == -1 || row == rows || column == columns || !cells[row][column].isEmpty() || cells[row][column].isRevealed())
+    private void revealEmptyCells(int row, int column, boolean first) {
+        if ((row == -1 || column == -1 || row == rows || column == columns || !cells[row][column].isEmpty() ||
+                cells[row][column].isRevealed() || cells[row][column].isFlagged()) && !first)
             return;
 
-        cellPanels[row][column].reveal(cells[row][column].getContent());
+
         if (cells[row][column].isFlagged())
             bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
+        cellPanels[row][column].reveal(cells[row][column].getContent());
         cells[row][column].setState(MineCellState.REVEALED);
         revealed++;
 
         revealSurrounding(row, column);
 
-        revealEmptyCells(row - 1, column);
-        revealEmptyCells(row, column - 1);
-        revealEmptyCells(row + 1, column);
-        revealEmptyCells(row, column + 1);
-        revealEmptyCells(row - 1, column - 1);
-        revealEmptyCells(row + 1, column - 1);
-        revealEmptyCells(row + 1, column + 1);
-        revealEmptyCells(row - 1, column + 1);
+        revealEmptyCells(row - 1, column, false);
+        revealEmptyCells(row, column - 1, false);
+        revealEmptyCells(row + 1, column, false);
+        revealEmptyCells(row, column + 1, false);
+        revealEmptyCells(row - 1, column - 1, false);
+        revealEmptyCells(row + 1, column - 1, false);
+        revealEmptyCells(row + 1, column + 1, false);
+        revealEmptyCells(row - 1, column + 1, false);
     }
 
     /**
@@ -395,21 +373,18 @@ public class MineField {
      * @param column the column the cell is in
      */
     private void revealSurrounding(int row, int column) {
-        for (int i = row - 1; i <= row + 1; i++) {
-            for (int j = column - 1; j <= column + 1; j++) {
-                if (i > -1 && i < rows && j > -1 && j < columns) {
-                    if (!cells[i][j].isRevealed() && !cells[i][j].isBomb() && !cells[i][j].isEmpty()) {
+        for (int i = row - 1; i <= row + 1; i++)
+            for (int j = column - 1; j <= column + 1; j++)
+                if (i > -1 && i < rows && j > -1 && j < columns &&
+                        !cells[i][j].isRevealed() && !cells[i][j].isBomb() && !cells[i][j].isEmpty() && !cells[i][j].isFlagged()) {
 
-                        cellPanels[i][j].reveal(cells[i][j].getContent());
-                        if (cells[row][column].isFlagged())
-                            bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
-                        cells[i][j].setState(MineCellState.REVEALED);
-                        revealed++;
+                    cellPanels[i][j].reveal(cells[i][j].getContent());
+                    if (cells[row][column].isFlagged())
+                        bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
+                    cells[i][j].setState(MineCellState.REVEALED);
+                    revealed++;
 
-                    }
                 }
-            }
-        }
     }
 
     /**
@@ -438,28 +413,25 @@ public class MineField {
             firstClick = false;
             Player.setGameStarted(true);
 
-            for (int i = row - 1; i <= row + 1; i++) {
-                for (int j = column - 1; j <= column + 1; j++) {
-                    if (!(i == -1 || i == rows || j == -1 || j == columns)) {
+            for (int i = row - 1; i <= row + 1; i++)
+                for (int j = column - 1; j <= column + 1; j++)
+                    if (!(i == -1 || i == rows || j == -1 || j == columns))
                         cells[i][j].setContent(MineCellContent.PROTECTED);
-                    }
-                }
-            }
 
             randomizeField(bombs);
             fillInNumbers();
 
-            revealEmptyCells(row, column);
+            revealEmptyCells(row, column, true);
 
         } else if (Player.isAlive()) {
             switch (cells[row][column].getContent()) {
                 case EMPTY:
-                    revealEmptyCells(row, column);
+                    revealEmptyCells(row, column, true);
                     break;
                 case BOMB:
                     revealClickedCell(row, column);
                     cells[row][column].setState(MineCellState.REVEALED);
-                    killPlayer();
+                    finishGame(false);
                     break;
                 default:
                     revealClickedCell(row, column);
@@ -470,7 +442,7 @@ public class MineField {
 
 
         if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
-            finishGame();
+            finishGame(true);
     }
 
     /**
@@ -491,17 +463,14 @@ public class MineField {
         if (!getPrefs().isUseQuestionMark() && usingQuestionMarks){
             usingQuestionMarks = false;
 
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < columns; j++) {
+            for (int i = 0; i < rows; i++)
+                for (int j = 0; j < columns; j++)
                     if (cells[i][j].isQuestionMarked())
                         cells[i][j].setState(cellPanels[i][j].toggleFlag(cells[i][j].getState(), usingQuestionMarks));
-                }
-            }
 
         }
-        else if (getPrefs().isUseQuestionMark() && !usingQuestionMarks){
+        else if (getPrefs().isUseQuestionMark() && !usingQuestionMarks)
             usingQuestionMarks = true;
-        }
     }
 
     /**
@@ -512,27 +481,25 @@ public class MineField {
     public void onTwoButtonCellClick(int row, int column) {
         if (Player.isAlive() && cells[row][column].isRevealed() && !cells[row][column].isEmpty() &&
                 cells[row][column].getContentValue() == getNeighborFlags(row, column)) {
-            for (int i = row - 1; i <= row + 1; i++) {
-                for (int j = column - 1; j <= column + 1; j++) {
+            for (int i = row - 1; i <= row + 1; i++)
+                for (int j = column - 1; j <= column + 1; j++)
                     if (i > -1 && i < rows && j > -1 && j < columns && !cells[i][j].isRevealed() && !cells[i][j].isFlagged()) {
                         if (cells[i][j].isBomb())
                             Player.setIsAlive(false);
                         if (cells[i][j].isEmpty())
-                            revealEmptyCells(i, j);
+                            revealEmptyCells(i, j, true);
                         else {
                             cellPanels[i][j].reveal(cells[i][j].getContent());
                             cells[i][j].setState(MineCellState.REVEALED);
                             revealed++;
                         }
                     }
-                }
-            }
 
             if (!Player.isAlive())
-                killPlayer();
+                finishGame(false);
 
             if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
-                finishGame();
+                finishGame(true);
         }
     }
 
@@ -555,7 +522,7 @@ public class MineField {
         }
 
         if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
-            finishGame();
+            finishGame(true);
     }
 
     // ===========================================================
@@ -575,9 +542,8 @@ public class MineField {
         public void run() {
             timerRunning = true;
             timeLabel.setText(formatTime(++time));
-            if (time == 99 * 60 + 59 && timerRunning) {
+            if (time == 99 * 60 + 59 && timerRunning)
                 timer.cancel();
-            }
         }
     }
 }

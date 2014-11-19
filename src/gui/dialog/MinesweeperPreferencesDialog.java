@@ -119,9 +119,8 @@ public class MinesweeperPreferencesDialog extends JDialog implements ActionListe
             setVisible(false);
             mineField.onPreferenceChanged();
         }
-        else if (e.getSource() == cancelButton){
+        else if (e.getSource() == cancelButton)
             setVisible(false);
-        }
     }
 
     // ===========================================================

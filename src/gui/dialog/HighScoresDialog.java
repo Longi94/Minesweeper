@@ -86,9 +86,8 @@ public class HighScoresDialog extends JDialog implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == resetButton){
+        if (e.getSource() == resetButton)
             reset();
-        }
     }
 
     // ===========================================================
@@ -101,10 +100,7 @@ public class HighScoresDialog extends JDialog implements ActionListener {
      * @return the formatted String
      */
     private String formatTime(int seconds){
-        int min = seconds / 60;
-        int sec = seconds % 60;
-
-        return String.format("%02d:%02d", min, sec);
+        return String.format("%02d:%02d", seconds / 60, seconds % 60);
     }
 
     /**

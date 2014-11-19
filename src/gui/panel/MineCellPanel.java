@@ -2,13 +2,14 @@ package gui.panel;
 
 import game.MineCellContent;
 import game.MineCellState;
+import game.MineField;
 import game.Player;
-import gui.listener.CellButtonMouseListener;
-import gui.listener.CellPanelMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.io.IOException;
 /**
  * Class used for displaying mine cells.
  */
-public class MineCellPanel {
+public class MineCellPanel implements MouseListener{
 
     // ===========================================================
     // Constants
@@ -28,6 +29,10 @@ public class MineCellPanel {
     // Fields
     // ===========================================================
 
+    private MineField mineField;
+    private int row;
+    private int column;
+
     private JPanel cellPanel;
     private JPanel cellContent;
     private JTextArea cellContentNumber;
@@ -36,6 +41,11 @@ public class MineCellPanel {
 
     private BufferedImage mineIcon;
     private JLabel mineIconLabel;
+    private JButton faceButton;
+
+    private boolean twoButtonPushed = false;
+    private boolean mouse1Down = false;
+    private boolean mouse3Down = false;
 
     // ===========================================================
     // Constructors
@@ -44,8 +54,13 @@ public class MineCellPanel {
     /**
      * Main constructor. Creates the necessary resources.
      */
-    public MineCellPanel() {
-        Font contentFont = new Font("Verdana", Font.BOLD, 12);
+    public MineCellPanel(MineField mineField, int row, int column, JButton faceButton) {
+        this.mineField = mineField;
+        this.row = row;
+        this.column = column;
+        this.faceButton = faceButton;
+
+        Font contentFont = new Font("Roboto Black", Font.BOLD, 12);
 
         try {
             mineIcon = ImageIO.read(new File("assets/mine_icon_small.png"));
@@ -77,6 +92,8 @@ public class MineCellPanel {
         cellPanel.setPreferredSize(new Dimension(SIZE, SIZE));
         cellPanel.setBorder(BorderFactory.createLineBorder(new Color(230, 230, 230)));
         cellPanel.add(button);
+
+        addListeners();
     }
 
     // ===========================================================
@@ -114,6 +131,101 @@ public class MineCellPanel {
     // ===========================================================
     // Methods for/from SuperClass/Interfaces
     // ===========================================================
+
+    /**
+     * Handles mouse button clicks.
+     * @param e the mouse event
+     */
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        //unused
+    }
+
+    /**
+     * Handles mouse button presses.
+     * @param e the mouse event
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+        switch (e.getButton()) {
+            case MouseEvent.BUTTON1:
+                mouse1Down = true;
+                if (e.getSource() instanceof JButton && Player.isAlive())
+                    faceButton.setIcon(new ImageIcon("assets/click.png"));
+                if (mouse3Down) {
+                    twoButtonPushed = true;
+                    if ((e.getSource() instanceof JPanel || e.getSource() instanceof JTextArea) && Player.isAlive())
+                        faceButton.setIcon(new ImageIcon("assets/twoclick.png"));
+                }
+                break;
+            case MouseEvent.BUTTON3:
+                mouse3Down = true;
+                if (mouse1Down) {
+                    twoButtonPushed = true;
+                    if ((e.getSource() instanceof JPanel || e.getSource() instanceof JTextArea) && Player.isAlive())
+                        faceButton.setIcon(new ImageIcon("assets/twoclick.png"));
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Handles mouse button releases.
+     * @param e the mouse event
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        switch (e.getButton()) {
+            case MouseEvent.BUTTON1:
+                mouse1Down = false;
+                if (!mouse3Down) {
+                    if (isMouseOverButton(e) && e.getSource() == button)
+                        mineField.onCellClick(row, column);
+                    else if (isMouseOverButton(e) && twoButtonPushed) {
+                        twoButtonPushed = false;
+                        mineField.onTwoButtonCellClick(row, column);
+                    }
+                    if (Player.isAlive())
+                        faceButton.setIcon(new ImageIcon("assets/alive.png"));
+                }
+                break;
+            case MouseEvent.BUTTON3:
+                mouse3Down = false;
+                if (!mouse1Down) {
+                    if (isMouseOverButton(e) && e.getSource() == button)
+                        mineField.toggleFlag(row, column);
+                    else if (isMouseOverButton(e) && twoButtonPushed) {
+                        twoButtonPushed = false;
+                        mineField.onTwoButtonCellClick(row, column);
+                    }
+                    if (Player.isAlive())
+                        faceButton.setIcon(new ImageIcon("assets/alive.png"));
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Handles the 'mouse entering the window' event.
+     * @param e the mouse event
+     */
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        //unused
+    }
+
+    /**
+     * Handles the 'mouse exiting the window' event.
+     * @param e the mouse event
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+        //unused
+    }
 
     // ===========================================================
     // Methods
@@ -224,13 +336,23 @@ public class MineCellPanel {
 
     /**
      * Adds listeners to the appropriate components.
-     * @param cbml listener for the button
-     * @param cpml listener for the panel
      */
-    public void addListeners(CellButtonMouseListener cbml, CellPanelMouseListener cpml){
-        button.addMouseListener(cbml);
-        cellContent.addMouseListener(cpml);
-        cellContentNumber.addMouseListener(cpml);
+    private void addListeners(){
+        button.addMouseListener(this);
+        cellContent.addMouseListener(this);
+        cellContentNumber.addMouseListener(this);
+    }
+
+    /**
+     * Determines whether the mouse is currently over the given cell.
+     * @param e the mouse event
+     * @return whether the mouse is currently over the given cell
+     */
+    private boolean isMouseOverButton(MouseEvent e){
+        return -((JComponent)e.getSource()).getX() < e.getX() &&
+                -((JComponent)e.getSource()).getY() < e.getY() &&
+                ((JComponent)e.getSource()).getX() + ((JComponent)e.getSource()).getWidth()>= e.getX() &&
+                ((JComponent)e.getSource()).getY() + ((JComponent)e.getSource()).getHeight()>= e.getY();
     }
 
     // ===========================================================

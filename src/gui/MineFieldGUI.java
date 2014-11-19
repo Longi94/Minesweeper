@@ -3,8 +3,6 @@ package gui;
 import base.Main;
 import base.MinesweeperPreferences;
 import game.MineField;
-import gui.listener.CellButtonMouseListener;
-import gui.listener.CellPanelMouseListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,15 +30,14 @@ public class MineFieldGUI extends JPanel{
      * Main constructor.
      * @param bombsLabel reference to a JLabel for showing the number of mines left
      * @param timeLabel reference to a JLabel for showing current play time
+     * @param faceButton
      */
-    public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel) {
-        mineField = new MineField(bombsLabel, timeLabel);
-        if (getPrefs().getSavedGame() == null) {
+    public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel, JButton faceButton) {
+        mineField = new MineField(bombsLabel, timeLabel, faceButton);
+        if (getPrefs().getSavedGame() == null)
             setLayout(new GridLayout(getPrefs().getNumberOfRows(), getPrefs().getNumberOfColumns()));
-        }
-        else {
+        else
             setLayout(new GridLayout(getPrefs().getSavedGame().length, getPrefs().getSavedGame()[0].length));
-        }
 
         buildButtons();
     }
@@ -69,13 +66,9 @@ public class MineFieldGUI extends JPanel{
      * Builds and draws the buttons on the board.
      */
     private void buildButtons() {
-        for(int i = 0; i < mineField.getRows(); i++){
-            for(int j = 0; j < mineField.getColumns(); j++){
+        for(int i = 0; i < mineField.getRows(); i++)
+            for(int j = 0; j < mineField.getColumns(); j++)
                 add(mineField.getCellPanels()[i][j].getCellPanel());
-                mineField.getCellPanels()[i][j].addListeners(new CellButtonMouseListener(mineField, i, j),
-                        new CellPanelMouseListener(mineField, i, j));
-            }
-        }
     }
 
     /**

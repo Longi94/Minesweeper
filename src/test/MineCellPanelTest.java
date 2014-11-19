@@ -15,7 +15,7 @@ public class MineCellPanelTest {
 
     @Before
     public void setUp(){
-        panel = new MineCellPanel();
+        panel = new MineCellPanel(null, 0, 0, null);
         panel.setContent(MineCellContent.EMPTY);
     }
 
@@ -26,7 +26,7 @@ public class MineCellPanelTest {
         assertEquals(2, panel.getCellPanel().getComponentCount());
         assertTrue(panel.getCellContent().isVisible());
 
-        panel = new MineCellPanel();
+        panel = new MineCellPanel(null, 0, 0, null);
 
         assertTrue(panel.getButton().isVisible());
         panel.reveal(MineCellContent.BOMB);

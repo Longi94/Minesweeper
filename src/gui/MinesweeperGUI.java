@@ -9,6 +9,7 @@ import gui.dialog.HighScoresDialog;
 import gui.dialog.MinesweeperPreferencesDialog;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +35,7 @@ public class MinesweeperGUI extends JFrame{
 
     private JLabel bombsLabel;
     private JLabel timeLabel;
+    private JButton faceButton;
 
     // ===========================================================
     // Constructors
@@ -89,6 +91,8 @@ public class MinesweeperGUI extends JFrame{
         createUI();
         add(mainPanel);
         pack();
+        setLocation((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2 - getWidth() / 2,
+                (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2 - getHeight() / 2);
         setVisible(true);
 
     }
@@ -109,31 +113,51 @@ public class MinesweeperGUI extends JFrame{
      * Creates the bottom status bar.
      */
     private void createStatusBar(){
-        Font statusFont = new Font("Verdana", Font.BOLD, 12);
+        Font statusFont = new Font("Roboto Black", Font.BOLD, 12);
 
         bombsLabel = new JLabel("Mines left: " + getPrefs().getBombsLeft());
         bombsLabel.setFont(statusFont);
+        bombsLabel.setBorder(new EmptyBorder(0, 10, 0, 10));
 
         timeLabel = new JLabel("00:00");
         timeLabel.setFont(statusFont);
+        timeLabel.setBorder(new EmptyBorder(0, 10, 0, 10));
         if (getPrefs().isShowTimer())
             timeLabel.setForeground(new Color(0, 0, 0));
         else
             timeLabel.setForeground(new Color(230, 230, 230));
 
-        statusBar = new JPanel(new GridLayout(1, 2));
-        statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), MineCellPanel.SIZE));
+        JPanel rightPanel = new JPanel(new BorderLayout());
+        rightPanel.add(timeLabel, BorderLayout.EAST);
+        rightPanel.setBackground(new Color(230, 230, 230));
+
+        faceButton = new JButton(new ImageIcon("assets/alive.png"));
+        faceButton.setFocusable(false);
+        faceButton.setPreferredSize(new Dimension(40, 40));
+        faceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startNewGame();
+            }
+        });
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(faceButton);
+        buttonPanel.setBackground(new Color(230, 230, 230));
+
+        statusBar = new JPanel(new BorderLayout());
+        statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), 50));
         statusBar.setBackground(new Color(230, 230, 230));
-        statusBar.add(bombsLabel);
-        statusBar.add(timeLabel);
+        statusBar.add(bombsLabel, BorderLayout.WEST);
+        statusBar.add(rightPanel, BorderLayout.EAST);
+        statusBar.add(buttonPanel, BorderLayout.CENTER);
     }
 
     /**
      * Creates the remaining UI elements.
      */
     private void createUI(){
-        mineFieldPanel = new MineFieldGUI(bombsLabel, timeLabel);
-
+        mineFieldPanel = new MineFieldGUI(bombsLabel, timeLabel, faceButton);
         mainPanel.add(mineFieldPanel, BorderLayout.CENTER);
         mainPanel.add(statusBar, BorderLayout.PAGE_END);
     }
@@ -147,15 +171,7 @@ public class MinesweeperGUI extends JFrame{
         newGameMenuItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mineFieldPanel.cancelTimer();
-                mainPanel.removeAll();
-                statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), MineCellPanel.SIZE));
-                getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
-                bombsLabel.setText("Mines left: " + getPrefs().getBombsLeft());
-                createUI();
-                revalidate();
-                repaint();
-                pack();
+                startNewGame();
             }
         });
 
@@ -282,6 +298,26 @@ public class MinesweeperGUI extends JFrame{
      */
     private MinesweeperPreferences getPrefs(){
         return Main.getPrefs();
+    }
+
+    /**
+     * Rebuilds the board.
+     */
+    private void startNewGame(){
+        int middleX = getX() + getWidth() / 2;
+        int middleY = getY() + getHeight() / 2;
+        mineFieldPanel.cancelTimer();
+        mainPanel.removeAll();
+        statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), 50));
+        getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());
+        bombsLabel.setText("Mines left: " + getPrefs().getBombsLeft());
+        timeLabel.setText("00:00");
+        faceButton.setIcon(new ImageIcon("assets/alive.png"));
+        createUI();
+        revalidate();
+        repaint();
+        pack();
+        setLocation(middleX - getWidth() / 2, middleY - getHeight() / 2);
     }
 
     // ===========================================================

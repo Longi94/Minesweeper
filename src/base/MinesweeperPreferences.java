@@ -46,6 +46,7 @@ public class MinesweeperPreferences implements Serializable{
      * Main constructor.
      */
     public MinesweeperPreferences() {
+        //set the default parameters
         numberOfBombs = 99;
         numberOfColumns = 30;
         numberOfRows = 16;

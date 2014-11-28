@@ -57,6 +57,7 @@ public class MinesweeperGUI extends JFrame{
             public void windowClosing(WindowEvent e) {
                 JFrame frame = (JFrame) e.getSource();
 
+                //we provide and option for the player to save the game if can
                 if (Player.isGameStarted()) {
                     int result = JOptionPane.showConfirmDialog(
                             frame,
@@ -91,6 +92,7 @@ public class MinesweeperGUI extends JFrame{
         createUI();
         add(mainPanel);
         pack();
+        //put the window in the middle of the screen
         setLocation((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2 - getWidth() / 2,
                 (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2 - getHeight() / 2);
         setVisible(true);
@@ -250,6 +252,7 @@ public class MinesweeperGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = MinesweeperGUI.this;
                 if (Player.isGameStarted()) {
+                    //provide an option to save the game
                     int result = JOptionPane.showConfirmDialog(
                             frame,
                             "Save game?",
@@ -307,6 +310,7 @@ public class MinesweeperGUI extends JFrame{
         int middleX = getX() + getWidth() / 2;
         int middleY = getY() + getHeight() / 2;
         mineFieldPanel.cancelTimer();
+        // simply remove everything from the panel and rebuild everything
         mainPanel.removeAll();
         statusBar.setPreferredSize(new Dimension(MineCellPanel.SIZE * getPrefs().getNumberOfColumns(), 50));
         getPrefs().setBombsLeft(getPrefs().getNumberOfBombs());

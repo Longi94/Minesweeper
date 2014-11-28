@@ -51,6 +51,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
+        //load saved data from file if exist, if not we create new data
         File data = new File("data");
         if (data.exists() && !data.isDirectory()){
             try {
@@ -72,6 +73,7 @@ public class Main {
             prefs = new MinesweeperPreferences();
         }
 
+        // change the look and feel to match the systems theme
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException e) {

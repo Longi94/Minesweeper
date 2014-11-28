@@ -53,6 +53,11 @@ public class MineCellPanel implements MouseListener{
 
     /**
      * Main constructor. Creates the necessary resources.
+     * @param mineField a MineField object this cell is loceted in
+     * @param row row index of this cell
+     * @param column column index of this cell
+     * @param faceButton reference to a JButton for changing the face of the button
+     * @see game.MineField
      */
     public MineCellPanel(MineField mineField, int row, int column, JButton faceButton) {
         this.mineField = mineField;
@@ -147,6 +152,7 @@ public class MineCellPanel implements MouseListener{
      */
     @Override
     public void mousePressed(MouseEvent e) {
+        //we use this, because mouseClicked is not called if the mouse was moved while holding down
         switch (e.getButton()) {
             case MouseEvent.BUTTON1:
                 mouse1Down = true;
@@ -177,13 +183,16 @@ public class MineCellPanel implements MouseListener{
      */
     @Override
     public void mouseReleased(MouseEvent e) {
+        //we use this, because mouseClicked is not called if the mouse was moved while holding down
         switch (e.getButton()) {
             case MouseEvent.BUTTON1:
                 mouse1Down = false;
                 if (!mouse3Down) {
                     if (isMouseOverButton(e) && e.getSource() == button)
+                        //single left click
                         mineField.onCellClick(row, column);
                     else if (isMouseOverButton(e) && twoButtonPushed) {
+                        //two button click
                         twoButtonPushed = false;
                         mineField.onTwoButtonCellClick(row, column);
                     }
@@ -195,8 +204,10 @@ public class MineCellPanel implements MouseListener{
                 mouse3Down = false;
                 if (!mouse1Down) {
                     if (isMouseOverButton(e) && e.getSource() == button)
+                        //single right click
                         mineField.toggleFlag(row, column);
                     else if (isMouseOverButton(e) && twoButtonPushed) {
+                        //two button click
                         twoButtonPushed = false;
                         mineField.onTwoButtonCellClick(row, column);
                     }
@@ -233,6 +244,8 @@ public class MineCellPanel implements MouseListener{
 
     /**
      * Reveals the mine cell.
+     * @param content the content of this cell
+     * @see game.MineCellContent
      */
     public void reveal(MineCellContent content) {
         if (content == MineCellContent.BOMB)

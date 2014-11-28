@@ -30,7 +30,7 @@ public class MineFieldGUI extends JPanel{
      * Main constructor.
      * @param bombsLabel reference to a JLabel for showing the number of mines left
      * @param timeLabel reference to a JLabel for showing current play time
-     * @param faceButton
+     * @param faceButton reference to a JButton for changing the face of the button
      */
     public MineFieldGUI(JLabel bombsLabel, JLabel timeLabel, JButton faceButton) {
         mineField = new MineField(bombsLabel, timeLabel, faceButton);

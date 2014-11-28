@@ -38,6 +38,7 @@ public class MineField {
     private MineCellPanel[][] cellPanels;
     private MineCell[][] cells;
 
+    //references to access the rquired components of the window
     private JLabel bombsLabel;
     private JLabel timeLabel;
     private JButton faceButton;
@@ -53,7 +54,7 @@ public class MineField {
      * Class constructor. Prepares the board, loads the saved game if present.
      * @param bombsLabel reference to a JLabel where the remaining number of mines is displayed
      * @param timeLabel reference to a JLabel where the current elapsed time is displayed
-     * @param faceButton
+     * @param faceButton reference to a JButton for changing the face of the button
      */
     public MineField(JLabel bombsLabel, JLabel timeLabel, JButton faceButton) {
 
@@ -61,6 +62,7 @@ public class MineField {
         this.timeLabel = timeLabel;
         this.faceButton = faceButton;
 
+        // check if there is a saved game or not
         if (getPrefs().getSavedGame() == null) {
             rows = getPrefs().getNumberOfRows();
             columns = getPrefs().getNumberOfColumns();
@@ -81,6 +83,7 @@ public class MineField {
 
         Player.setIsAlive(true);
 
+        //create the initial empty cells
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 cellPanels[i][j] = new MineCellPanel(this, i, j, faceButton);
@@ -88,6 +91,7 @@ public class MineField {
             }
         }
 
+        //if there is a saved game, we load it and continue playing it
         if(getPrefs().getSavedGame() != null)
             loadGame();
     }
@@ -205,10 +209,12 @@ public class MineField {
         Player.setGameStarted(false);
         cancelTimer();
         if (win) {
+            //if the player won, we save the highscore
             getPrefs().saveHighScore(time, currentDifficulty);
             faceButton.setIcon(new ImageIcon("assets/win.png"));
         }
         else {
+            //if the player lost we reveal all the mines
             for (int i = 0; i < rows; i++)
                 for (int j = 0; j < columns; j++)
                     if (cells[i][j].isBomb())
@@ -306,17 +312,18 @@ public class MineField {
     private void randomizeField(int numberOfBombs) {
         ArrayList<MineCellContent> tempList = new ArrayList<MineCellContent>();
 
+        //first load up a 1 dimensional array with the required number of mines and empty cells and shuffle it
         for (int i = 0; i < rows * columns - 9; i++)
             if (i < numberOfBombs)
                 tempList.add(MineCellContent.BOMB);
             else
                 tempList.add(MineCellContent.EMPTY);
-
         Collections.shuffle(tempList);
 
+        //fill ip the board one by one according to the array before
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
-                if (!cells[i][j].isProtected() && !tempList.isEmpty()) {
+                if (!cells[i][j].isProtected() && !tempList.isEmpty()/*workaround for the bug where sometimes the list was smaller than needed*/) {
                     cells[i][j].setContent(tempList.get(0));
                     cellPanels[i][j].setContent(tempList.get(0));
                     tempList.remove(0);
@@ -342,12 +349,12 @@ public class MineField {
      * row and column.
      * @param row the row the starting cell is in
      * @param column the column the starting cell is in
+     * @param first specifies whether this was the cell that was clicked
      */
     private void revealEmptyCells(int row, int column, boolean first) {
         if ((row == -1 || column == -1 || row == rows || column == columns || !cells[row][column].isEmpty() ||
                 cells[row][column].isRevealed() || cells[row][column].isFlagged()) && !first)
             return;
-
 
         if (cells[row][column].isFlagged())
             bombsLabel.setText("Mines left: " + getPrefs().incrementBombs());
@@ -355,6 +362,8 @@ public class MineField {
         cells[row][column].setState(MineCellState.REVEALED);
         revealed++;
 
+        //this recursive method only reveals the empty cells, so we need to reveal the surrounding cells too to uncover
+        //the numbers
         revealSurrounding(row, column);
 
         revealEmptyCells(row - 1, column, false);
@@ -404,11 +413,14 @@ public class MineField {
      */
     public void onCellClick(int row, int column) {
 
+        // start the timer
         if (!timerRunning && Player.isAlive()) {
             timer.scheduleAtFixedRate(new GameTimerTask(), 1000, 1000);
             timerRunning = true;
         }
 
+        // generate the board on the first click, this way we ensure the player clicks in a empty cell to make it easer
+        // to start
         if (firstClick) {
             firstClick = false;
             Player.setGameStarted(true);
@@ -440,7 +452,7 @@ public class MineField {
             }
         }
 
-
+        //the player wins if the requirements are met
         if (getPrefs().getBombsLeft() == 0 && revealed == rows * columns - bombs)
             finishGame(true);
     }
@@ -449,6 +461,7 @@ public class MineField {
      * Handles preference modification events.
      */
     public void onPreferenceChanged(){
+        // if the timer option was changed we hide/show it
         if (getPrefs().isShowTimer() && !timerAdded){
             timerAdded = true;
             timeLabel.setForeground(new Color(0, 0, 0));
@@ -460,6 +473,7 @@ public class MineField {
             timeLabel.repaint();
         }
 
+        //remove all the question marks if the user disable it
         if (!getPrefs().isUseQuestionMark() && usingQuestionMarks){
             usingQuestionMarks = false;
 

@@ -6,7 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be78ef32-15dd-4694-9885-aa7ba86cb703" name="Default" comment="" />
+    <list default="true" id="be78ef32-15dd-4694-9885-aa7ba86cb703" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data" afterPath="$PROJECT_DIR$/data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/Main.java" afterPath="$PROJECT_DIR$/src/base/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" afterPath="$PROJECT_DIR$/src/gui/panel/MineCellPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/game/MineField.java" afterPath="$PROJECT_DIR$/src/game/MineField.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MineFieldGUI.java" afterPath="$PROJECT_DIR$/src/gui/MineFieldGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" afterPath="$PROJECT_DIR$/src/gui/MinesweeperGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/base/MinesweeperPreferences.java" afterPath="$PROJECT_DIR$/src/base/MinesweeperPreferences.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="Minesweeper.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -81,44 +91,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MinesweeperGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MinesweeperGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1120" max-vertical-offset="3332">
-              <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-              <folding>
-                <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-                <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
-                <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MineField.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.78032" vertical-offset="0" max-vertical-offset="3825">
-              <caret line="524" column="48" selection-start-line="524" selection-start-column="48" selection-end-line="524" selection-end-column="48" />
-              <folding>
-                <element signature="method#MineField#0;class#MineField#0" expanded="false" />
-                <element signature="method#fillInNumbers#0;class#MineField#0" expanded="false" />
-                <element signature="method#finishGame#0;class#MineField#0" expanded="false" />
-                <element signature="method#getNeighborFlags#0;class#MineField#0" expanded="false" />
-                <element signature="method#getNeighborBombs#0;class#MineField#0" expanded="false" />
-                <element signature="method#loadGame#0;class#MineField#0" expanded="false" />
-                <element signature="method#randomizeField#0;class#MineField#0" expanded="false" />
-                <element signature="e#10930#10947#0" expanded="true" />
-                <element signature="method#revealClickedCell#0;class#MineField#0" expanded="false" />
-                <element signature="method#revealEmptyCells#0;class#MineField#0" expanded="false" />
-                <element signature="method#revealSurrounding#0;class#MineField#0" expanded="false" />
-                <element signature="method#cancelTimer#0;class#MineField#0" expanded="false" />
-                <element signature="method#onCellClick#0;class#MineField#0" expanded="false" />
-                <element signature="method#onPreferenceChanged#0;class#MineField#0" expanded="false" />
-                <element signature="method#onTwoButtonCellClick#0;class#MineField#0" expanded="false" />
-                <element signature="method#toggleFlag#0;class#MineField#0" expanded="false" />
-                <element signature="method#run#0;class#GameTimerTask#0;class#MineField#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="4.784897" vertical-offset="459" max-vertical-offset="4845">
+              <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -705,7 +683,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -718,7 +696,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20648465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20648465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21633889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1137,6 +1115,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.049411766" vertical-offset="3379" max-vertical-offset="3825">
+          <caret line="524" column="48" selection-start-line="524" selection-start-column="48" selection-end-line="524" selection-end-column="48" />
+          <folding>
+            <element signature="method#MineField#0;class#MineField#0" expanded="false" />
+            <element signature="method#fillInNumbers#0;class#MineField#0" expanded="false" />
+            <element signature="method#finishGame#0;class#MineField#0" expanded="false" />
+            <element signature="method#getNeighborFlags#0;class#MineField#0" expanded="false" />
+            <element signature="method#getNeighborBombs#0;class#MineField#0" expanded="false" />
+            <element signature="method#loadGame#0;class#MineField#0" expanded="false" />
+            <element signature="method#randomizeField#0;class#MineField#0" expanded="false" />
+            <element signature="e#10930#10947#0" expanded="true" />
+            <element signature="method#revealClickedCell#0;class#MineField#0" expanded="false" />
+            <element signature="method#revealEmptyCells#0;class#MineField#0" expanded="false" />
+            <element signature="method#revealSurrounding#0;class#MineField#0" expanded="false" />
+            <element signature="method#cancelTimer#0;class#MineField#0" expanded="false" />
+            <element signature="method#onCellClick#0;class#MineField#0" expanded="false" />
+            <element signature="method#onPreferenceChanged#0;class#MineField#0" expanded="false" />
+            <element signature="method#onTwoButtonCellClick#0;class#MineField#0" expanded="false" />
+            <element signature="method#toggleFlag#0;class#MineField#0" expanded="false" />
+            <element signature="method#run#0;class#GameTimerTask#0;class#MineField#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/MineCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4155252" vertical-offset="1925" max-vertical-offset="2363">
@@ -1209,39 +1213,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MinesweeperGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1120" max-vertical-offset="3332">
-          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding>
-            <element signature="method#MinesweeperGUI#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createStatusBar#0;class#MinesweeperGUI#0" expanded="false" />
-            <element signature="method#createUI#0;class#MinesweeperGUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/MineField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.78032" vertical-offset="0" max-vertical-offset="3825">
-          <caret line="524" column="48" selection-start-line="524" selection-start-column="48" selection-end-line="524" selection-end-column="48" />
-          <folding>
-            <element signature="method#MineField#0;class#MineField#0" expanded="false" />
-            <element signature="method#fillInNumbers#0;class#MineField#0" expanded="false" />
-            <element signature="method#finishGame#0;class#MineField#0" expanded="false" />
-            <element signature="method#getNeighborFlags#0;class#MineField#0" expanded="false" />
-            <element signature="method#getNeighborBombs#0;class#MineField#0" expanded="false" />
-            <element signature="method#loadGame#0;class#MineField#0" expanded="false" />
-            <element signature="method#randomizeField#0;class#MineField#0" expanded="false" />
-            <element signature="e#10930#10947#0" expanded="true" />
-            <element signature="method#revealClickedCell#0;class#MineField#0" expanded="false" />
-            <element signature="method#revealEmptyCells#0;class#MineField#0" expanded="false" />
-            <element signature="method#revealSurrounding#0;class#MineField#0" expanded="false" />
-            <element signature="method#cancelTimer#0;class#MineField#0" expanded="false" />
-            <element signature="method#onCellClick#0;class#MineField#0" expanded="false" />
-            <element signature="method#onPreferenceChanged#0;class#MineField#0" expanded="false" />
-            <element signature="method#onTwoButtonCellClick#0;class#MineField#0" expanded="false" />
-            <element signature="method#toggleFlag#0;class#MineField#0" expanded="false" />
-            <element signature="method#run#0;class#GameTimerTask#0;class#MineField#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="4.784897" vertical-offset="459" max-vertical-offset="4845">
+          <caret line="171" column="32" selection-start-line="171" selection-start-column="32" selection-end-line="171" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>

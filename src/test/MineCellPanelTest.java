@@ -35,10 +35,6 @@ public class MineCellPanelTest {
     }
 
     @Test
-    public void testSetContent() {
-    }
-
-    @Test
     public void testToggleFlag() {
         assertEquals(MineCellState.FLAGGED, panel.toggleFlag(MineCellState.UNMARKED, true));
         assertEquals(MineCellState.QUESTIONMARK, panel.toggleFlag(MineCellState.FLAGGED, true));
